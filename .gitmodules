@@ -1,0 +1,6 @@
+[submodule "src/third_party/pybind11"]
+	path = src/third_party/pybind11
+	url = https://github.com/pybind/pybind11
+[submodule "src/third_party/pugixml"]
+	path = src/third_party/pugixml
+	url = https://github.com/zeux/pugixml

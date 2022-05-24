@@ -1,0 +1,16 @@
+include LICENSE
+include _build.py
+include src/.clang-format
+include src/CMakeLists.txt
+include src/*.cpp
+include tests/*.py
+
+recursive-include src/third_party LICEN[CS]E* README*
+
+include src/third_party/pybind11/CMakeLists.txt
+graft src/third_party/pybind11/include
+graft src/third_party/pybind11/tools
+
+include src/third_party/pugixml/CMakeLists.txt
+graft src/third_party/pugixml/scripts
+graft src/third_party/pugixml/src
