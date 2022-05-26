@@ -79,6 +79,8 @@ public:
 PYBIND11_MODULE(MODULE_NAME, m) {
   py::options options;
 
+  m.doc() = "Python bindings for pugixml - Light-weight, simple and fast XML parser for C++ with XPath support";
+
   m.attr("PUGIXML_VERSION") = PUGIXML_VERSION;
 
   // Parsing options
@@ -130,7 +132,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   py::enum_<xml_encoding>(m, "XMLEncoding", "These flags determine the encoding of input data for XML document.")
       .value("ENCODING_AUTO", encoding_auto,
-             "Auto-detect input encoding using BOM or < / <? detection; use UTF8 if BOM is not found.")
+             "Auto-detect input encoding using BOM or '<' / '<?' detection; use UTF8 if BOM is not found.")
       .value("ENCODING_UTF8", encoding_utf8, "UTF8 encoding.")
       .value("ENCODING_UTF16_LE", encoding_utf16_le, "Little-endian UTF16.")
       .value("ENCODING_UTF16_BE", encoding_utf16_be, "Big-endian UTF16.")
