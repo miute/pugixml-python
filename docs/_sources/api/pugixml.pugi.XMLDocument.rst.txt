@@ -1,0 +1,76 @@
+﻿pugixml.pugi.XMLDocument
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLDocument
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XMLDocument.__init__
+      ~XMLDocument.append_attribute
+      ~XMLDocument.append_buffer
+      ~XMLDocument.append_child
+      ~XMLDocument.append_copy
+      ~XMLDocument.append_move
+      ~XMLDocument.attribute
+      ~XMLDocument.attributes
+      ~XMLDocument.child
+      ~XMLDocument.child_value
+      ~XMLDocument.children
+      ~XMLDocument.document_element
+      ~XMLDocument.empty
+      ~XMLDocument.find_attribute
+      ~XMLDocument.find_child
+      ~XMLDocument.find_child_by_attribute
+      ~XMLDocument.find_node
+      ~XMLDocument.first_attribute
+      ~XMLDocument.first_child
+      ~XMLDocument.first_element_by_path
+      ~XMLDocument.hash_value
+      ~XMLDocument.insert_attribute_after
+      ~XMLDocument.insert_attribute_before
+      ~XMLDocument.insert_child_after
+      ~XMLDocument.insert_child_before
+      ~XMLDocument.insert_copy_after
+      ~XMLDocument.insert_copy_before
+      ~XMLDocument.insert_move_after
+      ~XMLDocument.insert_move_before
+      ~XMLDocument.last_attribute
+      ~XMLDocument.last_child
+      ~XMLDocument.load_buffer
+      ~XMLDocument.load_file
+      ~XMLDocument.load_string
+      ~XMLDocument.name
+      ~XMLDocument.next_sibling
+      ~XMLDocument.offset_debug
+      ~XMLDocument.parent
+      ~XMLDocument.path
+      ~XMLDocument.prepend_attribute
+      ~XMLDocument.prepend_child
+      ~XMLDocument.prepend_copy
+      ~XMLDocument.prepend_move
+      ~XMLDocument.previous_sibling
+      ~XMLDocument.print
+      ~XMLDocument.remove_attribute
+      ~XMLDocument.remove_attributes
+      ~XMLDocument.remove_child
+      ~XMLDocument.remove_children
+      ~XMLDocument.reset
+      ~XMLDocument.root
+      ~XMLDocument.save
+      ~XMLDocument.save_file
+      ~XMLDocument.select_node
+      ~XMLDocument.select_nodes
+      ~XMLDocument.set_name
+      ~XMLDocument.set_value
+      ~XMLDocument.text
+      ~XMLDocument.traverse
+      ~XMLDocument.type
+      ~XMLDocument.value

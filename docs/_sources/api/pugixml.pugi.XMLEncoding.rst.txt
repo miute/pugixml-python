@@ -1,0 +1,37 @@
+﻿pugixml.pugi.XMLEncoding
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLEncoding
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XMLEncoding.__init__
+
+
+
+
+
+   .. rubric:: Attributes
+
+   .. autosummary::
+
+      ~XMLEncoding.ENCODING_AUTO
+      ~XMLEncoding.ENCODING_LATIN1
+      ~XMLEncoding.ENCODING_UTF16
+      ~XMLEncoding.ENCODING_UTF16_BE
+      ~XMLEncoding.ENCODING_UTF16_LE
+      ~XMLEncoding.ENCODING_UTF32
+      ~XMLEncoding.ENCODING_UTF32_BE
+      ~XMLEncoding.ENCODING_UTF32_LE
+      ~XMLEncoding.ENCODING_UTF8
+      ~XMLEncoding.ENCODING_WCHAR
+      ~XMLEncoding.name
+      ~XMLEncoding.value

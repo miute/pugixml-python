@@ -1,0 +1,1022 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/><title>Index - pugixml-python 0.1.0</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+
+
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+
+      }
+    }
+  }
+</style></head>
+  <body>
+
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">pugixml-python 0.1.0</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+
+
+  <span class="sidebar-brand-text">pugixml-python 0.1.0</span>
+
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="limits.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="summary.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLDocument.html">pugixml.pugi.XMLDocument</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLEncoding.html">pugixml.pugi.XMLEncoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNode.html">pugixml.pugi.XMLNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNodeType.html">pugixml.pugi.XMLNodeType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLParseResult.html">pugixml.pugi.XMLParseResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLParseStatus.html">pugixml.pugi.XMLParseStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLText.html">pugixml.pugi.XMLText</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLTreeWalker.html">pugixml.pugi.XMLTreeWalker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLWriter.html">pugixml.pugi.XMLWriter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XPathNode.html">pugixml.pugi.XPathNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XPathNodeSet.html">pugixml.pugi.XPathNodeSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XPathParseResult.html">pugixml.pugi.XPathParseResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XPathQuery.html">pugixml.pugi.XPathQuery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XPathValueType.html">pugixml.pugi.XPathValueType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XPathVariable.html">pugixml.pugi.XPathVariable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XPathVariableSet.html">pugixml.pugi.XPathVariableSet</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a></div>
+</section>
+<section id="_" class="genindex-section">
+  <h2>_</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__bool__">__bool__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__bool__">(pugixml.pugi.XMLNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseResult.__bool__">(pugixml.pugi.XMLParseResult method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLText.__bool__">(pugixml.pugi.XMLText method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNode.__bool__">(pugixml.pugi.XPathNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathParseResult.__bool__">(pugixml.pugi.XPathParseResult method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathQuery.__bool__">(pugixml.pugi.XPathQuery method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__eq__">__eq__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLEncoding.__eq__">(pugixml.pugi.XMLEncoding method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__eq__">(pugixml.pugi.XMLNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__eq__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__eq__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNode.__eq__">(pugixml.pugi.XPathNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__eq__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__eq__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__ge__">__ge__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__ge__">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XPathNodeSet.__getitem__">__getitem__() (pugixml.pugi.XPathNodeSet method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLEncoding.__getstate__">__getstate__() (pugixml.pugi.XMLEncoding method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__getstate__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__getstate__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__getstate__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__getstate__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__gt__">__gt__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__gt__">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XPathNode.__hash__">__hash__ (pugixml.pugi.XPathNode attribute)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__hash__">__hash__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLEncoding.__hash__">(pugixml.pugi.XMLEncoding method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__hash__">(pugixml.pugi.XMLNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__hash__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__hash__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__hash__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__hash__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLEncoding.__index__">__index__() (pugixml.pugi.XMLEncoding method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__index__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__index__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__index__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__index__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+        <li><a href="api/pugixml.pugi.PrintWriter.html#pugixml.pugi.PrintWriter.__init__">__init__() (pugixml.pugi.PrintWriter method)</a>, <a href="reference.html#pugixml.pugi.PrintWriter.__init__">[1]</a>
+
+        <ul>
+          <li><a href="api/pugixml.pugi.StringWriter.html#pugixml.pugi.StringWriter.__init__">(pugixml.pugi.StringWriter method)</a>, <a href="reference.html#pugixml.pugi.StringWriter.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLAttribute.html#pugixml.pugi.XMLAttribute.__init__">(pugixml.pugi.XMLAttribute method)</a>, <a href="reference.html#pugixml.pugi.XMLAttribute.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLDocument.html#pugixml.pugi.XMLDocument.__init__">(pugixml.pugi.XMLDocument method)</a>, <a href="reference.html#pugixml.pugi.XMLDocument.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLEncoding.html#pugixml.pugi.XMLEncoding.__init__">(pugixml.pugi.XMLEncoding method)</a>, <a href="reference.html#pugixml.pugi.XMLEncoding.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLNode.html#pugixml.pugi.XMLNode.__init__">(pugixml.pugi.XMLNode method)</a>, <a href="reference.html#pugixml.pugi.XMLNode.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLNodeType.html#pugixml.pugi.XMLNodeType.__init__">(pugixml.pugi.XMLNodeType method)</a>, <a href="reference.html#pugixml.pugi.XMLNodeType.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLParseResult.html#pugixml.pugi.XMLParseResult.__init__">(pugixml.pugi.XMLParseResult method)</a>, <a href="reference.html#pugixml.pugi.XMLParseResult.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLParseStatus.html#pugixml.pugi.XMLParseStatus.__init__">(pugixml.pugi.XMLParseStatus method)</a>, <a href="reference.html#pugixml.pugi.XMLParseStatus.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLText.html#pugixml.pugi.XMLText.__init__">(pugixml.pugi.XMLText method)</a>, <a href="reference.html#pugixml.pugi.XMLText.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLTreeWalker.html#pugixml.pugi.XMLTreeWalker.__init__">(pugixml.pugi.XMLTreeWalker method)</a>, <a href="reference.html#pugixml.pugi.XMLTreeWalker.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XMLWriter.html#pugixml.pugi.XMLWriter.__init__">(pugixml.pugi.XMLWriter method)</a>, <a href="reference.html#pugixml.pugi.XMLWriter.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XPathNode.html#pugixml.pugi.XPathNode.__init__">(pugixml.pugi.XPathNode method)</a>, <a href="reference.html#pugixml.pugi.XPathNode.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XPathNodeSet.html#pugixml.pugi.XPathNodeSet.__init__">(pugixml.pugi.XPathNodeSet method)</a>, <a href="reference.html#pugixml.pugi.XPathNodeSet.__init__">[1]</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__init__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="api/pugixml.pugi.XPathParseResult.html#pugixml.pugi.XPathParseResult.__init__">(pugixml.pugi.XPathParseResult method)</a>, <a href="reference.html#pugixml.pugi.XPathParseResult.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XPathQuery.html#pugixml.pugi.XPathQuery.__init__">(pugixml.pugi.XPathQuery method)</a>, <a href="reference.html#pugixml.pugi.XPathQuery.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XPathValueType.html#pugixml.pugi.XPathValueType.__init__">(pugixml.pugi.XPathValueType method)</a>, <a href="reference.html#pugixml.pugi.XPathValueType.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XPathVariable.html#pugixml.pugi.XPathVariable.__init__">(pugixml.pugi.XPathVariable method)</a>, <a href="reference.html#pugixml.pugi.XPathVariable.__init__">[1]</a>
+</li>
+          <li><a href="api/pugixml.pugi.XPathVariableSet.html#pugixml.pugi.XPathVariableSet.__init__">(pugixml.pugi.XPathVariableSet method)</a>, <a href="reference.html#pugixml.pugi.XPathVariableSet.__init__">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLEncoding.__int__">__int__() (pugixml.pugi.XMLEncoding method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__int__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__int__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__int__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__int__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XPathNodeSet.__iter__">__iter__() (pugixml.pugi.XPathNodeSet method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__le__">__le__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__le__">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XPathNodeSet.__len__">__len__() (pugixml.pugi.XPathNodeSet method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__lt__">__lt__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__lt__">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.__ne__">__ne__() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLEncoding.__ne__">(pugixml.pugi.XMLEncoding method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.__ne__">(pugixml.pugi.XMLNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__ne__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__ne__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNode.__ne__">(pugixml.pugi.XPathNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__ne__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__ne__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLEncoding.__setstate__">__setstate__() (pugixml.pugi.XMLEncoding method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__setstate__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__setstate__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__setstate__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__setstate__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLEncoding.__str__">__str__() (pugixml.pugi.XMLEncoding method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.__str__">(pugixml.pugi.XMLNodeType method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.__str__">(pugixml.pugi.XMLParseStatus method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.__str__">(pugixml.pugi.XPathNodeSet.Type method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.__str__">(pugixml.pugi.XPathValueType method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XPathVariableSet.add">add() (pugixml.pugi.XPathVariableSet method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.append_attribute">append_attribute() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.append_buffer">append_buffer() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.append_child">append_child() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.append_copy">append_copy() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.append_move">append_move() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_bool">as_bool() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_bool">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_double">as_double() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_double">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_float">as_float() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_float">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_int">as_int() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_int">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_llong">as_llong() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_llong">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_string">as_string() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_string">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_uint">as_uint() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_uint">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.as_ullong">as_ullong() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLText.as_ullong">(pugixml.pugi.XMLText method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.attribute">attribute() (pugixml.pugi.XMLNode method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XPathNode.attribute">(pugixml.pugi.XPathNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.attributes">attributes() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.begin">begin() (pugixml.pugi.XMLTreeWalker method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.child">child() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.child_value">child_value() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.children">children() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLText.data">data() (pugixml.pugi.XMLText method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.depth">depth() (pugixml.pugi.XMLTreeWalker method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLParseResult.description">description() (pugixml.pugi.XMLParseResult method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XPathParseResult.description">(pugixml.pugi.XPathParseResult method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLDocument.document_element">document_element() (pugixml.pugi.XMLDocument method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.empty">empty() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.empty">(pugixml.pugi.XMLNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLText.empty">(pugixml.pugi.XMLText method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.empty">(pugixml.pugi.XPathNodeSet method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLParseResult.encoding">encoding (pugixml.pugi.XMLParseResult property)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.end">end() (pugixml.pugi.XMLTreeWalker method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XPathParseResult.error">error (pugixml.pugi.XPathParseResult property)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathQuery.evaluate_boolean">evaluate_boolean() (pugixml.pugi.XPathQuery method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathQuery.evaluate_node">evaluate_node() (pugixml.pugi.XPathQuery method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathQuery.evaluate_node_set">evaluate_node_set() (pugixml.pugi.XPathQuery method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathQuery.evaluate_number">evaluate_number() (pugixml.pugi.XPathQuery method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathQuery.evaluate_string">evaluate_string() (pugixml.pugi.XPathQuery method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.find_attribute">find_attribute() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.find_child">find_child() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.find_child_by_attribute">find_child_by_attribute() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.find_node">find_node() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XPathNodeSet.first">first() (pugixml.pugi.XPathNodeSet method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.first_attribute">first_attribute() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.first_child">first_child() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.first_element_by_path">first_element_by_path() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.for_each">for_each() (pugixml.pugi.XMLTreeWalker method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLText.get">get() (pugixml.pugi.XMLText method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XPathVariableSet.get">(pugixml.pugi.XPathVariableSet method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XPathVariable.get_boolean">get_boolean() (pugixml.pugi.XPathVariable method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XPathVariable.get_node_set">get_node_set() (pugixml.pugi.XPathVariable method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathVariable.get_number">get_number() (pugixml.pugi.XPathVariable method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathVariable.get_string">get_string() (pugixml.pugi.XPathVariable method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.StringWriter.getvalue">getvalue() (pugixml.pugi.StringWriter method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.hash_value">hash_value() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.hash_value">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_attribute_after">insert_attribute_after() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_attribute_before">insert_attribute_before() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_child_after">insert_child_after() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_child_before">insert_child_before() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_copy_after">insert_copy_after() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_copy_before">insert_copy_before() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_move_after">insert_move_after() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.insert_move_before">insert_move_before() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.last_attribute">last_attribute() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.last_child">last_child() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLDocument.load_buffer">load_buffer() (pugixml.pugi.XMLDocument method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLDocument.load_file">load_file() (pugixml.pugi.XMLDocument method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLDocument.load_string">load_string() (pugixml.pugi.XMLDocument method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    module
+
+        <ul>
+          <li><a href="reference.html#module-pugixml.pugi">pugixml.pugi</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLEncoding.name">name (pugixml.pugi.XMLEncoding property)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNodeType.name">(pugixml.pugi.XMLNodeType property)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLParseStatus.name">(pugixml.pugi.XMLParseStatus property)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type.name">(pugixml.pugi.XPathNodeSet.Type property)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathValueType.name">(pugixml.pugi.XPathValueType property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.name">name() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.name">(pugixml.pugi.XMLNode method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathVariable.name">(pugixml.pugi.XPathVariable method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.next_attribute">next_attribute() (pugixml.pugi.XMLAttribute method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.next_sibling">next_sibling() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathNode.node">node() (pugixml.pugi.XPathNode method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLParseResult.offset">offset (pugixml.pugi.XMLParseResult property)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XPathParseResult.offset">(pugixml.pugi.XPathParseResult property)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.offset_debug">offset_debug() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.parent">parent() (pugixml.pugi.XMLNode method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XPathNode.parent">(pugixml.pugi.XPathNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.path">path() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.prepend_attribute">prepend_attribute() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.prepend_child">prepend_child() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.prepend_copy">prepend_copy() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.prepend_move">prepend_move() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.previous_attribute">previous_attribute() (pugixml.pugi.XMLAttribute method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.previous_sibling">previous_sibling() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.print">print() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="api/pugixml.pugi.PrintWriter.html#pugixml.pugi.PrintWriter">PrintWriter (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.PrintWriter">[1]</a>
+</li>
+        <li>
+    pugixml.pugi
+
+        <ul>
+          <li><a href="reference.html#module-pugixml.pugi">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.remove_attribute">remove_attribute() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.remove_attributes">remove_attributes() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.remove_child">remove_child() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.remove_children">remove_children() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLDocument.reset">reset() (pugixml.pugi.XMLDocument method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathQuery.result">result() (pugixml.pugi.XPathQuery method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathQuery.return_type">return_type() (pugixml.pugi.XPathQuery method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.root">root() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLDocument.save">save() (pugixml.pugi.XMLDocument method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLDocument.save_file">save_file() (pugixml.pugi.XMLDocument method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.select_node">select_node() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.select_nodes">select_nodes() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLText.set">set() (pugixml.pugi.XMLText method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XPathVariable.set">(pugixml.pugi.XPathVariable method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathVariableSet.set">(pugixml.pugi.XPathVariableSet method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.set_name">set_name() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.set_name">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.set_value">set_value() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.set_value">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference.html#pugixml.pugi.XPathNodeSet.size">size() (pugixml.pugi.XPathNodeSet method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathNodeSet.sort">sort() (pugixml.pugi.XPathNodeSet method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLParseResult.status">status (pugixml.pugi.XMLParseResult property)</a>
+</li>
+        <li><a href="api/pugixml.pugi.StringWriter.html#pugixml.pugi.StringWriter">StringWriter (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.StringWriter">[1]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.text">text() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.traverse">traverse() (pugixml.pugi.XMLNode method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLNode.type">type() (pugixml.pugi.XMLNode method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XPathNodeSet.type">(pugixml.pugi.XPathNodeSet method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XPathVariable.type">(pugixml.pugi.XPathVariable method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLAttribute.value">value() (pugixml.pugi.XMLAttribute method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.XMLNode.value">(pugixml.pugi.XMLNode method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLWriter.write">write() (pugixml.pugi.XMLWriter method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="X" class="genindex-section">
+  <h2>X</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/pugixml.pugi.XMLAttribute.html#pugixml.pugi.XMLAttribute">XMLAttribute (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLAttribute">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLDocument.html#pugixml.pugi.XMLDocument">XMLDocument (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLDocument">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLEncoding.html#pugixml.pugi.XMLEncoding">XMLEncoding (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLEncoding">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLNode.html#pugixml.pugi.XMLNode">XMLNode (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLNode">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLNodeType.html#pugixml.pugi.XMLNodeType">XMLNodeType (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLNodeType">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLParseResult.html#pugixml.pugi.XMLParseResult">XMLParseResult (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLParseResult">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLParseStatus.html#pugixml.pugi.XMLParseStatus">XMLParseStatus (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLParseStatus">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLText.html#pugixml.pugi.XMLText">XMLText (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLText">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XMLTreeWalker.html#pugixml.pugi.XMLTreeWalker">XMLTreeWalker (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLTreeWalker">[1]</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api/pugixml.pugi.XMLWriter.html#pugixml.pugi.XMLWriter">XMLWriter (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XMLWriter">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XPathNode.html#pugixml.pugi.XPathNode">XPathNode (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XPathNode">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XPathNodeSet.html#pugixml.pugi.XPathNodeSet">XPathNodeSet (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XPathNodeSet">[1]</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XPathNodeSet.Type">XPathNodeSet.Type (class in pugixml.pugi)</a>
+</li>
+        <li><a href="api/pugixml.pugi.XPathParseResult.html#pugixml.pugi.XPathParseResult">XPathParseResult (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XPathParseResult">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XPathQuery.html#pugixml.pugi.XPathQuery">XPathQuery (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XPathQuery">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XPathValueType.html#pugixml.pugi.XPathValueType">XPathValueType (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XPathValueType">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XPathVariable.html#pugixml.pugi.XPathVariable">XPathVariable (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XPathVariable">[1]</a>
+</li>
+        <li><a href="api/pugixml.pugi.XPathVariableSet.html#pugixml.pugi.XPathVariableSet">XPathVariableSet (class in pugixml.pugi)</a>, <a href="reference.html#pugixml.pugi.XPathVariableSet">[1]</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+
+        <div class="related-pages">
+
+
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2022, Tetsuya Miura
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+
+          </div>
+          <div class="right-details">
+            <div class="icons">
+
+            </div>
+          </div>
+        </div>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+
+
+
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+﻿pugixml.pugi.PrintWriter
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: PrintWriter
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~PrintWriter.__init__
+      ~PrintWriter.write

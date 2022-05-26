@@ -1,0 +1,17 @@
+﻿pugixml.pugi.XMLWriter
+======================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLWriter
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XMLWriter.__init__
+      ~XMLWriter.write

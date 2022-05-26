@@ -1,0 +1,20 @@
+﻿pugixml.pugi.XMLTreeWalker
+==========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLTreeWalker
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XMLTreeWalker.__init__
+      ~XMLTreeWalker.begin
+      ~XMLTreeWalker.depth
+      ~XMLTreeWalker.end
+      ~XMLTreeWalker.for_each

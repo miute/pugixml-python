@@ -1,0 +1,29 @@
+﻿pugixml.pugi.XMLParseResult
+===========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLParseResult
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XMLParseResult.__init__
+      ~XMLParseResult.description
+
+
+
+
+
+   .. rubric:: Attributes
+
+   .. autosummary::
+
+      ~XMLParseResult.encoding
+      ~XMLParseResult.offset
+      ~XMLParseResult.status

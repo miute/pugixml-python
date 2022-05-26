@@ -1,0 +1,44 @@
+﻿pugixml.pugi.XMLParseStatus
+===========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLParseStatus
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XMLParseStatus.__init__
+
+
+
+
+
+   .. rubric:: Attributes
+
+   .. autosummary::
+
+      ~XMLParseStatus.STATUS_APPEND_INVALID_ROOT
+      ~XMLParseStatus.STATUS_BAD_ATTRIBUTE
+      ~XMLParseStatus.STATUS_BAD_CDATA
+      ~XMLParseStatus.STATUS_BAD_COMMENT
+      ~XMLParseStatus.STATUS_BAD_DOCTYPE
+      ~XMLParseStatus.STATUS_BAD_END_ELEMENT
+      ~XMLParseStatus.STATUS_BAD_PCDATA
+      ~XMLParseStatus.STATUS_BAD_PI
+      ~XMLParseStatus.STATUS_BAD_START_ELEMENT
+      ~XMLParseStatus.STATUS_END_ELEMENT_MISMATCH
+      ~XMLParseStatus.STATUS_FILE_NOT_FOUND
+      ~XMLParseStatus.STATUS_INTERNAL_ERROR
+      ~XMLParseStatus.STATUS_IO_ERROR
+      ~XMLParseStatus.STATUS_NO_DOCUMENT_ELEMENT
+      ~XMLParseStatus.STATUS_OK
+      ~XMLParseStatus.STATUS_OUT_OF_MEMORY
+      ~XMLParseStatus.STATUS_UNRECOGNIZED_TAG
+      ~XMLParseStatus.name
+      ~XMLParseStatus.value

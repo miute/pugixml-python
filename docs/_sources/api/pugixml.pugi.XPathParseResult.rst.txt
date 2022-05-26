@@ -1,0 +1,28 @@
+﻿pugixml.pugi.XPathParseResult
+=============================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XPathParseResult
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XPathParseResult.__init__
+      ~XPathParseResult.description
+
+
+
+
+
+   .. rubric:: Attributes
+
+   .. autosummary::
+
+      ~XPathParseResult.error
+      ~XPathParseResult.offset

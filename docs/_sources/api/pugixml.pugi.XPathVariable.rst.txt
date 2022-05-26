@@ -1,0 +1,23 @@
+﻿pugixml.pugi.XPathVariable
+==========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XPathVariable
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XPathVariable.__init__
+      ~XPathVariable.get_boolean
+      ~XPathVariable.get_node_set
+      ~XPathVariable.get_number
+      ~XPathVariable.get_string
+      ~XPathVariable.name
+      ~XPathVariable.set
+      ~XPathVariable.type

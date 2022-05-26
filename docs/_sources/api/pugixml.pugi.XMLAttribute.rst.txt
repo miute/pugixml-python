@@ -1,0 +1,32 @@
+﻿pugixml.pugi.XMLAttribute
+=========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLAttribute
+
+
+   .. automethod:: __init__
+
+
+   .. rubric:: Methods
+
+   .. autosummary::
+
+      ~XMLAttribute.__init__
+      ~XMLAttribute.as_bool
+      ~XMLAttribute.as_double
+      ~XMLAttribute.as_float
+      ~XMLAttribute.as_int
+      ~XMLAttribute.as_llong
+      ~XMLAttribute.as_string
+      ~XMLAttribute.as_uint
+      ~XMLAttribute.as_ullong
+      ~XMLAttribute.empty
+      ~XMLAttribute.hash_value
+      ~XMLAttribute.name
+      ~XMLAttribute.next_attribute
+      ~XMLAttribute.previous_attribute
+      ~XMLAttribute.set_name
+      ~XMLAttribute.set_value
+      ~XMLAttribute.value
