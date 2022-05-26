@@ -4,7 +4,6 @@
 #include <optional>
 #include <pugixml.hpp>
 #include <pybind11/functional.h>
-#include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <pybind11/stl/filesystem.h>
@@ -316,13 +315,6 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //
   attr.def(py::init<>(), "Initializes attribute as an empty attribute.");
 
-  attr.def(py::self == py::self, py::arg("other"))
-      .def(py::self != py::self, py::arg("other"))
-      .def(py::self < py::self, py::arg("other"))
-      .def(py::self > py::self, py::arg("other"))
-      .def(py::self <= py::self, py::arg("other"))
-      .def(py::self >= py::self, py::arg("other"));
-
   attr.def(
       "__bool__", [](const xml_attribute &self) -> bool { return self; },
       R"doc(
@@ -330,6 +322,45 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
       Returns:
           bool: ``True`` if attribute is not empty, ``False`` otherwise.
+      )doc");
+
+  attr.def(
+      "__eq__", [](const xml_attribute &self, const xml_attribute &other) { return self == other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self == other``.
+
+      Args:
+          other (XMLAttribute): The attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  attr.def(
+      "__ge__", [](const xml_attribute &self, const xml_attribute &other) { return self >= other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self >= other``.
+
+      Args:
+          other (XMLAttribute): The attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  attr.def(
+      "__gt__", [](const xml_attribute &self, const xml_attribute &other) { return self > other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self > other``.
+
+      Args:
+          other (XMLAttribute): The attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
       )doc");
 
   attr.def("__hash__", &xml_attribute::hash_value,
@@ -341,6 +372,45 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            Returns:
                int: The hash value.
            )doc");
+
+  attr.def(
+      "__le__", [](const xml_attribute &self, const xml_attribute &other) { return self <= other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self <= other``.
+
+      Args:
+          other (XMLAttribute): The attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  attr.def(
+      "__lt__", [](const xml_attribute &self, const xml_attribute &other) { return self < other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self < other``.
+
+      Args:
+          other (XMLAttribute): The attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  attr.def(
+      "__ne__", [](const xml_attribute &self, const xml_attribute &other) { return self != other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self != other``.
+
+      Args:
+          other (XMLAttribute): The attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
 
   attr.def("__repr__", [](const xml_attribute &self) {
     std::stringstream ss;
@@ -529,13 +599,6 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //
   node.def(py::init<>(), "Initializes node as an empty node.");
 
-  node.def(py::self == py::self, py::arg("other"))
-      .def(py::self != py::self, py::arg("other"))
-      .def(py::self < py::self, py::arg("other"))
-      .def(py::self > py::self, py::arg("other"))
-      .def(py::self <= py::self, py::arg("other"))
-      .def(py::self >= py::self, py::arg("other"));
-
   node.def(
       "__bool__", [](const xml_node &self) -> bool { return self; },
       R"doc(
@@ -543,6 +606,45 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
       Returns:
           bool: ``True`` if node is not empty, ``False`` otherwise.
+      )doc");
+
+  node.def(
+      "__eq__", [](const xml_node &self, const xml_node &other) { return self == other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self == other``.
+
+      Args:
+          other (XMLNode): The node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  node.def(
+      "__ge__", [](const xml_node &self, const xml_node &other) { return self >= other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self >= other``.
+
+      Args:
+          other (XMLNode): The node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  node.def(
+      "__gt__", [](const xml_node &self, const xml_node &other) { return self > other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self > other``.
+
+      Args:
+          other (XMLNode): The node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
       )doc");
 
   node.def("__hash__", &xml_node::hash_value,
@@ -562,6 +664,45 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //       return py::make_iterator(self.begin(), self.end());
   //     },
   //     py::keep_alive<0, 1>());
+
+  node.def(
+      "__le__", [](const xml_node &self, const xml_node &other) { return self <= other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self <= other``.
+
+      Args:
+          other (XMLNode): The node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  node.def(
+      "__lt__", [](const xml_node &self, const xml_node &other) { return self < other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self < other``.
+
+      Args:
+          other (XMLNode): The node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  node.def(
+      "__ne__", [](const xml_node &self, const xml_node &other) { return self != other; }, py::is_operator(),
+      py::arg("other"),
+      R"doc(
+      Returns ``self != other``.
+
+      Args:
+          other (XMLNode): The node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
 
   node.def("__repr__", [](const xml_node &self) {
     std::stringstream ss;
@@ -2140,8 +2281,6 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "    attribute (XMLAttribute): The attribute to evaluate over.\n"
            "    parent (XMLNode): The parent node of *attribute*.");
 
-  xpn.def(py::self == py::self, py::arg("other")).def(py::self != py::self, py::arg("other"));
-
   xpn.def(
       "__bool__", [](const xpath_node &self) -> bool { return self; },
       R"doc(
@@ -2152,10 +2291,28 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       )doc");
 
   xpn.def(
-      "__eq__", [](const xpath_node &self, const xml_node &other) { return self == other; }, py::arg("other"));
+         "__eq__", [](const xpath_node &self, const xpath_node &other) { return self == other; }, py::is_operator(),
+         py::arg("other"))
+      .def(
+          "__eq__", [](const xpath_node &self, const xml_node &other) { return self == other; }, py::is_operator(),
+          py::arg("other"),
+          "Returns ``self == other``.\n\n"
+          "Args:\n"
+          "    other (typing.Union[XPathNode, XMLNode]): The node to compare.\n\n"
+          "Returns:\n"
+          "    bool: The result of comparing pointers of internal objects.");
 
   xpn.def(
-      "__ne__", [](const xpath_node &self, const xml_node &other) { return self != other; }, py::arg("other"));
+         "__ne__", [](const xpath_node &self, const xpath_node &other) { return self != other; }, py::is_operator(),
+         py::arg("other"))
+      .def(
+          "__ne__", [](const xpath_node &self, const xml_node &other) { return self != other; }, py::is_operator(),
+          py::arg("other"),
+          "Returns ``self != other``.\n\n"
+          "Args:\n"
+          "    other (typing.Union[XPathNode, XMLNode]): The node to compare.\n\n"
+          "Returns:\n"
+          "    bool: The result of comparing pointers of internal objects.");
 
   xpn.def("node", &xpath_node::node,
           R"doc(
