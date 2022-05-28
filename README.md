@@ -1,5 +1,12 @@
 # Python bindings for pugixml
 
+[![PyPI](https://img.shields.io/pypi/v/pugixml)](https://pypi.org/project/pugixml/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pugixml)](https://pypi.org/project/pugixml/)
+[![PyPI - License](https://img.shields.io/pypi/l/pugixml)](https://pypi.org/project/pugixml/)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/miute/pugixml-python/main.svg)](https://results.pre-commit.ci/latest/github/miute/pugixml-python/main)
+[![tests](https://github.com/miute/pugixml-python/actions/workflows/tests.yml/badge.svg)](https://github.com/miute/pugixml-python/actions/workflows/tests.yml)
+[![build](https://github.com/miute/pugixml-python/actions/workflows/build.yml/badge.svg)](https://github.com/miute/pugixml-python/actions/workflows/build.yml)
+
 [pugixml](http://pugixml.org/) is a light-weight C++ XML processing library. It features:
 
 - DOM-like interface with rich traversal/modification capabilities
