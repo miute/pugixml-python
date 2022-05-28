@@ -20,9 +20,9 @@ class _TestWriter(pugi.XMLWriter):
         self._contents += data
 
 
-here = Path(__file__)
+here = Path(__file__).parent
 testdata = (
-    here.parent / ".." / "src" / "third_party" / "pugixml" / "tests" / "data"
+    here / ".." / "src" / "third_party" / "pugixml" / "tests" / "data"
 ).resolve()
 
 
