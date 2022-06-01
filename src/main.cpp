@@ -1,6 +1,7 @@
 #include <filesystem>
 #include <iomanip>
 #include <map>
+#include <memory>
 #include <optional>
 #include <pugixml.hpp>
 #include <pybind11/functional.h>
@@ -52,6 +53,18 @@ static std::map<int, const char *> _xml_parse_status_to_string{
     {status_end_element_mismatch, "STATUS_END_ELEMENT_MISMATCH"},
     {status_append_invalid_root, "STATUS_APPEND_INVALID_ROOT"},
     {status_no_document_element, "STATUS_NO_DOCUMENT_ELEMENT"},
+};
+
+struct XMLAttributeStruct {
+  xml_attribute_struct *p_;
+  XMLAttributeStruct(xml_attribute_struct *p) : p_(p) {}
+  operator xml_attribute_struct *() { return p_; }
+};
+
+struct XMLNodeStruct {
+  xml_node_struct *p_;
+  XMLNodeStruct(xml_node_struct *p) : p_(p) {}
+  operator xml_node_struct *() const { return p_; }
 };
 
 class PyXMLWriter : public xml_writer {
@@ -181,6 +194,10 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       .value("XPATH_TYPE_BOOLEAN", xpath_type_boolean, "Boolean.")
       .export_values();
 
+  py::class_<XMLAttributeStruct> atst(m, "XMLAttributeStruct", "The internal object of the attribute.");
+
+  py::class_<XMLNodeStruct> nst(m, "XMLNodeStruct", "The internal object of the node.");
+
   // pugi::xml_object_range<...>
 
   py::class_<xml_writer, PyXMLWriter> xwt(m, "XMLWriter",
@@ -295,6 +312,64 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   py::class_<xpath_node_set> xpns(m, "XPathNodeSet", "A fixed-size collection of XPath nodes.");
 
   //
+  // pugi::xml_attribute_struct
+  //
+  atst.def(
+      "__eq__", [](const XMLAttributeStruct &self, const XMLAttributeStruct &other) { return self.p_ == other.p_; },
+      py::is_operator(), py::arg("other"),
+      R"doc(
+      Returns ``self == other``.
+
+      Args:
+          other (XMLAttributeStruct): The internal object of the attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  atst.def(
+      "__ne__", [](const XMLAttributeStruct &self, const XMLAttributeStruct &other) { return self.p_ != other.p_; },
+      py::is_operator(), py::arg("other"),
+      R"doc(
+      Returns ``self != other``.
+
+      Args:
+          other (XMLAttributeStruct): The internal object of the attribute to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  //
+  // pugi::xml_node_struct
+  //
+  nst.def(
+      "__eq__", [](const XMLNodeStruct &self, const XMLNodeStruct &other) { return self.p_ == other.p_; },
+      py::is_operator(), py::arg("other"),
+      R"doc(
+      Returns ``self == other``.
+
+      Args:
+          other (XMLNodeStruct): The internal object of the node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  nst.def(
+      "__ne__", [](const XMLNodeStruct &self, const XMLNodeStruct &other) { return self.p_ != other.p_; },
+      py::is_operator(), py::arg("other"),
+      R"doc(
+      Returns ``self != other``.
+
+      Args:
+          other (XMLNodeStruct): The internal object of the node to compare.
+
+      Returns:
+          bool: The result of comparing pointers of internal objects.
+      )doc");
+
+  //
   // pugi::xml_writer
   //
   xwt.def(py::init<>(), "Initializes XMLWriter.");
@@ -315,7 +390,12 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //
   // pugi::xml_attribute
   //
-  attr.def(py::init<>(), "Initializes attribute as an empty attribute.");
+  attr.def(py::init<>())
+      .def(py::init([](XMLAttributeStruct &p) { return std::make_unique<xml_attribute>(p); }), py::keep_alive<1, 2>(),
+           py::arg("p"),
+           "Initializes attribute.\n\n"
+           "Args:\n"
+           "    p (XMLAttributeStruct): The internal object of the attribute to shallow copy.");
 
   attr.def(
       "__bool__", [](const xml_attribute &self) -> bool { return self; },
@@ -596,10 +676,25 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                int: The hash value.
            )doc");
 
+  attr.def(
+      "internal_object",
+      [](const xml_attribute &self) { return std::make_unique<XMLAttributeStruct>(self.internal_object()); },
+      R"doc(
+      Returns internal object.
+
+      Returns:
+          XMLAttributeStruct: The internal object of this attribute.
+      )doc");
+
   //
   // pugi::xml_node
   //
-  node.def(py::init<>(), "Initializes node as an empty node.");
+  node.def(py::init<>())
+      .def(py::init([](XMLNodeStruct &p) { return std::make_unique<xml_node>(p); }), py::keep_alive<1, 2>(),
+           py::arg("p"),
+           "Initializes node.\n\n"
+           "Args:\n"
+           "    p (XMLNodeStruct): The internal object of the node to shallow copy.");
 
   node.def(
       "__bool__", [](const xml_node &self) -> bool { return self; },
@@ -1573,6 +1668,15 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            Returns:
                int: The hash value.
            )doc");
+
+  node.def(
+      "internal_object", [](const xml_node &self) { return std::make_unique<XMLNodeStruct>(self.internal_object()); },
+      R"doc(
+      Returns internal object.
+
+      Returns:
+          XMLNodeStruct: The internal object of this node.
+      )doc");
 
   //
   // pugi::xml_text

@@ -252,6 +252,24 @@ def test_hash_value():
     assert hash(attr2) == attr2.hash_value()
 
 
+def test_internal_object():
+    doc = pugi.XMLDocument()
+    doc.load_string("<node attr='value'>value</node>")
+    node = doc.child("node")
+    attr = node.first_attribute()
+
+    attr_copy = pugi.XMLAttribute(attr.internal_object())
+    assert attr_copy == attr
+
+    assert attr.internal_object() == attr_copy.internal_object()
+    assert attr.internal_object() != pugi.XMLAttribute().internal_object()
+
+    attr_copy.set_name("n")
+    attr_copy.set_value("v")
+    assert attr.name() == "n"
+    assert attr.value() == "v"
+
+
 def test_next_previous_attribute():
     doc = pugi.XMLDocument()
 

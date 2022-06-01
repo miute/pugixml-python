@@ -1050,6 +1050,22 @@ def test_insert_move_before():
     assert writer.getvalue() == "<node><child>foobar</child></node>"
 
 
+def test_internal_object():
+    doc = pugi.XMLDocument()
+    doc.load_string("<node attr='value'>value</node>")
+    node = doc.child("node")
+
+    node_copy = pugi.XMLNode(node.internal_object())
+    assert node_copy == node
+    assert node_copy.parent() == node.parent()
+
+    assert node.internal_object() == node_copy.internal_object()
+    assert node.internal_object() != pugi.XMLNode().internal_object()
+
+    node_copy.set_name("n")
+    assert node.name() == "n"
+
+
 def test_name_value():
     doc = pugi.XMLDocument()
     doc.load_string(

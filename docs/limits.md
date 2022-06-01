@@ -7,10 +7,8 @@ The following APIs are not implemented.
 ### Structures/Classes
 
 - pugi::xml_attribute_iterator
-- pugi::xml_attribute_struct
 - pugi::xml_named_node_iterator
 - pugi::xml_node_iterator
-- pugi::xml_node_struct
 - pugi::xml_object_range
 - pugi::xml_writer_file
 - pugi::xml_writer_stream
@@ -22,7 +20,6 @@ The following APIs are not implemented.
   - Move constructors
   - Assignment operators
 - pugi::xml_attribute
-  - internal_object()
   - set_value(float, int)
   - set_value(float)
   - set_value(int)
@@ -39,7 +36,6 @@ The following APIs are not implemented.
   - attributes_end()
   - begin()
   - end()
-  - internal_object()
   - print(std::basic_ostream, ...)
   - select_single_node(...)
 - pugi::xml_text
