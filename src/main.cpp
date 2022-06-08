@@ -67,6 +67,48 @@ struct XMLNodeStruct {
   operator xml_node_struct *() const { return p_; }
 };
 
+// xml_object_range<iterator> -> std::vector<vartype>
+template <typename iterator, typename vartype> struct Iterator {
+  std::vector<vartype> items_;
+  size_t index_;
+
+  Iterator(const xml_object_range<iterator> &it) : items_(it.begin(), it.end()), index_(0) {}
+
+  auto get(const py::slice &slice) {
+    size_t start = 0, stop = 0, step = 0, slice_length = 0;
+    if (!slice.compute(size(), &start, &stop, &step, &slice_length)) {
+      throw py::error_already_set();
+    }
+    auto result = new std::vector<vartype>(slice_length);
+    for (size_t n = 0; n < slice_length; ++n) {
+      (*result)[n] = items_[start];
+      start += step;
+    }
+    return result;
+  }
+
+  vartype &operator[](long long n) {
+    if (n < 0) {
+      n += size();
+    }
+    if (n < 0 || static_cast<size_t>(n) >= size()) {
+      throw py::index_error("index out of range: " + std::to_string(n));
+    }
+    return items_[n];
+  }
+
+  vartype &next() {
+    if (index_ >= size()) {
+      throw py::stop_iteration();
+    }
+    return items_[index_++];
+  }
+
+  void reset() { index_ = 0; }
+
+  auto size() const { return items_.size(); }
+};
+
 class PyXMLWriter : public xml_writer {
 public:
   using xml_writer::xml_writer;
@@ -199,6 +241,30 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   py::class_<XMLNodeStruct> nst(m, "XMLNodeStruct", "The internal object of the node.");
 
   // pugi::xml_object_range<...>
+  // pugi::xml_attribute_iterator
+  // pugi::xml_node_iterator
+  // pugi::xml_named_node_iterator
+  py::class_<Iterator<xml_attribute_iterator, xml_attribute>> atit(m, "XMLAttributeIterator",
+                                                                   R"doc(
+      A collection of attributes.
+
+      See Also:
+          :meth:`XMLNode.attributes`
+      )doc");
+
+  py::class_<Iterator<xml_node_iterator, xml_node>> nit(m, "XMLNodeIterator", R"doc(
+      A collection of nodes.
+
+      See Also:
+          :meth:`XMLNode.children`
+      )doc");
+
+  py::class_<Iterator<xml_named_node_iterator, xml_node>> nnit(m, "XMLNamedNodeIterator", R"doc(
+      A collection of nodes specified by name.
+
+      See Also:
+          :meth:`XMLNode.children`
+      )doc");
 
   py::class_<xml_writer, PyXMLWriter> xwt(m, "XMLWriter",
                                           R"doc(
@@ -239,10 +305,6 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                                                <a><![CDATA[foo]]></a>bar<c>baz</c>
                                               </node>
                                           )doc");
-
-  // pugi::xml_node_iterator
-  // pugi::xml_attribute_iterator
-  // pugi::xml_named_node_iterator
 
   py::class_<xml_tree_walker, PyXMLTreeWalker> trwk(m, "XMLTreeWalker",
                                                     R"doc(
@@ -368,6 +430,135 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       Returns:
           bool: The result of comparing pointers of internal objects.
       )doc");
+
+  //
+  // pugi::xml_object_range<xml_attribute_iterator>
+  // pugi::xml_attribute_iterator
+  //
+  atit.def("__getitem__", &Iterator<xml_attribute_iterator, xml_attribute>::operator[], py::arg("index"))
+      .def("__getitem__", &Iterator<xml_attribute_iterator, xml_attribute>::get, py::arg("slice"),
+           "Returns attribute(s) at the specified index/slice from collection.\n\n"
+           "Args:\n"
+           "    index (int): An index to specify position.\n"
+           "    slice (slice): A slice object to specify range.\n\n"
+           "Returns:\n"
+           "    typing.Union[XMLAttribute, typing.List[XMLAttribute]]: The attribute(s) at the specified index/slice "
+           "from collection.");
+
+  atit.def(
+      "__iter__",
+      [](Iterator<xml_attribute_iterator, xml_attribute> &self) -> Iterator<xml_attribute_iterator, xml_attribute> & {
+        self.reset();
+        return self;
+      },
+      R"doc(
+      Returns itself.
+
+      Returns:
+          XMLAttributeIterator: ``self``.
+      )doc");
+
+  atit.def("__len__", &Iterator<xml_attribute_iterator, xml_attribute>::size,
+           R"doc(
+           Returns collection size.
+
+           Returns:
+               int: The collection size.
+           )doc");
+
+  atit.def("__next__", &Iterator<xml_attribute_iterator, xml_attribute>::next,
+           R"doc(
+           Returns next attribute from collection.
+
+           Returns:
+               XMLAttribute: The next attribute from collection.
+           )doc");
+
+  //
+  // pugi::xml_object_range<xml_node_iterator>
+  // pugi::xml_node_iterator
+  //
+  nit.def("__getitem__", &Iterator<xml_node_iterator, xml_node>::operator[], py::arg("index"))
+      .def("__getitem__", &Iterator<xml_node_iterator, xml_node>::get, py::arg("slice"),
+           "Returns node(s) at the specified index/slice from collection.\n\n"
+           "Args:\n"
+           "    index (int): An index to specify position.\n"
+           "    slice (slice): A slice object to specify range.\n\n"
+           "Returns:\n"
+           "    typing.Union[XMLNode, typing.List[XMLNode]]: The node(s) at the specified index/slice from "
+           "collection.");
+
+  nit.def(
+      "__iter__",
+      [](Iterator<xml_node_iterator, xml_node> &self) -> Iterator<xml_node_iterator, xml_node> & {
+        self.reset();
+        return self;
+      },
+      R"doc(
+      Returns itself.
+
+      Returns:
+          XMLNodeIterator: ``self``.
+      )doc");
+
+  nit.def("__len__", &Iterator<xml_node_iterator, xml_node>::size,
+          R"doc(
+           Returns collection size.
+
+           Returns:
+               int: The collection size.
+           )doc");
+
+  nit.def("__next__", &Iterator<xml_node_iterator, xml_node>::next,
+          R"doc(
+          Returns next node from collection.
+
+          Returns:
+              XMLNode: The next node from collection.
+          )doc");
+
+  //
+  // pugi::xml_object_range<xml_named_node_iterator>
+  // pugi::xml_named_node_iterator
+  //
+  nnit.def("__getitem__", &Iterator<xml_named_node_iterator, xml_node>::operator[], py::arg("index"))
+      .def("__getitem__", &Iterator<xml_named_node_iterator, xml_node>::get, py::arg("slice"),
+           "Returns node(s) at the specified index/slice from collection.\n\n"
+           "Args:\n"
+           "    index (int): An index to specify position.\n"
+           "    slice (slice): A slice object to specify range.\n\n"
+           "Returns:\n"
+           "    typing.Union[XMLNode, typing.List[XMLNode]]: The node(s) at the specified index/slice from "
+           "collection.");
+
+  nnit.def(
+      "__iter__",
+      [](Iterator<xml_named_node_iterator, xml_node> &self) -> Iterator<xml_named_node_iterator, xml_node> & {
+        self.reset();
+        return self;
+      },
+      R"doc(
+      Returns itself.
+
+      Returns:
+          XMLNamedNodeIterator: ``self``.
+      )doc");
+
+  nnit.def("__len__", &Iterator<xml_named_node_iterator, xml_node>::size,
+           R"doc(
+           Returns collection size.
+
+           Returns:
+               int: The collection size.
+           )doc");
+
+  nnit.def("__next__", &Iterator<xml_named_node_iterator, xml_node>::next,
+           R"doc(
+           Returns next node from collection.
+
+           Returns:
+               XMLNode: The next node from collection.
+           )doc");
 
   //
   // pugi::xml_writer
@@ -753,14 +944,6 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            Returns:
                int: The hash value.
            )doc");
-
-  // node.def(
-  //     "__iter__",
-  //     [](xml_node &self) {
-  //       // FIXME: py::make_iterator(self.begin(), self.end()) returns invalid value.
-  //       return py::make_iterator(self.begin(), self.end());
-  //     },
-  //     py::keep_alive<0, 1>());
 
   node.def(
       "__le__", [](const xml_node &self, const xml_node &other) { return self <= other; }, py::is_operator(),
@@ -1611,45 +1794,39 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   // xml_node::attributes_begin()
   // xml_node::attributes_end()
 
-  node.def("children",
-           [](const xml_node &self) {
-             auto it = self.children();
-             std::vector<xml_node> children(it.begin(), it.end());
-             return children;
-           })
+  node.def(
+          "children",
+          [](const xml_node &self) { return std::make_unique<Iterator<xml_node_iterator, xml_node>>(self.children()); },
+          py::keep_alive<0, 1>())
       .def(
           "children",
           [](const xml_node &self, const char_t *name) {
-            auto it = self.children(name);
-            // FIXME: py::make_iterator(it.begin(), it.end()) returns invalid value.
-            std::vector<xml_node> children(it.begin(), it.end());
-            // FIXME: py::make_iterator(children.begin(), children.end()) causes segmentation fault.
-            return children;
+            // auto it = self.children(name);
+            // std::vector<xml_node> children(it.begin(), it.end());
+            // NOTE:
+            //  py::make_iterator(it.begin(), it.end()) returns empty nodes.
+            //  py::make_iterator(children.begin(), children.end()) causes segmentation fault.
+            return std::make_unique<Iterator<xml_named_node_iterator, xml_node>>(self.children(name));
           },
-          py::arg("name"),
-          "Returns a list of children with specified name.\n\n"
+          py::keep_alive<0, 1>(), py::arg("name"),
+          "Returns iterator of children with specified name.\n\n"
           "Args:\n"
           "    name (str): The node name to find.\n\n"
           "Returns:\n"
-          "    typing.List[XMLNode]: A list of children.");
+          "    typing.Union[XMLNodeIterator, XMLNamedNodeIterator]: A new iterator of children.");
 
-  options.disable_function_signatures();
   node.def(
       "attributes",
       [](const xml_node &self) {
-        auto it = self.attributes();
-        std::vector<xml_attribute> attributes(it.begin(), it.end());
-        return attributes;
+        return std::make_unique<Iterator<xml_attribute_iterator, xml_attribute>>(self.attributes());
       },
+      py::keep_alive<0, 1>(),
       R"doc(
-      attributes(self: pugixml.pugi.XMLNode) -> typing.List[pugixml.pugi.XMLAttribute]
-
-      Returns a list of attributes for this node.
+      Returns iterator of attributes for this node.
 
       Returns:
-          typing.List[XMLAttribute]: A list of attributes.
+          XMLAttributeIterator: A new iterator of attributes.
       )doc");
-  options.enable_function_signatures();
 
   node.def("offset_debug", &xml_node::offset_debug,
            R"doc(
@@ -2462,11 +2639,10 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   xpns.def(
           "__getitem__",
           [](const xpath_node_set &self, long long index) -> const xpath_node & {
-            const auto size = static_cast<long long>(self.size());
             if (index < 0) {
-              index += size;
+              index += self.size();
             }
-            if (index < 0 || index >= size) {
+            if (index < 0 || static_cast<size_t>(index) >= self.size()) {
               throw py::index_error("index out of range: " + std::to_string(index));
             }
             return self[index];
@@ -2474,8 +2650,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
           py::arg("index"))
       .def(
           "__getitem__",
-          [](const xpath_node_set &self, py::slice slice) {
-            size_t start, stop, step, slice_length;
+          [](const xpath_node_set &self, const py::slice &slice) {
+            size_t start = 0, stop = 0, step = 0, slice_length = 0;
             if (!slice.compute(self.size(), &start, &stop, &step, &slice_length)) {
               throw py::error_already_set();
             }
@@ -2502,10 +2678,10 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       R"doc(
       __iter__(self: pugixml.pugi.XPathNodeSet) -> typing.Iterator[XPathNode]
 
-      Returns a new iterator for this collection of XPath nodes.
+      Returns iterator for this collection of XPath nodes.
 
       Returns:
-          typing.Iterator[XPathNode]: An iterator for collection of XPath nodes.
+          typing.Iterator[XPathNode]: A new iterator for collection of XPath nodes.
       )doc");
   options.enable_function_signatures();
 

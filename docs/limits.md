@@ -6,10 +6,6 @@ The following APIs are not implemented.
 
 ### Structures/Classes
 
-- pugi::xml_attribute_iterator
-- pugi::xml_named_node_iterator
-- pugi::xml_node_iterator
-- pugi::xml_object_range
 - pugi::xml_writer_file
 - pugi::xml_writer_stream
 - pugi::xpath_exception
@@ -54,10 +50,3 @@ Class and constant names are renamed based on [PEP 8](https://peps.python.org/pe
 
 - Class Names: Use the CapWords style.
 - Constants: Use the UPPER_CASE_WITH_UNDERSCORES style.
-
-### API
-
-- pugi.XMLNode (pugi::xml_node)
-  - attributes() returns a list of attributes instead of an iterator.
-  - children() returns a list of nodes instead of an iterator.
-  - children(str) returns a list of nodes instead of an iterator.

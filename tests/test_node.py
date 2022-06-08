@@ -1,3 +1,5 @@
+import pytest
+
 from pugixml import pugi
 
 
@@ -304,12 +306,31 @@ def test_attributes():
     node = doc.child("node1")
 
     attrs = doc.attributes()
+    assert isinstance(attrs, pugi.XMLAttributeIterator)
+    _ = iter(attrs)  # object is iterable
     assert len(attrs) == 0
+    with pytest.raises(IndexError):
+        _ = attrs[0]
 
     attrs = node.attributes()
+    assert isinstance(attrs, pugi.XMLAttributeIterator)
+    _ = iter(attrs)  # object is iterable
     assert len(attrs) == 2
     assert attrs[0] == node.first_attribute()
+    assert attrs[1] == node.last_attribute()
+    with pytest.raises(IndexError):
+        _ = attrs[2]
     assert attrs[-1] == node.last_attribute()
+    assert attrs[-2] == node.first_attribute()
+    with pytest.raises(IndexError):
+        _ = attrs[-3]
+    assert attrs[:] == [node.first_attribute(), node.last_attribute()]
+    with pytest.raises(ValueError):
+        _ = attrs[::0]
+    assert list(reversed(attrs)) == [
+        node.last_attribute(),
+        node.first_attribute(),
+    ]
 
 
 def test_bool():
@@ -400,20 +421,69 @@ def test_children_name():
 
     node = doc.first_child()
     assert node == doc.last_child()
-    assert doc.children() == [node]
-    assert node.children() == [node1, node2, node3, node4]
+
+    r0 = doc.children()
+    assert isinstance(r0, pugi.XMLNodeIterator)
+    _ = iter(r0)  # object is iterable
+    assert list(r0) == [node]
+    assert len(r0) == 1
+    assert r0[0] == node
+    with pytest.raises(IndexError):
+        _ = r0[1]
+    assert r0[-1] == node
+    with pytest.raises(IndexError):
+        _ = r0[-2]
+
+    r0 = node.children()
+    assert isinstance(r0, pugi.XMLNodeIterator)
+    _ = iter(r0)  # object is iterable
+    assert list(r0) == [node1, node2, node3, node4]
+    assert len(r0) == 4
+    assert r0[0] == node1
+    assert r0[1] == node2
+    assert r0[2] == node3
+    assert r0[3] == node4
+    with pytest.raises(IndexError):
+        _ = r0[4]
+    assert r0[-1] == node4
+    assert r0[-2] == node3
+    assert r0[-3] == node2
+    assert r0[-4] == node1
+    with pytest.raises(IndexError):
+        _ = r0[-5]
+    assert r0[1:3] == [node2, node3]
+    with pytest.raises(ValueError):
+        _ = r0[::0]
+    assert list(reversed(r0)) == [node4, node3, node2, node1]
 
     r1 = node1.children("child")
     r2 = node2.children("child")
     r3 = node3.children("child")
     r4 = node4.children("child")
+    assert isinstance(r1, pugi.XMLNamedNodeIterator)
+    assert isinstance(r2, pugi.XMLNamedNodeIterator)
+    assert isinstance(r3, pugi.XMLNamedNodeIterator)
+    assert isinstance(r4, pugi.XMLNamedNodeIterator)
+    _ = iter(r1)  # object is iterable
+    _ = iter(r2)  # object is iterable
+    _ = iter(r3)  # object is iterable
+    _ = iter(r4)  # object is iterable
 
     assert len(r1) == 1
     assert r1[0] == node1.first_child() == node1.last_child()
+    with pytest.raises(IndexError):
+        _ = r1[1]
+    assert r1[-1] == node1.first_child() == node1.last_child()
+    with pytest.raises(IndexError):
+        _ = r1[-2]
 
     assert len(r2) == 2
     assert r2[0] == node2.first_child()
     assert r2[1] == node2.last_child()
+    assert r2[:] == [node2.first_child(), node2.last_child()]
+    with pytest.raises(ValueError):
+        _ = r2[::0]
+    assert list(reversed(r2)) == [node2.last_child(), node2.first_child()]
 
     assert len(r3) == 0
 
