@@ -41,6 +41,7 @@
       ~XMLNode.insert_copy_before
       ~XMLNode.insert_move_after
       ~XMLNode.insert_move_before
+      ~XMLNode.internal_object
       ~XMLNode.last_attribute
       ~XMLNode.last_child
       ~XMLNode.name

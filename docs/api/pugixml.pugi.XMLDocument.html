@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pugixml.pugi.XMLEncoding" href="pugixml.pugi.XMLEncoding.html" /><link rel="prev" title="pugixml.pugi.XMLAttribute" href="pugixml.pugi.XMLAttribute.html" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pugixml.pugi.XMLEncoding" href="pugixml.pugi.XMLEncoding.html" /><link rel="prev" title="pugixml.pugi.XMLAttributeIterator" href="pugixml.pugi.XMLAttributeIterator.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>pugixml.pugi.XMLDocument - pugixml-python 0.1.0</title>
+    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
+        <title>pugixml.pugi.XMLDocument - pugixml-python 0.2.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">pugixml-python 0.1.0</div></a>
+      <a href="../index.html"><div class="brand">pugixml-python 0.2.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">pugixml-python 0.1.0</span>
+  <span class="sidebar-brand-text">pugixml-python 0.2.0</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -162,9 +162,12 @@
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLAttributeIterator.html">pugixml.pugi.XMLAttributeIterator</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pugixml.pugi.XMLDocument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLEncoding.html">pugixml.pugi.XMLEncoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNamedNodeIterator.html">pugixml.pugi.XMLNamedNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNode.html">pugixml.pugi.XMLNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNodeIterator.html">pugixml.pugi.XMLNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNodeType.html">pugixml.pugi.XMLNodeType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLParseResult.html">pugixml.pugi.XMLParseResult</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLParseStatus.html">pugixml.pugi.XMLParseStatus</a></li>
@@ -198,7 +201,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -213,54 +217,52 @@
         </div>
         <article role="main">
           <section id="pugixml-pugi-xmldocument">
-<h1>pugixml.pugi.XMLDocument<a class="headerlink" href="#pugixml-pugi-xmldocument" title="Permalink to this headline">#</a></h1>
+<h1>pugixml.pugi.XMLDocument<a class="headerlink" href="#pugixml-pugi-xmldocument" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pugixml.pugi.XMLDocument">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pugixml.pugi.</span></span><span class="sig-name descname"><span class="pre">XMLDocument</span></span><a class="headerlink" href="#pugixml.pugi.XMLDocument" title="Permalink to this definition">#</a></dt>
 <dd><p>Document class (DOM tree root).</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pugixml.pugi.XMLDocument.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument" title="pugixml.pugi.XMLDocument"><span class="pre">pugixml.pugi.XMLDocument</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pugixml.pugi.XMLDocument.__init__" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument" title="pugixml.pugi.XMLDocument"><span class="pre">pugixml.pugi.XMLDocument</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pugixml.pugi.XMLDocument.__init__" title="Permalink to this definition">#</a></dt>
 <dd><p>Initializes document as an empty document.</p>
 </dd></dl>
+
 <p class="rubric">Methods</p>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.__init__" title="pugixml.pugi.XMLDocument.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
 <td><p>Initializes document as an empty document.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_attribute</span></code>(self, name)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_attribute</span></code>(self, name)</p></td>
 <td><p>Appends attribute with specified name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_buffer</span></code>(self, contents, size[, ...])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_buffer</span></code>(self, contents, size[, ...])</p></td>
 <td><p>Parses buffer as an XML document fragment and appends all nodes as children of the current node.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_child</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_child</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_copy</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_copy</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_move</span></code>(self, moved)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_move</span></code>(self, moved)</p></td>
 <td><p>Moves specified node to become a last child of this node.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">attribute</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">attribute</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">attributes</span></code>(self)</p></td>
-<td><p>Returns a list of attributes for this node.</p></td>
+<td><p>Returns iterator of attributes for this node.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code>(self, name)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">child</span></code>(self, name)</p></td>
 <td><p>Returns child with the specified name.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">child_value</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">child_value</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">children</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">children</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.document_element" title="pugixml.pugi.XMLDocument.document_element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">document_element</span></code></a>(self)</p></td>
@@ -269,16 +271,16 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">empty</span></code>(self)</p></td>
 <td><p>Determines if this node is empty.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_attribute</span></code>(self, pred)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_attribute</span></code>(self, pred)</p></td>
 <td><p>Finds attribute using predicate.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_child</span></code>(self, pred)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_child</span></code>(self, pred)</p></td>
 <td><p>Finds child node using predicate.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_child_by_attribute</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_child_by_attribute</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_node</span></code>(self, pred)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_node</span></code>(self, pred)</p></td>
 <td><p>Finds node from subtree using predicate.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_attribute</span></code>(self)</p></td>
@@ -287,135 +289,140 @@
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_child</span></code>(self)</p></td>
 <td><p>Returns first child.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_element_by_path</span></code>(self, path[, delimiter])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">first_element_by_path</span></code>(self, path[, delimiter])</p></td>
 <td><p>Searchs for a node by path consisting of node names and '.' or '..' elements.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hash_value</span></code>(self)</p></td>
 <td><p>Returns hash value (unique for handles to the same object).</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_attribute_after</span></code>(self, name, attr)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_attribute_after</span></code>(self, name, attr)</p></td>
 <td><p>Inserts attribute with specified name after <em>attr</em> in the attribute list for this node.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_attribute_before</span></code>(self, name, attr)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_attribute_before</span></code>(self, name, attr)</p></td>
 <td><p>Inserts attribute with specified name before <em>attr</em> in the attribute list for this node.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_child_after</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_child_after</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_child_before</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_child_before</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_copy_after</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_copy_after</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_copy_before</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_copy_before</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_move_after</span></code>(self, moved, node)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_move_after</span></code>(self, moved, node)</p></td>
 <td><p>Moves specified node after <em>node</em> in the children list of the parent node.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_move_before</span></code>(self, moved, node)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">insert_move_before</span></code>(self, moved, node)</p></td>
 <td><p>Moves specified node before <em>node</em> in the children list of the parent node.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_attribute</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">internal_object</span></code>(self)</p></td>
+<td><p>Returns internal object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_attribute</span></code>(self)</p></td>
 <td><p>Returns last attribute in the attribute list for this node.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_child</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">last_child</span></code>(self)</p></td>
 <td><p>Returns last child.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.load_buffer" title="pugixml.pugi.XMLDocument.load_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_buffer</span></code></a>(self, contents, size[, options, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.load_buffer" title="pugixml.pugi.XMLDocument.load_buffer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_buffer</span></code></a>(self, contents, size[, options, ...])</p></td>
 <td><p>Loads document from a buffer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.load_file" title="pugixml.pugi.XMLDocument.load_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_file</span></code></a>(self, path[, options, encoding])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.load_file" title="pugixml.pugi.XMLDocument.load_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_file</span></code></a>(self, path[, options, encoding])</p></td>
 <td><p>Loads document from the existing file.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.load_string" title="pugixml.pugi.XMLDocument.load_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_string</span></code></a>(self, contents[, options])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.load_string" title="pugixml.pugi.XMLDocument.load_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_string</span></code></a>(self, contents[, options])</p></td>
 <td><p>Loads document from a string.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span></code>(self)</p></td>
 <td><p>Returns node name.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_sibling</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">next_sibling</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">offset_debug</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">offset_debug</span></code>(self)</p></td>
 <td><p>Returns node offset in parsed file/string for debugging purposes.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parent</span></code>(self)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parent</span></code>(self)</p></td>
 <td><p>Returns parent node.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">path</span></code>(self[, delimiter])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">path</span></code>(self[, delimiter])</p></td>
 <td><p>Returns absolute node path from root as a text string.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_attribute</span></code>(self, name)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_attribute</span></code>(self, name)</p></td>
 <td><p>Prepends attribute with specified name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_child</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_child</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_copy</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_copy</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_move</span></code>(self, moved)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prepend_move</span></code>(self, moved)</p></td>
 <td><p>Moves specified node to become a first child of this node.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">previous_sibling</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">previous_sibling</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code>(self, writer[, indent, flags, ...])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">print</span></code>(self, writer[, indent, flags, ...])</p></td>
 <td><p>Prints subtree using a writer object.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_attribute</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_attribute</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_attributes</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_attributes</span></code>(self)</p></td>
 <td><p>Removes all attributes from the node.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_child</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_child</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_children</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_children</span></code>(self)</p></td>
 <td><p>Removes all child nodes of the node.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.reset" title="pugixml.pugi.XMLDocument.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.reset" title="pugixml.pugi.XMLDocument.reset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">root</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">root</span></code>(self)</p></td>
 <td><p>Returns root of DOM tree this node belongs to.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.save" title="pugixml.pugi.XMLDocument.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(self, writer[, indent, flags, encoding])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.save" title="pugixml.pugi.XMLDocument.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save</span></code></a>(self, writer[, indent, flags, encoding])</p></td>
 <td><p>Saves XML document to writer.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.save_file" title="pugixml.pugi.XMLDocument.save_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_file</span></code></a>(self, path[, indent, flags, encoding])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLDocument.save_file" title="pugixml.pugi.XMLDocument.save_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">save_file</span></code></a>(self, path[, indent, flags, encoding])</p></td>
 <td><p>Saves XML document to a file.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_node</span></code>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_node</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_nodes</span></code>(*args, **kwargs)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">select_nodes</span></code>(*args, **kwargs)</p></td>
 <td><p>Overloaded function.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_name</span></code>(self, name)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_name</span></code>(self, name)</p></td>
 <td><p>Sets node name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_value</span></code>(self, value)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_value</span></code>(self, value)</p></td>
 <td><p>Sets node value.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code>(self)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">text</span></code>(self)</p></td>
 <td><p>Returns text object for the current node.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">traverse</span></code>(self, walker)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">traverse</span></code>(self, walker)</p></td>
 <td><p>Traverses subtree recursively with <a class="reference internal" href="../reference.html#pugixml.pugi.XMLTreeWalker" title="pugixml.pugi.XMLTreeWalker"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLTreeWalker</span></code></a>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code>(self)</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code>(self)</p></td>
 <td><p>Returns node type.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code>(self)</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span></code>(self)</p></td>
 <td><p>Returns node value.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </dd></dl>
+
 </section>
 
         </article>
@@ -432,14 +439,14 @@
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="pugixml.pugi.XMLAttribute.html">
+          <a class="prev-page" href="pugixml.pugi.XMLAttributeIterator.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">pugixml.pugi.XMLAttribute</div>
+                <div class="title">pugixml.pugi.XMLAttributeIterator</div>
                 
               </div>
             </a>
@@ -472,6 +479,7 @@
 </div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/scripts/furo.js"></script>
     <script src="../_static/clipboard.min.js"></script>

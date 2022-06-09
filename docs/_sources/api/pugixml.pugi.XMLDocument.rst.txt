@@ -42,6 +42,7 @@
       ~XMLDocument.insert_copy_before
       ~XMLDocument.insert_move_after
       ~XMLDocument.insert_move_before
+      ~XMLDocument.internal_object
       ~XMLDocument.last_attribute
       ~XMLDocument.last_child
       ~XMLDocument.load_buffer

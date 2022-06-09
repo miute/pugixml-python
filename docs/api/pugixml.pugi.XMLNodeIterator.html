@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pugixml.pugi.XMLParseStatus" href="pugixml.pugi.XMLParseStatus.html" /><link rel="prev" title="pugixml.pugi.XMLNodeType" href="pugixml.pugi.XMLNodeType.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pugixml.pugi.XMLNodeType" href="pugixml.pugi.XMLNodeType.html" /><link rel="prev" title="pugixml.pugi.XMLNode" href="pugixml.pugi.XMLNode.html" />
 
     <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
-        <title>pugixml.pugi.XMLParseResult - pugixml-python 0.2.0</title>
+        <title>pugixml.pugi.XMLNodeIterator - pugixml-python 0.2.0</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -167,9 +167,9 @@
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLEncoding.html">pugixml.pugi.XMLEncoding</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNamedNodeIterator.html">pugixml.pugi.XMLNamedNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNode.html">pugixml.pugi.XMLNode</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNodeIterator.html">pugixml.pugi.XMLNodeIterator</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pugixml.pugi.XMLNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLNodeType.html">pugixml.pugi.XMLNodeType</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pugixml.pugi.XMLParseResult</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLParseResult.html">pugixml.pugi.XMLParseResult</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLParseStatus.html">pugixml.pugi.XMLParseStatus</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLText.html">pugixml.pugi.XMLText</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLTreeWalker.html">pugixml.pugi.XMLTreeWalker</a></li>
@@ -216,43 +216,27 @@
           </label>
         </div>
         <article role="main">
-          <section id="pugixml-pugi-xmlparseresult">
-<h1>pugixml.pugi.XMLParseResult<a class="headerlink" href="#pugixml-pugi-xmlparseresult" title="Permalink to this heading">#</a></h1>
+          <section id="pugixml-pugi-xmlnodeiterator">
+<h1>pugixml.pugi.XMLNodeIterator<a class="headerlink" href="#pugixml-pugi-xmlnodeiterator" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="pugixml.pugi.XMLParseResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pugixml.pugi.</span></span><span class="sig-name descname"><span class="pre">XMLParseResult</span></span><a class="headerlink" href="#pugixml.pugi.XMLParseResult" title="Permalink to this definition">#</a></dt>
-<dd><p>Parsing result.</p>
+<dt class="sig sig-object py" id="pugixml.pugi.XMLNodeIterator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pugixml.pugi.</span></span><span class="sig-name descname"><span class="pre">XMLNodeIterator</span></span><a class="headerlink" href="#pugixml.pugi.XMLNodeIterator" title="Permalink to this definition">#</a></dt>
+<dd><p>A collection of nodes.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLNode.children" title="pugixml.pugi.XMLNode.children"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLNode.children()</span></code></a></p>
+</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="pugixml.pugi.XMLParseResult.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../reference.html#pugixml.pugi.XMLParseResult" title="pugixml.pugi.XMLParseResult"><span class="pre">pugixml.pugi.XMLParseResult</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pugixml.pugi.XMLParseResult.__init__" title="Permalink to this definition">#</a></dt>
-<dd><p>Initializes XMLParseResult.</p>
-</dd></dl>
+<dt class="sig sig-object py" id="pugixml.pugi.XMLNodeIterator.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pugixml.pugi.XMLNodeIterator.__init__" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
 
 <p class="rubric">Methods</p>
 <div class="table-wrapper autosummary longtable docutils container">
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLParseResult.__init__" title="pugixml.pugi.XMLParseResult.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
-<td><p>Initializes XMLParseResult.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLParseResult.description" title="pugixml.pugi.XMLParseResult.description"><code class="xref py py-obj docutils literal notranslate"><span class="pre">description</span></code></a>(self)</p></td>
-<td><p>Returns error description.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="rubric">Attributes</p>
-<div class="table-wrapper autosummary longtable docutils container">
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLParseResult.encoding" title="pugixml.pugi.XMLParseResult.encoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">encoding</span></code></a></p></td>
-<td><p>The source document encoding.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLParseResult.offset" title="pugixml.pugi.XMLParseResult.offset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">offset</span></code></a></p></td>
-<td><p>The last parsed offset.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLParseResult.status" title="pugixml.pugi.XMLParseResult.status"><code class="xref py py-obj docutils literal notranslate"><span class="pre">status</span></code></a></p></td>
-<td><p>The parsing status.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLNodeIterator.__init__" title="pugixml.pugi.XMLNodeIterator.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(*args, **kwargs)</p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -266,23 +250,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="pugixml.pugi.XMLParseStatus.html">
+          <a class="next-page" href="pugixml.pugi.XMLNodeType.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">pugixml.pugi.XMLParseStatus</div>
+                <div class="title">pugixml.pugi.XMLNodeType</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="pugixml.pugi.XMLNodeType.html">
+          <a class="prev-page" href="pugixml.pugi.XMLNode.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">pugixml.pugi.XMLNodeType</div>
+                <div class="title">pugixml.pugi.XMLNode</div>
                 
               </div>
             </a>

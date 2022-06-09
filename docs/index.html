@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Limitations" href="limits.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>pugixml-python 0.1.0</title>
+    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
+        <title>pugixml-python 0.2.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
 
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">pugixml-python 0.1.0</div></a>
+      <a href="#"><div class="brand">pugixml-python 0.2.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
 
 
-  <span class="sidebar-brand-text">pugixml-python 0.1.0</span>
+  <span class="sidebar-brand-text">pugixml-python 0.2.0</span>
 
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -162,9 +162,12 @@
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLAttributeIterator.html">pugixml.pugi.XMLAttributeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLDocument.html">pugixml.pugi.XMLDocument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLEncoding.html">pugixml.pugi.XMLEncoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNamedNodeIterator.html">pugixml.pugi.XMLNamedNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNode.html">pugixml.pugi.XMLNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNodeIterator.html">pugixml.pugi.XMLNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNodeType.html">pugixml.pugi.XMLNodeType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLParseResult.html">pugixml.pugi.XMLParseResult</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLParseStatus.html">pugixml.pugi.XMLParseStatus</a></li>
@@ -198,7 +201,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -213,7 +217,13 @@
         </div>
         <article role="main">
           <section id="python-bindings-for-pugixml">
-<h1>Python bindings for pugixml<a class="headerlink" href="#python-bindings-for-pugixml" title="Permalink to this headline">#</a></h1>
+<h1>Python bindings for pugixml<a class="headerlink" href="#python-bindings-for-pugixml" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/pugixml/"><img alt="PyPI" src="https://img.shields.io/pypi/v/pugixml" /></a>
+<a class="reference external" href="https://pypi.org/project/pugixml/"><img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/pugixml" /></a>
+<a class="reference external" href="https://pypi.org/project/pugixml/"><img alt="PyPI - License" src="https://img.shields.io/pypi/l/pugixml" /></a>
+<a class="reference external" href="https://results.pre-commit.ci/latest/github/miute/pugixml-python/main"><img alt="pre-commit.ci status" src="https://results.pre-commit.ci/badge/github/miute/pugixml-python/main.svg" /></a>
+<a class="reference external" href="https://github.com/miute/pugixml-python/actions/workflows/tests.yml"><img alt="tests" src="https://github.com/miute/pugixml-python/actions/workflows/tests.yml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/miute/pugixml-python/actions/workflows/build.yml"><img alt="build" src="https://github.com/miute/pugixml-python/actions/workflows/build.yml/badge.svg" /></a></p>
 <p><a class="reference external" href="http://pugixml.org/">pugixml</a> is a light-weight C++ XML processing library. It features:</p>
 <ul class="simple">
 <li><p>DOM-like interface with rich traversal/modification capabilities</p></li>
@@ -227,7 +237,7 @@
 <li><p><a class="reference external" href="https://pugixml.org/docs/manual.html">Reference manual</a></p></li>
 </ul>
 <section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">#</a></h2>
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="limits.html">Limitations</a><ul>
@@ -248,7 +258,7 @@
 </div>
 </section>
 <section id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">#</a></h2>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
@@ -321,6 +331,7 @@
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>

@@ -24,6 +24,7 @@
       ~XMLAttribute.as_ullong
       ~XMLAttribute.empty
       ~XMLAttribute.hash_value
+      ~XMLAttribute.internal_object
       ~XMLAttribute.name
       ~XMLAttribute.next_attribute
       ~XMLAttribute.previous_attribute

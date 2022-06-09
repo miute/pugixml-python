@@ -1,14 +1,14 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="pugixml.pugi.PrintWriter" href="api/pugixml.pugi.PrintWriter.html" /><link rel="prev" title="Installation" href="install.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
-        <title>API Reference - pugixml-python 0.1.0</title>
+    <meta name="generator" content="sphinx-5.0.1, furo 2022.06.04.1"/>
+        <title>API Reference - pugixml-python 0.2.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
 
@@ -124,7 +124,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">pugixml-python 0.1.0</div></a>
+      <a href="index.html"><div class="brand">pugixml-python 0.2.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -147,7 +147,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
 
 
-  <span class="sidebar-brand-text">pugixml-python 0.1.0</span>
+  <span class="sidebar-brand-text">pugixml-python 0.2.0</span>
 
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -162,9 +162,12 @@
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLAttributeIterator.html">pugixml.pugi.XMLAttributeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLDocument.html">pugixml.pugi.XMLDocument</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLEncoding.html">pugixml.pugi.XMLEncoding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNamedNodeIterator.html">pugixml.pugi.XMLNamedNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNode.html">pugixml.pugi.XMLNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNodeIterator.html">pugixml.pugi.XMLNodeIterator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLNodeType.html">pugixml.pugi.XMLNodeType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLParseResult.html">pugixml.pugi.XMLParseResult</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/pugixml.pugi.XMLParseStatus.html">pugixml.pugi.XMLParseStatus</a></li>
@@ -198,7 +201,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -213,14 +217,11 @@
         </div>
         <article role="main">
           <section id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">#</a></h1>
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading">#</a></h1>
 <section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">#</a></h2>
-<div class="table-wrapper"><table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<h2>Classes<a class="headerlink" href="#classes" title="Permalink to this heading">#</a></h2>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.PrintWriter" title="pugixml.pugi.PrintWriter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.PrintWriter</span></code></a></p></td>
 <td><p>(pugixml-python only) <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code> implementation for <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.stdout" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sys.stdout</span></code></a>.</p></td>
@@ -231,56 +232,66 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLAttribute" title="pugixml.pugi.XMLAttribute"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute</span></code></a></p></td>
 <td><p>A light-weight handle for manipulating attributes in DOM tree.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLDocument" title="pugixml.pugi.XMLDocument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLDocument</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLAttributeIterator" title="pugixml.pugi.XMLAttributeIterator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttributeIterator</span></code></a></p></td>
+<td><p>A collection of attributes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLDocument" title="pugixml.pugi.XMLDocument"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLDocument</span></code></a></p></td>
 <td><p>Document class (DOM tree root).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLEncoding" title="pugixml.pugi.XMLEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLEncoding</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLEncoding" title="pugixml.pugi.XMLEncoding"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLEncoding</span></code></a></p></td>
 <td><p>These flags determine the encoding of input data for XML document.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLNamedNodeIterator" title="pugixml.pugi.XMLNamedNodeIterator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNamedNodeIterator</span></code></a></p></td>
+<td><p>A collection of nodes specified by name.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLNode" title="pugixml.pugi.XMLNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode</span></code></a></p></td>
 <td><p>A light-weight handle for manipulating nodes in DOM tree.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLNodeType" title="pugixml.pugi.XMLNodeType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNodeType</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLNodeIterator" title="pugixml.pugi.XMLNodeIterator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNodeIterator</span></code></a></p></td>
+<td><p>A collection of nodes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLNodeType" title="pugixml.pugi.XMLNodeType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNodeType</span></code></a></p></td>
 <td><p>Tree node types.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLParseResult" title="pugixml.pugi.XMLParseResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLParseResult</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLParseResult" title="pugixml.pugi.XMLParseResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLParseResult</span></code></a></p></td>
 <td><p>Parsing result.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLParseStatus" title="pugixml.pugi.XMLParseStatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLParseStatus</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLParseStatus" title="pugixml.pugi.XMLParseStatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLParseStatus</span></code></a></p></td>
 <td><p>Parsing status, returned as part of <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLParseResult</span></code> object.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLText" title="pugixml.pugi.XMLText"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLText</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLText" title="pugixml.pugi.XMLText"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLText</span></code></a></p></td>
 <td><p>A helper for working with text inside PCDATA nodes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLTreeWalker" title="pugixml.pugi.XMLTreeWalker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLTreeWalker</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLTreeWalker" title="pugixml.pugi.XMLTreeWalker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLTreeWalker</span></code></a></p></td>
 <td><p>Abstract tree walker class.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLWriter" title="pugixml.pugi.XMLWriter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLWriter</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XMLWriter" title="pugixml.pugi.XMLWriter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XMLWriter</span></code></a></p></td>
 <td><p>Writer interface for node printing.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathNode" title="pugixml.pugi.XPathNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathNode</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathNode" title="pugixml.pugi.XPathNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathNode</span></code></a></p></td>
 <td><p>XPath node class (either <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLNode</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLAttribute</span></code>.)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathNodeSet" title="pugixml.pugi.XPathNodeSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathNodeSet</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathNodeSet" title="pugixml.pugi.XPathNodeSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathNodeSet</span></code></a></p></td>
 <td><p>A fixed-size collection of XPath nodes.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathParseResult" title="pugixml.pugi.XPathParseResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathParseResult</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathParseResult" title="pugixml.pugi.XPathParseResult"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathParseResult</span></code></a></p></td>
 <td><p>XPath parsing result.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathQuery" title="pugixml.pugi.XPathQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathQuery</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathQuery" title="pugixml.pugi.XPathQuery"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathQuery</span></code></a></p></td>
 <td><p>A compiled XPath query object.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathValueType" title="pugixml.pugi.XPathValueType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathValueType</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathValueType" title="pugixml.pugi.XPathValueType"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathValueType</span></code></a></p></td>
 <td><p>XPath query return type.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathVariable" title="pugixml.pugi.XPathVariable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathVariable</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathVariable" title="pugixml.pugi.XPathVariable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathVariable</span></code></a></p></td>
 <td><p>A single XPath variable.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathVariableSet" title="pugixml.pugi.XPathVariableSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathVariableSet</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.XPathVariableSet" title="pugixml.pugi.XPathVariableSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.XPathVariableSet</span></code></a></p></td>
 <td><p>A set of XPath variables.</p></td>
 </tr>
 </tbody>
-</table></div>
+</table>
+</div>
 </section>
 </section>
 
@@ -357,6 +368,7 @@
 </div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>

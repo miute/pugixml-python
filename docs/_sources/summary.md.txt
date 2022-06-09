@@ -9,9 +9,12 @@
    pugixml.pugi.PrintWriter
    pugixml.pugi.StringWriter
    pugixml.pugi.XMLAttribute
+   pugixml.pugi.XMLAttributeIterator
    pugixml.pugi.XMLDocument
    pugixml.pugi.XMLEncoding
+   pugixml.pugi.XMLNamedNodeIterator
    pugixml.pugi.XMLNode
+   pugixml.pugi.XMLNodeIterator
    pugixml.pugi.XMLNodeType
    pugixml.pugi.XMLParseResult
    pugixml.pugi.XMLParseStatus
