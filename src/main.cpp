@@ -114,7 +114,7 @@ public:
   using xml_writer::xml_writer;
 
   void write(const void *data, size_t size) override {
-    PYBIND11_OVERLOAD_PURE(void, xml_writer, write, py::bytes(static_cast<const char *>(data), size), size);
+    PYBIND11_OVERRIDE_PURE(void, xml_writer, write, py::bytes(static_cast<const char *>(data), size), size);
   }
 };
 
