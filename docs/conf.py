@@ -62,11 +62,15 @@ html_theme = "furo"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
+html_css_files = [
+    "css/custom.css",
+]
+
 html_title = f"{project} {version}"
 
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
-extlinks = {"pugixml": ("https://pugixml.org/docs/%s", "")}
+extlinks = {"pugixml": ("https://pugixml.org/docs/%s", None)}
 
 napoleon_use_admonition_for_examples = True
 # napoleon_use_rtype = False
@@ -75,3 +79,11 @@ copybutton_prompt_is_regexp = True
 copybutton_prompt_text = (
     r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: "
 )
+
+autodoc_default_options = {
+    "show-inheritance": True,
+    "undoc-members": True,
+    "special-members": True,
+    "private-members": True,
+    "exclude-members": "__annotations__, __module__, __repr__",
+}
