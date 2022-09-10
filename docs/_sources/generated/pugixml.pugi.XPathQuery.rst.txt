@@ -1,0 +1,65 @@
+﻿pugixml.pugi.XPathQuery
+=======================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XPathQuery
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+      ~XPathQuery.__bool__
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathQuery.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathQuery.evaluate_boolean
+
+
+      ~XPathQuery.evaluate_node
+
+
+      ~XPathQuery.evaluate_node_set
+
+
+      ~XPathQuery.evaluate_number
+
+
+      ~XPathQuery.evaluate_string
+
+
+      ~XPathQuery.result
+
+
+      ~XPathQuery.return_type

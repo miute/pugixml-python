@@ -1,0 +1,39 @@
+﻿pugixml.pugi.XMLNodeStruct
+==========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLNodeStruct
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+      ~XMLNodeStruct.__eq__
+
+
+
+
+
+
+      ~XMLNodeStruct.__hash__
+
+
+      ~XMLNodeStruct.__init__
+
+
+
+
+
+
+      ~XMLNodeStruct.__ne__

@@ -1,0 +1,53 @@
+﻿pugixml.pugi.XMLTreeWalker
+==========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLTreeWalker
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLTreeWalker.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLTreeWalker.begin
+
+
+      ~XMLTreeWalker.depth
+
+
+      ~XMLTreeWalker.end
+
+
+      ~XMLTreeWalker.for_each

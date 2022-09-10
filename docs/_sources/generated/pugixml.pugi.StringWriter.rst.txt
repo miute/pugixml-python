@@ -1,0 +1,44 @@
+﻿pugixml.pugi.StringWriter
+=========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: StringWriter
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~StringWriter.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~StringWriter.getvalue

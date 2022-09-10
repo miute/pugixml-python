@@ -1,0 +1,77 @@
+﻿pugixml.pugi.XPathNodeSet
+=========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XPathNodeSet
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+      ~XPathNodeSet.TYPE_SORTED
+
+
+      ~XPathNodeSet.TYPE_SORTED_REVERSE
+
+
+      ~XPathNodeSet.TYPE_UNSORTED
+
+
+      ~XPathNodeSet.Type
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathNodeSet.__getitem__
+
+
+
+
+      ~XPathNodeSet.__init__
+
+
+
+      ~XPathNodeSet.__iter__
+
+
+
+      ~XPathNodeSet.__len__
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathNodeSet.empty
+
+
+      ~XPathNodeSet.first
+
+
+      ~XPathNodeSet.size
+
+
+      ~XPathNodeSet.sort
+
+
+      ~XPathNodeSet.type

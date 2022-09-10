@@ -1,0 +1,7 @@
+.table-wrapper {
+  margin-top: 0 !important;
+}
+
+table.autosummary.longtable.docutils.align-default {
+  margin-left: 0 !important;
+}

@@ -1,0 +1,47 @@
+﻿pugixml.pugi.XMLNodeType
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLNodeType
+   :noindex:
+   :no-members:
+
+
+
+
+
+.. autoattribute:: pugixml.pugi.NODE_CDATA
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_COMMENT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_DECLARATION
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_DOCTYPE
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_DOCUMENT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_ELEMENT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_NULL
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_PCDATA
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.NODE_PI
+   :noindex:

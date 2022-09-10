@@ -1,0 +1,46 @@
+﻿pugixml.pugi.XMLNodeIterator
+============================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLNodeIterator
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLNodeIterator.__getitem__
+
+
+
+
+      ~XMLNodeIterator.__init__
+
+
+
+      ~XMLNodeIterator.__iter__
+
+
+
+      ~XMLNodeIterator.__len__
+
+
+
+
+
+
+      ~XMLNodeIterator.__next__

@@ -1,0 +1,39 @@
+﻿pugixml.pugi.XMLAttributeStruct
+===============================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLAttributeStruct
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+      ~XMLAttributeStruct.__eq__
+
+
+
+
+
+
+      ~XMLAttributeStruct.__hash__
+
+
+      ~XMLAttributeStruct.__init__
+
+
+
+
+
+
+      ~XMLAttributeStruct.__ne__

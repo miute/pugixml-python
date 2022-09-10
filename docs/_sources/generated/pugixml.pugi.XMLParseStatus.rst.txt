@@ -1,0 +1,79 @@
+﻿pugixml.pugi.XMLParseStatus
+===========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLParseStatus
+   :noindex:
+   :no-members:
+
+
+
+
+
+.. autoattribute:: pugixml.pugi.STATUS_APPEND_INVALID_ROOT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_ATTRIBUTE
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_CDATA
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_COMMENT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_DOCTYPE
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_END_ELEMENT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_PCDATA
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_PI
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_BAD_START_ELEMENT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_END_ELEMENT_MISMATCH
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_FILE_NOT_FOUND
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_INTERNAL_ERROR
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_IO_ERROR
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_NO_DOCUMENT_ELEMENT
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_OK
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_OUT_OF_MEMORY
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.STATUS_UNRECOGNIZED_TAG
+   :noindex:

@@ -1,0 +1,46 @@
+﻿pugixml.pugi.XMLAttributeIterator
+=================================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLAttributeIterator
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLAttributeIterator.__getitem__
+
+
+
+
+      ~XMLAttributeIterator.__init__
+
+
+
+      ~XMLAttributeIterator.__iter__
+
+
+
+      ~XMLAttributeIterator.__len__
+
+
+
+
+
+
+      ~XMLAttributeIterator.__next__

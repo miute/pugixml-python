@@ -1,0 +1,44 @@
+﻿pugixml.pugi.XMLWriter
+======================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLWriter
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLWriter.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLWriter.write

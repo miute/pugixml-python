@@ -1,0 +1,27 @@
+﻿pugixml.pugi.PrintWriter
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: PrintWriter
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+      ~PrintWriter.__init__

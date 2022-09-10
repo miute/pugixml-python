@@ -1,0 +1,109 @@
+﻿pugixml.pugi.XMLAttribute
+=========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLAttribute
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+      ~XMLAttribute.__bool__
+
+
+
+
+
+
+      ~XMLAttribute.__eq__
+
+
+
+      ~XMLAttribute.__ge__
+
+
+
+      ~XMLAttribute.__gt__
+
+
+      ~XMLAttribute.__hash__
+
+
+      ~XMLAttribute.__init__
+
+
+
+      ~XMLAttribute.__le__
+
+
+      ~XMLAttribute.__lt__
+
+
+
+      ~XMLAttribute.__ne__
+
+
+
+
+
+
+
+
+
+
+      ~XMLAttribute.as_bool
+
+
+      ~XMLAttribute.as_double
+
+
+      ~XMLAttribute.as_float
+
+
+      ~XMLAttribute.as_int
+
+
+      ~XMLAttribute.as_llong
+
+
+      ~XMLAttribute.as_string
+
+
+      ~XMLAttribute.as_uint
+
+
+      ~XMLAttribute.as_ullong
+
+
+      ~XMLAttribute.empty
+
+
+      ~XMLAttribute.hash_value
+
+
+      ~XMLAttribute.internal_object
+
+
+      ~XMLAttribute.name
+
+
+      ~XMLAttribute.next_attribute
+
+
+      ~XMLAttribute.previous_attribute
+
+
+      ~XMLAttribute.set_name
+
+
+      ~XMLAttribute.set_value
+
+
+      ~XMLAttribute.value

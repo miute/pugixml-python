@@ -1,0 +1,50 @@
+﻿pugixml.pugi.XPathVariableSet
+=============================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XPathVariableSet
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathVariableSet.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathVariableSet.add
+
+
+      ~XPathVariableSet.get
+
+
+      ~XPathVariableSet.set

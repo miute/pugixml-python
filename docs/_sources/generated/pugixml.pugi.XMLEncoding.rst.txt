@@ -1,0 +1,51 @@
+﻿pugixml.pugi.XMLEncoding
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLEncoding
+   :noindex:
+   :no-members:
+
+
+
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_AUTO
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_LATIN1
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_UTF16
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_UTF16_BE
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_UTF16_LE
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_UTF32
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_UTF32_BE
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_UTF32_LE
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_UTF8
+   :noindex:
+
+
+.. autoattribute:: pugixml.pugi.ENCODING_WCHAR
+   :noindex:

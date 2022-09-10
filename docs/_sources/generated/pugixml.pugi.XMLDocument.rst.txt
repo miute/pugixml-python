@@ -1,0 +1,109 @@
+﻿pugixml.pugi.XMLDocument
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLDocument
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLDocument.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLDocument.document_element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLDocument.load_buffer
+
+
+      ~XMLDocument.load_file
+
+
+      ~XMLDocument.load_string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLDocument.reset
+
+
+
+      ~XMLDocument.save
+
+
+      ~XMLDocument.save_file

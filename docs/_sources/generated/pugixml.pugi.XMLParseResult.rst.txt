@@ -1,0 +1,56 @@
+﻿pugixml.pugi.XMLParseResult
+===========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLParseResult
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+      ~XMLParseResult.__bool__
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLParseResult.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLParseResult.description
+
+
+      ~XMLParseResult.encoding
+
+
+      ~XMLParseResult.offset
+
+
+      ~XMLParseResult.status

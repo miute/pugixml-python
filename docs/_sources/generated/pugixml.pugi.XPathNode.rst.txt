@@ -1,0 +1,59 @@
+﻿pugixml.pugi.XPathNode
+======================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XPathNode
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+      ~XPathNode.__bool__
+
+
+
+
+
+
+      ~XPathNode.__eq__
+
+
+
+
+
+
+      ~XPathNode.__hash__
+
+
+      ~XPathNode.__init__
+
+
+
+
+
+
+      ~XPathNode.__ne__
+
+
+
+
+
+
+
+
+
+
+      ~XPathNode.attribute
+
+
+      ~XPathNode.node
+
+
+      ~XPathNode.parent

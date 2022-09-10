@@ -1,0 +1,80 @@
+﻿pugixml.pugi.XMLText
+====================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XMLText
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+      ~XMLText.__bool__
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLText.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XMLText.as_bool
+
+
+      ~XMLText.as_double
+
+
+      ~XMLText.as_float
+
+
+      ~XMLText.as_int
+
+
+      ~XMLText.as_llong
+
+
+      ~XMLText.as_string
+
+
+      ~XMLText.as_uint
+
+
+      ~XMLText.as_ullong
+
+
+      ~XMLText.data
+
+
+      ~XMLText.empty
+
+
+      ~XMLText.get
+
+
+      ~XMLText.set

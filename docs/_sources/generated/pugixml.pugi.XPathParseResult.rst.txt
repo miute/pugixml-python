@@ -1,0 +1,53 @@
+﻿pugixml.pugi.XPathParseResult
+=============================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: XPathParseResult
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+      ~XPathParseResult.__bool__
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathParseResult.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~XPathParseResult.description
+
+
+      ~XPathParseResult.error
+
+
+      ~XPathParseResult.offset
