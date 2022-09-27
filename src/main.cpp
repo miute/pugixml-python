@@ -1,5 +1,6 @@
 #include <filesystem>
 #include <iomanip>
+#include <limits>
 #include <map>
 #include <memory>
 #include <optional>
@@ -134,6 +135,9 @@ public:
 PYBIND11_MODULE(MODULE_NAME, m) {
   py::options options;
 
+  //
+  // pugixml.pugi module
+  //
   m.doc() = "Python bindings for pugixml - Light-weight, simple and fast XML parser for C++ with XPath support";
 
   m.attr("PUGIXML_VERSION") = PUGIXML_VERSION;
@@ -2859,4 +2863,22 @@ PYBIND11_MODULE(MODULE_NAME, m) {
           Returns:
               str: The entire contents of the text buffer.
           )doc");
+
+  //
+  // pugixml.pugi.limits submodule
+  //
+  auto m2 = m.def_submodule("limits");
+
+  m2.doc() = "Maximum and minimum finite values.";
+
+  m2.attr("DBL_MAX") = std::numeric_limits<double>::max();
+  m2.attr("DBL_MIN") = std::numeric_limits<double>::min();
+  m2.attr("FLT_MAX") = std::numeric_limits<float>::max();
+  m2.attr("FLT_MIN") = std::numeric_limits<float>::min();
+  m2.attr("INT_MAX") = std::numeric_limits<int>::max();
+  m2.attr("INT_MIN") = std::numeric_limits<int>::min();
+  m2.attr("LLONG_MAX") = std::numeric_limits<long long>::max();
+  m2.attr("LLONG_MIN") = std::numeric_limits<long long>::min();
+  m2.attr("UINT_MAX") = std::numeric_limits<unsigned int>::max();
+  m2.attr("ULLONG_MAX") = std::numeric_limits<unsigned long long>::max();
 }
