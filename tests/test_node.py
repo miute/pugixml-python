@@ -341,6 +341,17 @@ def test_bool():
     assert doc.child("node")
 
 
+def test_bytes_writer():
+    doc = pugi.XMLDocument()
+    doc.load_string("<node/>")
+
+    writer = pugi.BytesWriter()
+    doc.print(writer, flags=pugi.FORMAT_RAW, encoding=pugi.ENCODING_UTF32_BE)
+
+    assert len(writer) == 28
+    assert writer.getvalue().decode("utf-32be") == "<node/>"
+
+
 def test_child():
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1/><child2/></node>")

@@ -5,6 +5,9 @@ pugixml.pugi
 
 .. rubric:: Classes
 
+.. autoclass:: pugixml.pugi.BytesWriter
+   :members:
+
 .. autoclass:: pugixml.pugi.PrintWriter
    :members:
 

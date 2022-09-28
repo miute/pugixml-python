@@ -289,7 +289,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
           - You must override :meth:`.write` method in derived class.
 
       See Also:
-          :class:`PrintWriter`, :class:`StringWriter`, :meth:`XMLDocument.save`,
+          :class:`BytesWriter`, :class:`PrintWriter`, :class:`StringWriter`, :meth:`XMLDocument.save`,
           :meth:`XMLNode.print`
       )doc");
 
@@ -2804,6 +2804,45 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            Returns:
                bool: :obj:`True` if collection is empty, :obj:`False` otherwise.
            )doc");
+
+  //
+  // BytesWriter
+  //
+  struct BytesWriter : public xml_writer {
+    std::string contents;
+    void write(const void *data, size_t size) override { contents.append(static_cast<const char *>(data), size); }
+  };
+
+  py::class_<BytesWriter, xml_writer>(m, "BytesWriter", R"doc(
+      (pugixml-python only) :class:`XMLWriter` implementation for :obj:`bytes`.
+
+      See Also:
+          :meth:`XMLNode.print`
+
+      Examples:
+          >>> from pugixml import pugi
+          >>> doc = pugi.XMLDocument()
+          >>> doc.append_child('node')
+          >>> writer = pugi.BytesWriter()
+          >>> doc.print(writer, flags=pugi.FORMAT_RAW, encoding=pugi.ENCODING_UTF32_BE)
+          >>> writer.getvalue().decode('utf-32be')
+          '<node/>'
+      )doc")
+      .def(py::init<>(), "Initialize ``BytesWriter``.")
+      .def(
+          "__len__", [](const BytesWriter &self) { return self.contents.size(); }, R"doc(
+            Return the contents size in bytes.
+
+            Returns:
+                int: The contents size in bytes.
+            )doc")
+      .def(
+          "getvalue", [](const BytesWriter &self) { return py::bytes(self.contents); }, R"doc(
+          Return the entire contents of the buffer.
+
+          Returns:
+              bytes: The entire contents of the buffer.
+          )doc");
 
   //
   // PrintWriter
