@@ -2893,14 +2893,34 @@ PYBIND11_MODULE(MODULE_NAME, m) {
           >>> doc.print(writer, flags=pugi.FORMAT_RAW)
           >>> writer.getvalue()
           '<node/>'
+          >>> writer = pugi.StringWriter()
+          >>> doc.print(writer, flags=pugi.FORMAT_RAW, encoding=pugi.ENCODING_UTF32_LE)
+          >>> writer.getvalue()
+          '<\x00\x00\x00n\x00\x00\x00o\x00\x00\x00d\x00\x00\x00e\x00\x00\x00/\x00\x00\x00>\x00\x00\x00'
+          >>> writer.getvalue('utf-32le')
+          '<node/>'
       )doc")
       .def(py::init<>(), "Initialize ``StringWriter``.")
       .def(
-          "getvalue", [](const StringWriter &self) { return self.contents; }, R"doc(
-          Return a :obj:`str` containing the entire contents of the text buffer.
+          "getvalue",
+          [](const StringWriter &self, const char *encoding, const char *errors) {
+            auto buf = py::bytes(self.contents);
+            auto h = PyCodec_Decode(buf.ptr(), encoding, errors);
+            if (h == nullptr) {
+              throw py::error_already_set();
+            }
+            return py::str(h);
+          },
+          py::arg("encoding").none(false) = "utf-8", py::arg("errors") = "strict",
+          R"doc(
+          Return a :obj:`str` containing the entire contents of the buffer.
+
+          Args:
+              encoding (str): The codec registered for encoding to decode the buffer.
+              errors (str): The desired error handling scheme. See :func:`codecs.decode` for details.
 
           Returns:
-              str: The entire contents of the text buffer.
+              str: The entire contents of the buffer.
           )doc");
 
   //

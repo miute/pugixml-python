@@ -1660,6 +1660,40 @@ def test_set_value():
     assert writer.getvalue() == "<node>no text</node>"
 
 
+def test_string_writer():
+    doc = pugi.XMLDocument()
+    src = "<node>\ud83c\udf08</node>"
+    buf = src.encode("utf-16", "surrogatepass")
+    result = doc.load_buffer(buf, len(buf))
+    assert result
+
+    writer = pugi.StringWriter()
+    doc.print(writer, flags=pugi.FORMAT_RAW)
+    assert writer.getvalue() == "<node>\U0001f308</node>"
+
+    writer = pugi.StringWriter()
+    doc.print(writer, flags=pugi.FORMAT_RAW, encoding=pugi.ENCODING_UTF16)
+    with pytest.raises(UnicodeDecodeError):
+        _ = writer.getvalue()
+    with pytest.raises(UnicodeDecodeError):
+        _ = writer.getvalue("utf-8")
+    assert writer.getvalue("utf-16") == "<node>\U0001f308</node>"
+
+    # using error handler
+    src = "<node>\udf08</node>"
+    buf = src.encode("utf-32", "surrogatepass")
+    result = doc.load_buffer(buf, len(buf))
+    assert result
+
+    writer = pugi.StringWriter()
+    doc.print(writer, flags=pugi.FORMAT_RAW, encoding=pugi.ENCODING_UTF32)
+    with pytest.raises(UnicodeDecodeError):
+        _ = writer.getvalue()
+    with pytest.raises(UnicodeDecodeError):
+        _ = writer.getvalue("utf-32")
+    assert writer.getvalue("utf-32", "surrogatepass") == "<node>\udf08</node>"
+
+
 def test_text():
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>text</child></node>")
