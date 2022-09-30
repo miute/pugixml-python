@@ -2849,12 +2849,19 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //
   struct PrintWriter : public xml_writer {
     void write(const void *data, size_t size) override {
-      py::print(py::str(static_cast<const char *>(data), size), py::arg("end") = "");
+      auto h = PyUnicode_FromStringAndSize(static_cast<const char *>(data), size);
+      if (h == nullptr) {
+        throw py::error_already_set();
+      }
+      py::print(py::str(h), py::arg("end") = "");
     }
   };
 
   py::class_<PrintWriter, xml_writer>(m, "PrintWriter", R"doc(
       (pugixml-python only) :class:`XMLWriter` implementation for :obj:`sys.stdout`.
+
+      Note:
+          ``PrintWriter`` works only with UTF-8 encoding.
 
       See Also:
           :meth:`XMLNode.print`

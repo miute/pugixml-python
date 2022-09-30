@@ -1492,6 +1492,23 @@ def test_print():
     )
 
 
+def test_print_writer(capsys):
+    doc = pugi.XMLDocument()
+    doc.load_string("<node><child>\U0001f308</child></node>")
+
+    writer = pugi.PrintWriter()
+    doc.print(writer)
+
+    captured = capsys.readouterr()
+    assert captured.out == "<node>\n\t<child>\U0001f308</child>\n</node>\n"
+    assert len(captured.err) == 0
+
+    with pytest.raises(UnicodeDecodeError):
+        doc.print(writer, encoding=pugi.ENCODING_UTF16)
+    with pytest.raises(UnicodeDecodeError):
+        doc.print(writer, encoding=pugi.ENCODING_UTF32)
+
+
 def test_remove_attribute():
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1' a2='v2' a3='v3'><child a4='v4'/></node>")
