@@ -1669,10 +1669,12 @@ def test_string_writer():
 
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
+    assert len(writer) == 17
     assert writer.getvalue() == "<node>\U0001f308</node>"
 
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW, encoding=pugi.ENCODING_UTF16)
+    assert len(writer) == 30
     with pytest.raises(UnicodeDecodeError):
         _ = writer.getvalue()
     with pytest.raises(UnicodeDecodeError):
@@ -1687,6 +1689,7 @@ def test_string_writer():
 
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW, encoding=pugi.ENCODING_UTF32)
+    assert len(writer) == 56
     with pytest.raises(UnicodeDecodeError):
         _ = writer.getvalue()
     with pytest.raises(UnicodeDecodeError):

@@ -2902,6 +2902,13 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       )doc")
       .def(py::init<>(), "Initialize ``StringWriter``.")
       .def(
+          "__len__", [](const StringWriter &self) { return self.contents.size(); }, R"doc(
+            Return the contents size in bytes.
+
+            Returns:
+                int: The contents size in bytes.
+            )doc")
+      .def(
           "getvalue",
           [](const StringWriter &self, const char *encoding, const char *errors) {
             auto buf = py::bytes(self.contents);
