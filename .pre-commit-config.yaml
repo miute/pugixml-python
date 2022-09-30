@@ -3,9 +3,9 @@ repos:
     rev: v4.3.0
     hooks:
       - id: trailing-whitespace
-        exclude: ^docs/api/
+        exclude: ^docs/generated/
       - id: end-of-file-fixer
-        exclude: ^docs/api/
+        exclude: ^docs/generated/
       - id: check-yaml
       - id: check-added-large-files
       - id: check-toml
