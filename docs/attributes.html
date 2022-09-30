@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="pugixml.pugi.PrintWriter" href="generated/pugixml.pugi.PrintWriter.html" /><link rel="prev" title="API Reference" href="summary.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="pugixml.pugi.BytesWriter" href="generated/pugixml.pugi.BytesWriter.html" /><link rel="prev" title="API Reference" href="summary.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
         <title>pugixml.pugi - pugixml-python 0.3.0.dev1</title>
@@ -161,6 +161,8 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="summary.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pugixml.pugi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.BytesWriter.html">pugixml.pugi.BytesWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
@@ -726,18 +728,83 @@ This flag is off by default; turning it on may result in slower parsing and more
 
 </section>
 </section>
+<section id="module-pugixml.pugi.limits">
+<span id="pugixml-pugi-limits"></span><h1>pugixml.pugi.limits<a class="headerlink" href="#module-pugixml.pugi.limits" title="Permalink to this heading">#</a></h1>
+<p>Maximum and minimum finite values.</p>
+<p class="rubric">Attributes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.DBL_MAX">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">DBL_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.7976931348623157e+308</span></em><a class="headerlink" href="#pugixml.pugi.limits.DBL_MAX" title="Permalink to this definition">#</a></dt>
+<dd><p>Maximum value of type <code class="docutils literal notranslate"><span class="pre">double</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.DBL_MIN">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">DBL_MIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2.2250738585072014e-308</span></em><a class="headerlink" href="#pugixml.pugi.limits.DBL_MIN" title="Permalink to this definition">#</a></dt>
+<dd><p>Minimum value of type <code class="docutils literal notranslate"><span class="pre">double</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.FLT_MAX">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">FLT_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3.4028234663852886e+38</span></em><a class="headerlink" href="#pugixml.pugi.limits.FLT_MAX" title="Permalink to this definition">#</a></dt>
+<dd><p>Maximum value of type <code class="docutils literal notranslate"><span class="pre">float</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.FLT_MIN">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">FLT_MIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1.1754943508222875e-38</span></em><a class="headerlink" href="#pugixml.pugi.limits.FLT_MIN" title="Permalink to this definition">#</a></dt>
+<dd><p>Minimum value of type <code class="docutils literal notranslate"><span class="pre">float</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.INT_MAX">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">INT_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2147483647</span></em><a class="headerlink" href="#pugixml.pugi.limits.INT_MAX" title="Permalink to this definition">#</a></dt>
+<dd><p>Maximum value of type <code class="docutils literal notranslate"><span class="pre">int</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.INT_MIN">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">INT_MIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-2147483648</span></em><a class="headerlink" href="#pugixml.pugi.limits.INT_MIN" title="Permalink to this definition">#</a></dt>
+<dd><p>Minimum value of type <code class="docutils literal notranslate"><span class="pre">int</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.LLONG_MAX">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">LLONG_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">9223372036854775807</span></em><a class="headerlink" href="#pugixml.pugi.limits.LLONG_MAX" title="Permalink to this definition">#</a></dt>
+<dd><p>Maximum value of type <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.LLONG_MIN">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">LLONG_MIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-9223372036854775808</span></em><a class="headerlink" href="#pugixml.pugi.limits.LLONG_MIN" title="Permalink to this definition">#</a></dt>
+<dd><p>Minimum value of type <code class="docutils literal notranslate"><span class="pre">long</span> <span class="pre">long</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.UINT_MAX">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">UINT_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4294967295</span></em><a class="headerlink" href="#pugixml.pugi.limits.UINT_MAX" title="Permalink to this definition">#</a></dt>
+<dd><p>Maximum value of type <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">int</span></code> in C/C++.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.limits.ULLONG_MAX">
+<span class="sig-prename descclassname"><span class="pre">limits.</span></span><span class="sig-name descname"><span class="pre">ULLONG_MAX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">18446744073709551615</span></em><a class="headerlink" href="#pugixml.pugi.limits.ULLONG_MAX" title="Permalink to this definition">#</a></dt>
+<dd><p>Maximum value of type <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">long</span></code> in C/C++.</p>
+</dd></dl>
+
+</section>
 
         </article>
       </div>
       <footer>
 
         <div class="related-pages">
-          <a class="next-page" href="generated/pugixml.pugi.PrintWriter.html">
+          <a class="next-page" href="generated/pugixml.pugi.BytesWriter.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">pugixml.pugi.PrintWriter</div>
+                <div class="title">pugixml.pugi.BytesWriter</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -794,6 +861,7 @@ This flag is off by default; turning it on may result in slower parsing and more
 <li><a class="reference internal" href="#misc">Misc.</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
 </ul>
 
           </div>

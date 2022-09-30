@@ -1,0 +1,46 @@
+﻿pugixml.pugi.BytesWriter
+========================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: BytesWriter
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+      ~BytesWriter.__init__
+
+
+
+
+      ~BytesWriter.__len__
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~BytesWriter.getvalue

@@ -369,3 +369,50 @@ Misc.
 .. autoattribute:: pugixml.pugi.PUGIXML_VERSION
 
    An integer literal representing the version of ``pugixml``; major * 1000 + minor * 10 + patch.
+
+pugixml.pugi.limits
+===================
+
+.. automodule:: pugixml.pugi.limits
+
+.. rubric:: Attributes
+
+.. autoattribute:: pugixml.pugi.limits.DBL_MAX
+
+   Maximum value of type ``double`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.DBL_MIN
+
+   Minimum value of type ``double`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.FLT_MAX
+
+   Maximum value of type ``float`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.FLT_MIN
+
+   Minimum value of type ``float`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.INT_MAX
+
+   Maximum value of type ``int`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.INT_MIN
+
+   Minimum value of type ``int`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.LLONG_MAX
+
+   Maximum value of type ``long long`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.LLONG_MIN
+
+   Minimum value of type ``long long`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.UINT_MAX
+
+   Maximum value of type ``unsigned int`` in C/C++.
+
+.. autoattribute:: pugixml.pugi.limits.ULLONG_MAX
+
+   Maximum value of type ``unsigned long long`` in C/C++.

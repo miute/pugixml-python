@@ -16,6 +16,7 @@ Classes
    :toctree: generated/
    :template: class.rst
 
+   pugixml.pugi.BytesWriter
    pugixml.pugi.PrintWriter
    pugixml.pugi.StringWriter
    pugixml.pugi.XMLAttribute

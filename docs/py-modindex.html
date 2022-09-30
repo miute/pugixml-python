@@ -2,12 +2,10 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="install.html" /><link rel="prev" title="Python bindings for pugixml" href="index.html" />
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>Limitations - pugixml-python 0.3.0.dev1</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/><title>Python Module Index - pugixml-python 0.3.0.dev1</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -136,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -156,12 +154,13 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Limitations</a></li>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="limits.html">Limitations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="summary.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="attributes.html">pugixml.pugi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.BytesWriter.html">pugixml.pugi.BytesWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
@@ -216,113 +215,46 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-          <section id="limitations">
-<h1>Limitations<a class="headerlink" href="#limitations" title="Permalink to this heading">#</a></h1>
-<section id="unsupported-apis">
-<h2>Unsupported APIs<a class="headerlink" href="#unsupported-apis" title="Permalink to this heading">#</a></h2>
-<p>The following APIs are not implemented.</p>
-<section id="structures-classes">
-<h3>Structures/Classes<a class="headerlink" href="#structures-classes" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>pugi::xml_writer_file</p></li>
-<li><p>pugi::xml_writer_stream</p></li>
-<li><p>pugi::xpath_exception</p></li>
-</ul>
+
+<section class="domainindex-section">
+  <h1>Python Module Index</h1>
+  <div class="domainindex-jumpbox"><a href="#cap-p"><strong>p</strong></a></div>
 </section>
-<section id="methods">
-<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>General</p>
-<ul>
-<li><p>Move constructors</p></li>
-<li><p>Assignment operators</p></li>
-</ul>
-</li>
-<li><p>pugi::xml_attribute</p>
-<ul>
-<li><p>set_value(float, int)</p></li>
-<li><p>set_value(float)</p></li>
-<li><p>set_value(int)</p></li>
-<li><p>set_value(long)</p></li>
-<li><p>set_value(unsigned int)</p></li>
-<li><p>set_value(unsigned long)</p></li>
-</ul>
-</li>
-<li><p>pugi::xml_document</p>
-<ul>
-<li><p>load(std::basic_istream, …)</p></li>
-<li><p>load_buffer_inplace_own(…)</p></li>
-<li><p>load_buffer_inplace(…)</p></li>
-<li><p>save(std::basic_ostream, …)</p></li>
-</ul>
-</li>
-<li><p>pugi::xml_node</p>
-<ul>
-<li><p>attributes_begin()</p></li>
-<li><p>attributes_end()</p></li>
-<li><p>begin()</p></li>
-<li><p>end()</p></li>
-<li><p>print(std::basic_ostream, …)</p></li>
-<li><p>select_single_node(…)</p></li>
-</ul>
-</li>
-<li><p>pugi::xml_text</p>
-<ul>
-<li><p>set(float, int)</p></li>
-<li><p>set(float)</p></li>
-<li><p>set(int)</p></li>
-<li><p>set(long)</p></li>
-<li><p>set(unsigned int)</p></li>
-<li><p>set(unsigned long)</p></li>
-</ul>
-</li>
-</ul>
-</section>
-</section>
-<section id="changes">
-<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this heading">#</a></h2>
-<section id="naming-conventions">
-<h3>Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this heading">#</a></h3>
-<p>Class and constant names are renamed based on <a class="reference external" href="https://peps.python.org/pep-0008/#naming-conventions">PEP 8</a>.</p>
-<ul class="simple">
-<li><p>Class Names: Use the CapWords style.</p></li>
-<li><p>Constants: Use the UPPER_CASE_WITH_UNDERSCORES style.</p></li>
-</ul>
-</section>
-</section>
-</section>
+<table class="domainindex-table">
+  <tr class="pcap">
+    <td></td><td>&#160;</td><td></td>
+  </tr>
+  <tr class="cap" id="cap-p">
+    <td></td><td><strong>p</strong></td><td></td>
+  </tr>
+  <tr>
+    <td><img src="_static/minus.png" class="toggler"
+              id="toggle-1" style="display: none" alt="-" /></td>
+    <td>
+        <code class="xref">pugixml</code></td><td>
+    <em></em></td>
+  </tr>
+  <tr class="cg-1">
+    <td></td>
+    <td>&#160;&#160;&#160;
+        <a href="attributes.html#module-pugixml.pugi.limits"><code class="xref">pugixml.pugi.limits</code></a></td><td>
+    <em></em></td>
+  </tr>
+</table>
 
         </article>
       </div>
       <footer>
 
         <div class="related-pages">
-          <a class="next-page" href="install.html">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Installation</div>
-              </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="index.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
 
-                <div class="title">Home</div>
 
-              </div>
-            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -343,35 +275,8 @@
 
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
 
-
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            Contents
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Limitations</a><ul>
-<li><a class="reference internal" href="#unsupported-apis">Unsupported APIs</a><ul>
-<li><a class="reference internal" href="#structures-classes">Structures/Classes</a></li>
-<li><a class="reference internal" href="#methods">Methods</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#changes">Changes</a><ul>
-<li><a class="reference internal" href="#naming-conventions">Naming Conventions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
 
 
     </aside>

@@ -161,6 +161,8 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="summary.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="attributes.html">pugixml.pugi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.BytesWriter.html">pugixml.pugi.BytesWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
@@ -225,6 +227,63 @@
 <h1>pugixml.pugi<a class="headerlink" href="#pugixml-pugi" title="Permalink to this heading">#</a></h1>
 <p class="rubric">Classes</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="pugixml.pugi.BytesWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pugixml.pugi.</span></span><span class="sig-name descname"><span class="pre">BytesWriter</span></span><a class="headerlink" href="#pugixml.pugi.BytesWriter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pugixml.pugi.XMLWriter" title="pugixml.pugi.XMLWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code></a></p>
+<p>(pugixml-python only) <a class="reference internal" href="#pugixml.pugi.XMLWriter" title="pugixml.pugi.XMLWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code></a> implementation for <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="#pugixml.pugi.XMLNode.print" title="pugixml.pugi.XMLNode.print"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLNode.print()</span></code></a></p>
+</div>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pugixml</span> <span class="kn">import</span> <span class="n">pugi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span> <span class="o">=</span> <span class="n">pugi</span><span class="o">.</span><span class="n">XMLDocument</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">append_child</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span> <span class="o">=</span> <span class="n">pugi</span><span class="o">.</span><span class="n">BytesWriter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">FORMAT_RAW</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">ENCODING_UTF32_BE</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-32be&#39;</span><span class="p">)</span>
+<span class="go">&#39;&lt;node/&gt;&#39;</span>
+</pre></div>
+</div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pugixml.pugi.BytesWriter.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pugixml.pugi.BytesWriter" title="pugixml.pugi.BytesWriter"><span class="pre">pugixml.pugi.BytesWriter</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#pugixml.pugi.BytesWriter.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize <code class="docutils literal notranslate"><span class="pre">BytesWriter</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pugixml.pugi.BytesWriter.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pugixml.pugi.BytesWriter" title="pugixml.pugi.BytesWriter"><span class="pre">pugixml.pugi.BytesWriter</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pugixml.pugi.BytesWriter.__len__" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the contents size in bytes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The contents size in bytes.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pugixml.pugi.BytesWriter.getvalue">
+<span class="sig-name descname"><span class="pre">getvalue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pugixml.pugi.BytesWriter" title="pugixml.pugi.BytesWriter"><span class="pre">pugixml.pugi.BytesWriter</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#pugixml.pugi.BytesWriter.getvalue" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the entire contents of the buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The entire contents of the buffer.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="pugixml.pugi.PrintWriter">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pugixml.pugi.</span></span><span class="sig-name descname"><span class="pre">PrintWriter</span></span><a class="headerlink" href="#pugixml.pugi.PrintWriter" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#pugixml.pugi.XMLWriter" title="pugixml.pugi.XMLWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code></a></p>
@@ -272,6 +331,12 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">FORMAT_RAW</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 <span class="go">&#39;&lt;node/&gt;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span> <span class="o">=</span> <span class="n">pugi</span><span class="o">.</span><span class="n">StringWriter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">FORMAT_RAW</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">ENCODING_UTF32_LE</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+<span class="go">&#39;&lt;\x00\x00\x00n\x00\x00\x00o\x00\x00\x00d\x00\x00\x00e\x00\x00\x00/\x00\x00\x00&gt;\x00\x00\x00&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span><span class="s1">&#39;utf-32le&#39;</span><span class="p">)</span>
+<span class="go">&#39;&lt;node/&gt;&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -282,15 +347,35 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="pugixml.pugi.StringWriter.getvalue">
-<span class="sig-name descname"><span class="pre">getvalue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pugixml.pugi.StringWriter" title="pugixml.pugi.StringWriter"><span class="pre">pugixml.pugi.StringWriter</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#pugixml.pugi.StringWriter.getvalue" title="Permalink to this definition">#</a></dt>
-<dd><p>Return a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> containing the entire contents of the text buffer.</p>
+<dt class="sig sig-object py" id="pugixml.pugi.StringWriter.__len__">
+<span class="sig-name descname"><span class="pre">__len__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pugixml.pugi.StringWriter" title="pugixml.pugi.StringWriter"><span class="pre">pugixml.pugi.StringWriter</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#pugixml.pugi.StringWriter.__len__" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the contents size in bytes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The entire contents of the text buffer.</p>
+<dd class="field-odd"><p>The contents size in bytes.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pugixml.pugi.StringWriter.getvalue">
+<span class="sig-name descname"><span class="pre">getvalue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pugixml.pugi.StringWriter" title="pugixml.pugi.StringWriter"><span class="pre">pugixml.pugi.StringWriter</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'strict'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></span><a class="headerlink" href="#pugixml.pugi.StringWriter.getvalue" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> containing the entire contents of the buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encoding</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The codec registered for encoding to decode the buffer.</p></li>
+<li><p><strong>errors</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The desired error handling scheme. See <a class="reference external" href="https://docs.python.org/3/library/codecs.html#codecs.decode" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">codecs.decode()</span></code></a> for details.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The entire contents of the buffer.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -3475,7 +3560,7 @@ in the depth first order.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="#pugixml.pugi.PrintWriter" title="pugixml.pugi.PrintWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrintWriter</span></code></a>, <a class="reference internal" href="#pugixml.pugi.StringWriter" title="pugixml.pugi.StringWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringWriter</span></code></a>, <a class="reference internal" href="#pugixml.pugi.XMLDocument.save" title="pugixml.pugi.XMLDocument.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLDocument.save()</span></code></a>,
+<p><a class="reference internal" href="#pugixml.pugi.BytesWriter" title="pugixml.pugi.BytesWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BytesWriter</span></code></a>, <a class="reference internal" href="#pugixml.pugi.PrintWriter" title="pugixml.pugi.PrintWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PrintWriter</span></code></a>, <a class="reference internal" href="#pugixml.pugi.StringWriter" title="pugixml.pugi.StringWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">StringWriter</span></code></a>, <a class="reference internal" href="#pugixml.pugi.XMLDocument.save" title="pugixml.pugi.XMLDocument.save"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLDocument.save()</span></code></a>,
 <a class="reference internal" href="#pugixml.pugi.XMLNode.print" title="pugixml.pugi.XMLNode.print"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLNode.print()</span></code></a></p>
 </div>
 <dl class="py method">

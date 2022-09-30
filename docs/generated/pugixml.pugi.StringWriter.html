@@ -161,6 +161,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../summary.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../attributes.html">pugixml.pugi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.BytesWriter.html">pugixml.pugi.BytesWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
@@ -241,6 +243,12 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">FORMAT_RAW</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
 <span class="go">&#39;&lt;node/&gt;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span> <span class="o">=</span> <span class="n">pugi</span><span class="o">.</span><span class="n">StringWriter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">FORMAT_RAW</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">ENCODING_UTF32_LE</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+<span class="go">&#39;&lt;\x00\x00\x00n\x00\x00\x00o\x00\x00\x00d\x00\x00\x00e\x00\x00\x00/\x00\x00\x00&gt;\x00\x00\x00&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span><span class="s1">&#39;utf-32le&#39;</span><span class="p">)</span>
+<span class="go">&#39;&lt;node/&gt;&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -251,8 +259,11 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.StringWriter.__init__" title="pugixml.pugi.StringWriter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
 <td><p>Initialize <code class="docutils literal notranslate"><span class="pre">StringWriter</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.StringWriter.getvalue" title="pugixml.pugi.StringWriter.getvalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getvalue</span></code></a>(self)</p></td>
-<td><p>Return a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> containing the entire contents of the text buffer.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.StringWriter.__len__" title="pugixml.pugi.StringWriter.__len__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__len__</span></code></a>(self)</p></td>
+<td><p>Return the contents size in bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.StringWriter.getvalue" title="pugixml.pugi.StringWriter.getvalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getvalue</span></code></a>(self[, encoding, errors])</p></td>
+<td><p>Return a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">str</span></code></a> containing the entire contents of the buffer.</p></td>
 </tr>
 </tbody>
 </table>

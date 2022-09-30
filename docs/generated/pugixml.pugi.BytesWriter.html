@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pugixml.pugi.XPathParseResult" href="pugixml.pugi.XPathParseResult.html" /><link rel="prev" title="pugixml.pugi.XPathNodeSet" href="pugixml.pugi.XPathNodeSet.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="pugixml.pugi.PrintWriter" href="pugixml.pugi.PrintWriter.html" /><link rel="prev" title="pugixml.pugi" href="../attributes.html" />
 
     <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>pugixml.pugi.XPathNodeSet.Type - pugixml-python 0.3.0.dev1</title>
+        <title>pugixml.pugi.BytesWriter - pugixml-python 0.3.0.dev1</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -162,7 +162,7 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../summary.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../attributes.html">pugixml.pugi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.BytesWriter.html">pugixml.pugi.BytesWriter</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pugixml.pugi.BytesWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
@@ -182,7 +182,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XMLWriter.html">pugixml.pugi.XMLWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XPathNode.html">pugixml.pugi.XPathNode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XPathNodeSet.html">pugixml.pugi.XPathNodeSet</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">pugixml.pugi.XPathNodeSet.Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XPathNodeSet.Type.html">pugixml.pugi.XPathNodeSet.Type</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XPathParseResult.html">pugixml.pugi.XPathParseResult</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XPathQuery.html">pugixml.pugi.XPathQuery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pugixml.pugi.XPathValueType.html">pugixml.pugi.XPathValueType</a></li>
@@ -223,19 +223,45 @@
           </label>
         </div>
         <article role="main">
-          <section id="pugixml-pugi-xpathnodeset-type">
-<h1>pugixml.pugi.XPathNodeSet.Type<a class="headerlink" href="#pugixml-pugi-xpathnodeset-type" title="Permalink to this heading">#</a></h1>
+          <section id="pugixml-pugi-byteswriter">
+<h1>pugixml.pugi.BytesWriter<a class="headerlink" href="#pugixml-pugi-byteswriter" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pugixml.pugi.XPathNodeSet.</span></span><span class="sig-name descname"><span class="pre">Type</span></span></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_object</span></code></p>
-<p>Collection type.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pugixml.pugi.</span></span><span class="sig-name descname"><span class="pre">BytesWriter</span></span></dt>
+<dd><p>Bases: <a class="reference internal" href="../reference.html#pugixml.pugi.XMLWriter" title="pugixml.pugi.XMLWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code></a></p>
+<p>(pugixml-python only) <a class="reference internal" href="../reference.html#pugixml.pugi.XMLWriter" title="pugixml.pugi.XMLWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code></a> implementation for <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../reference.html#pugixml.pugi.XMLNode.print" title="pugixml.pugi.XMLNode.print"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLNode.print()</span></code></a></p>
+</div>
+<div class="admonition-examples admonition">
+<p class="admonition-title">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pugixml</span> <span class="kn">import</span> <span class="n">pugi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span> <span class="o">=</span> <span class="n">pugi</span><span class="o">.</span><span class="n">XMLDocument</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">append_child</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span> <span class="o">=</span> <span class="n">pugi</span><span class="o">.</span><span class="n">BytesWriter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doc</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">FORMAT_RAW</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">pugi</span><span class="o">.</span><span class="n">ENCODING_UTF32_BE</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">writer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-32be&#39;</span><span class="p">)</span>
+<span class="go">&#39;&lt;node/&gt;&#39;</span>
+</pre></div>
+</div>
+</div>
 <p>Members:</p>
-<blockquote>
-<div><p>TYPE_UNSORTED : Not ordered.</p>
-<p>TYPE_SORTED : Sorted by document order (ascending).</p>
-<p>TYPE_SORTED_REVERSE : Sorted by document order (descending).</p>
-</div></blockquote>
+<div class="table-wrapper autosummary longtable docutils container">
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.BytesWriter.__init__" title="pugixml.pugi.BytesWriter.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(self)</p></td>
+<td><p>Initialize <code class="docutils literal notranslate"><span class="pre">BytesWriter</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.BytesWriter.__len__" title="pugixml.pugi.BytesWriter.__len__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__len__</span></code></a>(self)</p></td>
+<td><p>Return the contents size in bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../reference.html#pugixml.pugi.BytesWriter.getvalue" title="pugixml.pugi.BytesWriter.getvalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getvalue</span></code></a>(self)</p></td>
+<td><p>Return the entire contents of the buffer.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </dd></dl>
 
 </section>
@@ -245,23 +271,23 @@
       <footer>
 
         <div class="related-pages">
-          <a class="next-page" href="pugixml.pugi.XPathParseResult.html">
+          <a class="next-page" href="pugixml.pugi.PrintWriter.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">pugixml.pugi.XPathParseResult</div>
+                <div class="title">pugixml.pugi.PrintWriter</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="pugixml.pugi.XPathNodeSet.html">
+          <a class="prev-page" href="../attributes.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
 
-                <div class="title">pugixml.pugi.XPathNodeSet</div>
+                <div class="title">pugixml.pugi</div>
 
               </div>
             </a>

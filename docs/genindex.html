@@ -159,6 +159,8 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="summary.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="attributes.html">pugixml.pugi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.BytesWriter.html">pugixml.pugi.BytesWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.PrintWriter.html">pugixml.pugi.PrintWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.StringWriter.html">pugixml.pugi.StringWriter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.XMLAttribute.html">pugixml.pugi.XMLAttribute</a></li>
@@ -222,7 +224,7 @@
 
 <section class="genindex-section">
   <h1 id="index">Index</h1>
-  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a></div>
+  <div class="genindex-jumpbox"><a href="#_"><strong>_</strong></a> | <a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a> | <a href="#X"><strong>X</strong></a></div>
 </section>
 <section id="_" class="genindex-section">
   <h2>_</h2>
@@ -284,9 +286,11 @@
           <li><a href="reference.html#pugixml.pugi.XMLNode.__hash__">(pugixml.pugi.XMLNode method)</a>
 </li>
         </ul></li>
-        <li><a href="reference.html#pugixml.pugi.PrintWriter.__init__">__init__() (pugixml.pugi.PrintWriter method)</a>
+        <li><a href="reference.html#pugixml.pugi.BytesWriter.__init__">__init__() (pugixml.pugi.BytesWriter method)</a>
 
         <ul>
+          <li><a href="reference.html#pugixml.pugi.PrintWriter.__init__">(pugixml.pugi.PrintWriter method)</a>
+</li>
           <li><a href="reference.html#pugixml.pugi.StringWriter.__init__">(pugixml.pugi.StringWriter method)</a>
 </li>
           <li><a href="reference.html#pugixml.pugi.XMLAttribute.__init__">(pugixml.pugi.XMLAttribute method)</a>
@@ -332,9 +336,13 @@
           <li><a href="reference.html#pugixml.pugi.XMLNode.__le__">(pugixml.pugi.XMLNode method)</a>
 </li>
         </ul></li>
-        <li><a href="reference.html#pugixml.pugi.XMLAttributeIterator.__len__">__len__() (pugixml.pugi.XMLAttributeIterator method)</a>
+        <li><a href="reference.html#pugixml.pugi.BytesWriter.__len__">__len__() (pugixml.pugi.BytesWriter method)</a>
 
         <ul>
+          <li><a href="reference.html#pugixml.pugi.StringWriter.__len__">(pugixml.pugi.StringWriter method)</a>
+</li>
+          <li><a href="reference.html#pugixml.pugi.XMLAttributeIterator.__len__">(pugixml.pugi.XMLAttributeIterator method)</a>
+</li>
           <li><a href="reference.html#pugixml.pugi.XMLNamedNodeIterator.__len__">(pugixml.pugi.XMLNamedNodeIterator method)</a>
 </li>
           <li><a href="reference.html#pugixml.pugi.XMLNodeIterator.__len__">(pugixml.pugi.XMLNodeIterator method)</a>
@@ -457,6 +465,10 @@
         <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.begin">begin() (pugixml.pugi.XMLTreeWalker method)</a>
 </li>
     </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.BytesWriter">BytesWriter (class in pugixml.pugi)</a>
+</li>
+    </ul></td>
   </tr></table>
 </section>
 
@@ -482,10 +494,14 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="reference.html#pugixml.pugi.XMLText.data">data() (pugixml.pugi.XMLText method)</a>
 </li>
-        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.depth">depth() (pugixml.pugi.XMLTreeWalker method)</a>
+        <li><a href="attributes.html#pugixml.pugi.limits.DBL_MAX">DBL_MAX (pugixml.pugi.limits attribute)</a>
+</li>
+        <li><a href="attributes.html#pugixml.pugi.limits.DBL_MIN">DBL_MIN (pugixml.pugi.limits attribute)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.depth">depth() (pugixml.pugi.XMLTreeWalker method)</a>
+</li>
         <li><a href="reference.html#pugixml.pugi.XMLParseResult.description">description() (pugixml.pugi.XMLParseResult method)</a>
 
         <ul>
@@ -574,12 +590,16 @@
 </li>
         <li><a href="reference.html#pugixml.pugi.XMLNode.first_element_by_path">first_element_by_path() (pugixml.pugi.XMLNode method)</a>
 </li>
-        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.for_each">for_each() (pugixml.pugi.XMLTreeWalker method)</a>
+        <li><a href="attributes.html#pugixml.pugi.limits.FLT_MAX">FLT_MAX (pugixml.pugi.limits attribute)</a>
 </li>
-        <li><a href="attributes.html#pugixml.pugi.FORMAT_ATTRIBUTE_SINGLE_QUOTE">FORMAT_ATTRIBUTE_SINGLE_QUOTE (pugixml.pugi attribute)</a>
+        <li><a href="attributes.html#pugixml.pugi.limits.FLT_MIN">FLT_MIN (pugixml.pugi.limits attribute)</a>
+</li>
+        <li><a href="reference.html#pugixml.pugi.XMLTreeWalker.for_each">for_each() (pugixml.pugi.XMLTreeWalker method)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="attributes.html#pugixml.pugi.FORMAT_ATTRIBUTE_SINGLE_QUOTE">FORMAT_ATTRIBUTE_SINGLE_QUOTE (pugixml.pugi attribute)</a>
+</li>
         <li><a href="attributes.html#pugixml.pugi.FORMAT_DEFAULT">FORMAT_DEFAULT (pugixml.pugi attribute)</a>
 </li>
         <li><a href="attributes.html#pugixml.pugi.FORMAT_INDENT">FORMAT_INDENT (pugixml.pugi attribute)</a>
@@ -616,16 +636,20 @@
         </ul></li>
         <li><a href="reference.html#pugixml.pugi.XPathVariable.get_boolean">get_boolean() (pugixml.pugi.XPathVariable method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="reference.html#pugixml.pugi.XPathVariable.get_node_set">get_node_set() (pugixml.pugi.XPathVariable method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="reference.html#pugixml.pugi.XPathVariable.get_number">get_number() (pugixml.pugi.XPathVariable method)</a>
 </li>
         <li><a href="reference.html#pugixml.pugi.XPathVariable.get_string">get_string() (pugixml.pugi.XPathVariable method)</a>
 </li>
-        <li><a href="reference.html#pugixml.pugi.StringWriter.getvalue">getvalue() (pugixml.pugi.StringWriter method)</a>
+        <li><a href="reference.html#pugixml.pugi.BytesWriter.getvalue">getvalue() (pugixml.pugi.BytesWriter method)</a>
+
+        <ul>
+          <li><a href="reference.html#pugixml.pugi.StringWriter.getvalue">(pugixml.pugi.StringWriter method)</a>
 </li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -658,13 +682,17 @@
 </li>
         <li><a href="reference.html#pugixml.pugi.XMLNode.insert_copy_after">insert_copy_after() (pugixml.pugi.XMLNode method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="reference.html#pugixml.pugi.XMLNode.insert_copy_before">insert_copy_before() (pugixml.pugi.XMLNode method)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="reference.html#pugixml.pugi.XMLNode.insert_move_after">insert_move_after() (pugixml.pugi.XMLNode method)</a>
 </li>
         <li><a href="reference.html#pugixml.pugi.XMLNode.insert_move_before">insert_move_before() (pugixml.pugi.XMLNode method)</a>
+</li>
+        <li><a href="attributes.html#pugixml.pugi.limits.INT_MAX">INT_MAX (pugixml.pugi.limits attribute)</a>
+</li>
+        <li><a href="attributes.html#pugixml.pugi.limits.INT_MIN">INT_MIN (pugixml.pugi.limits attribute)</a>
 </li>
         <li><a href="reference.html#pugixml.pugi.XMLAttribute.internal_object">internal_object() (pugixml.pugi.XMLAttribute method)</a>
 
@@ -684,14 +712,33 @@
 </li>
         <li><a href="reference.html#pugixml.pugi.XMLNode.last_child">last_child() (pugixml.pugi.XMLNode method)</a>
 </li>
+        <li><a href="attributes.html#pugixml.pugi.limits.LLONG_MAX">LLONG_MAX (pugixml.pugi.limits attribute)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="attributes.html#pugixml.pugi.limits.LLONG_MIN">LLONG_MIN (pugixml.pugi.limits attribute)</a>
+</li>
         <li><a href="reference.html#pugixml.pugi.XMLDocument.load_buffer">load_buffer() (pugixml.pugi.XMLDocument method)</a>
 </li>
         <li><a href="reference.html#pugixml.pugi.XMLDocument.load_file">load_file() (pugixml.pugi.XMLDocument method)</a>
 </li>
         <li><a href="reference.html#pugixml.pugi.XMLDocument.load_string">load_string() (pugixml.pugi.XMLDocument method)</a>
 </li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    module
+
+        <ul>
+          <li><a href="attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a>
+</li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -790,10 +837,10 @@
 </li>
         <li><a href="attributes.html#pugixml.pugi.PARSE_PI">PARSE_PI (pugixml.pugi attribute)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="attributes.html#pugixml.pugi.PARSE_TRIM_PCDATA">PARSE_TRIM_PCDATA (pugixml.pugi attribute)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="attributes.html#pugixml.pugi.PARSE_WCONV_ATTRIBUTE">PARSE_WCONV_ATTRIBUTE (pugixml.pugi attribute)</a>
 </li>
         <li><a href="attributes.html#pugixml.pugi.PARSE_WNORM_ATTRIBUTE">PARSE_WNORM_ATTRIBUTE (pugixml.pugi attribute)</a>
@@ -820,6 +867,13 @@
 </li>
         <li><a href="reference.html#pugixml.pugi.PrintWriter">PrintWriter (class in pugixml.pugi)</a>
 </li>
+        <li>
+    pugixml.pugi.limits
+
+        <ul>
+          <li><a href="attributes.html#module-pugixml.pugi.limits">module</a>
+</li>
+        </ul></li>
         <li><a href="attributes.html#pugixml.pugi.PUGIXML_VERSION">PUGIXML_VERSION (pugixml.pugi attribute)</a>
 </li>
     </ul></td>
@@ -957,6 +1011,20 @@
         <li><a href="reference.html#pugixml.pugi.XPathNodeSet.TYPE_SORTED_REVERSE">TYPE_SORTED_REVERSE (pugixml.pugi.XPathNodeSet attribute)</a>
 </li>
         <li><a href="reference.html#pugixml.pugi.XPathNodeSet.TYPE_UNSORTED">TYPE_UNSORTED (pugixml.pugi.XPathNodeSet attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="attributes.html#pugixml.pugi.limits.UINT_MAX">UINT_MAX (pugixml.pugi.limits attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="attributes.html#pugixml.pugi.limits.ULLONG_MAX">ULLONG_MAX (pugixml.pugi.limits attribute)</a>
 </li>
     </ul></td>
   </tr></table>
