@@ -1,3 +1,8 @@
+import os
+import tempfile
+from contextlib import closing
+from pathlib import Path
+
 import pytest
 
 from pugixml import pugi
@@ -509,6 +514,47 @@ def test_empty():
 
     assert pugi.XMLNode().empty()
     assert not doc.child("node").empty()
+
+
+def test_file_writer():
+    doc = pugi.XMLDocument()
+    doc.load_string("<node><child>\U0001f308</child></node>")
+    expected = "<node>\n\t<child>\U0001f308</child>\n</node>\n"
+
+    with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
+        file = Path(temp, "temp-{}.xml".format(os.getpid()))
+
+        with closing(pugi.FileWriter(file)) as writer:
+            doc.print(writer)
+        with open(file, "rb") as f:
+            assert f.read().decode() == expected
+
+        with closing(pugi.FileWriter(file)) as writer:
+            doc.print(writer, encoding=pugi.ENCODING_UTF16)
+        with open(file, "rb") as f:
+            assert f.read().decode("utf-16") == expected
+
+        writer = pugi.FileWriter(file)
+        doc.print(writer, encoding=pugi.ENCODING_UTF32)
+        del writer
+        with open(file, "rb") as f:
+            assert f.read().decode("utf-32") == expected
+
+        writer = pugi.FileWriter(file)
+        writer.close()
+        writer.close()
+        del writer
+
+        writer = pugi.FileWriter(file)
+        del writer
+
+        with pytest.raises(OSError):
+            _ = pugi.FileWriter(".")
+
+        writer = pugi.FileWriter(file)
+        writer.close()
+        with pytest.raises(OSError):
+            doc.print(writer)
 
 
 def test_find_attribute():

@@ -8,6 +8,9 @@ pugixml.pugi
 .. autoclass:: pugixml.pugi.BytesWriter
    :members:
 
+.. autoclass:: pugixml.pugi.FileWriter
+   :members:
+
 .. autoclass:: pugixml.pugi.PrintWriter
    :members:
 

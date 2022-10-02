@@ -1,4 +1,5 @@
 #include <filesystem>
+#include <fstream>
 #include <iomanip>
 #include <limits>
 #include <map>
@@ -138,7 +139,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //
   // pugixml.pugi module
   //
-  m.doc() = "Python bindings for pugixml - Light-weight, simple and fast XML parser for C++ with XPath support";
+  m.doc() = "A light-weight, simple and fast XML parser for C++ with XPath support.";
 
   m.attr("PUGIXML_VERSION") = PUGIXML_VERSION;
 
@@ -289,8 +290,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
           - You must override :meth:`.write` method in derived class.
 
       See Also:
-          :class:`BytesWriter`, :class:`PrintWriter`, :class:`StringWriter`, :meth:`XMLDocument.save`,
-          :meth:`XMLNode.print`
+          :class:`BytesWriter`, :class:`FileWriter`, :class:`PrintWriter`, :class:`StringWriter`,
+          :meth:`XMLDocument.save`, :meth:`XMLNode.print`
       )doc");
 
   py::class_<xml_attribute> attr(m, "XMLAttribute", "A light-weight handle for manipulating attributes in DOM tree.");
@@ -2843,6 +2844,65 @@ PYBIND11_MODULE(MODULE_NAME, m) {
           Returns:
               bytes: The entire contents of the buffer.
           )doc");
+
+  //
+  // FileWriter
+  //
+  struct FileWriter : public xml_writer {
+    std::ofstream file;
+    FileWriter(const fs::path &path) {
+      try {
+        file.open(path, std::ios_base::out | std::ios_base::binary);
+        file.exceptions(std::ios_base::failbit | std::ios_base::badbit);
+      } catch (const std::exception &e) {
+        PyErr_SetString(PyExc_OSError, e.what());
+        throw py::error_already_set();
+      }
+    }
+    void close() {
+      if (file.is_open()) {
+        file.close();
+      }
+    }
+    void write(const void *data, size_t size) override {
+      try {
+        file.write(static_cast<const char *>(data), size);
+      } catch (const std::exception &e) {
+        PyErr_SetString(PyExc_OSError, e.what());
+        throw py::error_already_set();
+      }
+    }
+  };
+
+  py::class_<FileWriter, xml_writer>(m, "FileWriter", R"doc(
+      (pugixml-python only) :class:`XMLWriter` implementation for a file.
+
+      Raises:
+          OSError: When a file fails to open or write.
+
+      See Also:
+          :meth:`XMLDocument.save`, :meth:`XMLNode.print`
+
+      Examples:
+          >>> from contextlib import closing
+          >>> from pugixml import pugi
+          >>> doc = pugi.XMLDocument()
+          >>> doc.load_string('<node><child>\U0001f308</child></node>')
+          >>> with closing(pugi.FileWriter('tree.xml')) as writer:
+          ...     doc.save(writer)
+      )doc")
+      .def(py::init<const fs::path &>(), py::arg("file"), R"doc(
+        Initialize ``FileWriter``.
+
+        Open a file for writing and associate it with this object.
+
+        Args:
+            file (os.PathLike): The path-like object of the file to save the XML document or a single subtree.
+
+        Raises:
+            OSError: When a file fails to open.
+        )doc")
+      .def("close", &FileWriter::close, "Close the associated file.");
 
   //
   // PrintWriter
