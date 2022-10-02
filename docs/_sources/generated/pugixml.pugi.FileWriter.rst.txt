@@ -1,0 +1,44 @@
+﻿pugixml.pugi.FileWriter
+=======================
+
+.. currentmodule:: pugixml.pugi
+
+.. autoclass:: FileWriter
+   :noindex:
+
+
+
+   Members:
+
+
+   .. autosummary::
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~FileWriter.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      ~FileWriter.close

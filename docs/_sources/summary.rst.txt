@@ -17,6 +17,7 @@ Classes
    :template: class.rst
 
    pugixml.pugi.BytesWriter
+   pugixml.pugi.FileWriter
    pugixml.pugi.PrintWriter
    pugixml.pugi.StringWriter
    pugixml.pugi.XMLAttribute
