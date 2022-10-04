@@ -6,14 +6,15 @@
   - Add support for Python 3.11
   - Add pugixml.pugi.BytesWriter class
   - Add pugixml.pugi.FileWriter class
-- Added
   - Add pugixml.pugi.limits submodule
+- Added
   - Add pugixml.pugi.StringWriter.\_\_len__()
+- Changed
+  - Update pugixml to 521b2cd854f8d65f173107d056d2b9c6d49b6563
+  - Update pybind11 to v2.10.0
 - Fixed
   - Fix pugixml.pugi.PrintWriter to raise an exception when encoding fails
 - Improved
-  - Update pugixml to 521b2cd854f8d65f173107d056d2b9c6d49b6563
-  - Update pybind11 to v2.10.0
   - Update docstring
   - Change args of pugixml.pugi.StringWriter.getvalue() → getvalue(encoding: str = 'utf-8', errors: str = 'strict')
 
