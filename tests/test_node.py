@@ -1722,6 +1722,25 @@ def test_set_value():
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == "<node>no text</node>"
 
+    child = node.first_child()
+    assert child.set_value("no text", 2)  # len(value) > size
+    assert child.value() == "no"
+
+    assert child.set_value("no text", 16)  # len(value) <= size
+    assert child.value() == "no text"
+
+    assert child.set_value("no text", 0)  # size == 0
+    assert len(child.value()) == 0
+
+    assert not node.set_value("no text", 2)
+    assert not pugi.XMLNode().set_value("no text", 2)
+
+    with pytest.raises(TypeError):
+        assert child.set_value(None, 2)  # value is None
+
+    with pytest.raises(TypeError):
+        assert child.set_value("no text", -1)  # negative size
+
 
 def test_string_writer():
     doc = pugi.XMLDocument()
