@@ -876,7 +876,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "\tSet the attribute value as a number [0, ULLONG_MAX].\n\n"
            "Args:\n"
            "    value (typing.Union[str, bool, float, int]): The attribute value to set.\n"
-           "    size (int): The length of the value.\n"
+           "    size (int): The length for the attribute value as a string.\n"
            "    precision (int): The precision for the attribute value as a floating point number.\n\n"
            "Returns:\n"
            "    bool: :obj:`False` if attribute is empty or there is not enough memory.");
@@ -2061,6 +2061,18 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            )doc");
 
   text.def("set", py::overload_cast<const char_t *>(&xml_text::set), py::arg("value"), "\tSet the contents.")
+      .def(
+          "set",
+          [](xml_text &self, const char_t *value, size_t size) {
+            size_t sz =
+#ifdef PUGIXML_WCHAR_MODE
+                wcslen(value);
+#else
+                strlen(value);
+#endif
+            return self.set(value, std::min(size, sz));
+          },
+          py::arg("value").none(false), py::arg("size"), "\tSet the contents with the specified length.")
       .def("set", py::overload_cast<bool>(&xml_text::set), py::arg("value"),
            "\tSet the contents as a boolean (\"true\" or \"false\").")
       .def("set", py::overload_cast<double>(&xml_text::set), py::arg("value").noconvert(),
@@ -2073,6 +2085,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "\tSet the contents as a number [0, ULLONG_MAX].\n\n"
            "Args:\n"
            "    value (typing.Union[str, bool, float, int]): The contents to set.\n"
+           "    size (int): The length for the contents as a string.\n"
            "    precision (int): The precision for the contents as a floating point number.\n\n"
            "Returns:\n"
            "    bool: :obj:`False` if object is empty or there is not enough memory.");

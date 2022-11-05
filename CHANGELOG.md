@@ -5,6 +5,7 @@
 - Added
   - Add pugixml.pugi.XMLAttribute.set_value(value: str, size: int)
   - Add pugixml.pugi.XMLNode.set_value(value: str, size: int)
+  - Add pugixml.pugi.XMLText.set(value: str, size: int)
 - Changed
   - Update pugixml to v1.13
   - Update pybind11 to v2.10.1

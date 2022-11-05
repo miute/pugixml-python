@@ -294,6 +294,24 @@ def test_set_value():
         "</node>"
     )
 
+    text = node.child("text1").text()
+    assert text.set("v2", 1024)  # len(value) <= size
+    assert text.get() == "v2"
+
+    assert text.set("v2", 1)  # len(value) > size
+    assert text.get() == "v"
+
+    assert text.set("v2", 0)  # size == 0
+    assert len(text.get()) == 0
+
+    assert not pugi.XMLText().set("v2", 2)
+
+    with pytest.raises(TypeError):
+        assert text.set(None, 2)  # value is None
+
+    with pytest.raises(TypeError):
+        assert text.set("v2", -1)  # negative size
+
 
 def test_set_value_double():
     doc = pugi.XMLDocument()
