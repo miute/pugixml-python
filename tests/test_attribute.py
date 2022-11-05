@@ -369,6 +369,24 @@ def test_set_value():
         'attr8="true"/>'
     )
 
+    attr = node.append_attribute("attr9")
+    assert attr.set_value("v2", 1024)  # len(value) <= size
+    assert attr.value() == "v2"
+
+    assert attr.set_value("v2", 1)  # len(value) > size
+    assert attr.value() == "v"
+
+    assert attr.set_value("v2", 0)  # size == 0
+    assert len(attr.value()) == 0
+
+    assert not pugi.XMLAttribute().set_value("v2", 2)
+
+    with pytest.raises(TypeError):
+        assert attr.set_value(None, 2)  # value is None
+
+    with pytest.raises(TypeError):
+        assert attr.set_value("v2", -1)  # negative size
+
 
 def test_set_value_double():
     doc = pugi.XMLDocument()

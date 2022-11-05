@@ -3,6 +3,7 @@
 ## WIP
 
 - Added
+  - Add pugixml.pugi.XMLAttribute.set_value(value: str, size: int)
   - Add pugixml.pugi.XMLNode.set_value(value: str, size: int)
 - Changed
   - Update pugixml to v1.13

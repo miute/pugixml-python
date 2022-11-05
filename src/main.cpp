@@ -851,6 +851,18 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   attr.def("set_value", py::overload_cast<const char_t *>(&xml_attribute::set_value), py::arg("value"),
            "\tSet the attribute value.")
+      .def(
+          "set_value",
+          [](xml_attribute &self, const char_t *value, size_t size) {
+            size_t sz =
+#ifdef PUGIXML_WCHAR_MODE
+                wcslen(value);
+#else
+                strlen(value);
+#endif
+            return self.set_value(value, std::min(size, sz));
+          },
+          py::arg("value").none(false), py::arg("size"), "\tSet the attribute value with the specified length.")
       .def("set_value", py::overload_cast<bool>(&xml_attribute::set_value), py::arg("value"),
            "\tSet the attribute value as a boolean (\"true\" or \"false\").")
       .def("set_value", py::overload_cast<double>(&xml_attribute::set_value), py::arg("value").noconvert(),
@@ -864,6 +876,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "\tSet the attribute value as a number [0, ULLONG_MAX].\n\n"
            "Args:\n"
            "    value (typing.Union[str, bool, float, int]): The attribute value to set.\n"
+           "    size (int): The length of the value.\n"
            "    precision (int): The precision for the attribute value as a floating point number.\n\n"
            "Returns:\n"
            "    bool: :obj:`False` if attribute is empty or there is not enough memory.");
