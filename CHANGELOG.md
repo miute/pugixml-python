@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## WIP
+## v0.4.0 / 2022-11-11
 
 - Added
   - Add pugixml.pugi.XMLAttribute.set_value(value: str, size: int)
