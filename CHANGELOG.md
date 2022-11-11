@@ -9,6 +9,8 @@
 - Changed
   - Update pugixml to v1.13
   - Update pybind11 to v2.10.1
+- Improved
+  - Improve type checking
 
 ## v0.3.0 / 2022-10-03
 

@@ -77,6 +77,9 @@ def test_append_attribute():
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == '<node a1="v1" a2="v2"><child a3="v3"/></node>'
 
+    with pytest.raises(TypeError):
+        node.append_attribute(None)
+
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_modify.cpp
 def test_append_buffer():
@@ -145,6 +148,15 @@ def test_append_child():
     assert writer.getvalue() == (
         "<node>foo<child>n3</child><n1/><n2/></node><!--n4-->"
     )
+
+    n5 = doc.append_child("n5")
+    assert isinstance(n5, pugi.XMLNode)
+    assert n5.name() == "n5"
+    assert n5.type() == pugi.NODE_ELEMENT
+    assert doc.last_child() == n5
+
+    with pytest.raises(TypeError):
+        doc.append_child(None)
 
 
 def test_append_copy_attribute():
@@ -274,6 +286,9 @@ def test_attribute():
     assert attr.name() == "attr2"
     assert attr.value() == "1"
 
+    with pytest.raises(TypeError):
+        _ = node.attribute(None)
+
 
 def test_attribute_hinted():
     doc = pugi.XMLDocument()
@@ -303,6 +318,9 @@ def test_attribute_hinted():
 
     assert not node.attribute("attr", hint)
     assert hint == attr2
+
+    with pytest.raises(TypeError):
+        _ = node.attribute(None, hint)
 
 
 def test_attributes():
@@ -373,6 +391,9 @@ def test_child():
     assert isinstance(child2, pugi.XMLNode)
     assert child2.name() == "child2"
 
+    with pytest.raises(TypeError):
+        _ = node.child(None)
+
 
 def test_child_value():
     doc = pugi.XMLDocument()
@@ -393,6 +414,9 @@ def test_child_value():
 
     assert node.child_value("child3") == "value3"
     assert len(node.child_value("novalue")) == 0
+
+    with pytest.raises(TypeError):
+        _ = node.child_value(None)
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_traverse.cpp
@@ -415,6 +439,9 @@ def test_children():
             assert c.text().as_int() == index
             index += 1
     assert index == 5
+
+    with pytest.raises(TypeError):
+        _ = doc.children(None)
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_traverse.cpp
@@ -522,7 +549,7 @@ def test_file_writer():
     expected = "<node>\n\t<child>\U0001f308</child>\n</node>\n"
 
     with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
-        file = Path(temp, "temp-{}.xml".format(os.getpid()))
+        file = Path(temp, "test_file_writer-{}.xml".format(os.getpid()))
 
         with closing(pugi.FileWriter(file)) as writer:
             doc.print(writer)
@@ -623,6 +650,27 @@ def test_find_child_by_attribute():
     )
     assert node.find_child_by_attribute("attr3", "value") == pugi.XMLNode()
 
+    with pytest.raises(TypeError):
+        _ = node.find_child_by_attribute(
+            None, "attr", "value3"
+        )  # name is None
+
+    with pytest.raises(TypeError):
+        _ = node.find_child_by_attribute(
+            "child2", None, "value3"
+        )  # attr_name is None
+
+    with pytest.raises(TypeError):
+        _ = node.find_child_by_attribute(
+            "child2", "attr", None
+        )  # attr_value is None
+
+    with pytest.raises(TypeError):
+        _ = node.find_child_by_attribute(None, "value2")  # attr_name is None
+
+    with pytest.raises(TypeError):
+        _ = node.find_child_by_attribute("attr", None)  # attr_value is None
+
 
 def test_find_node():
     doc = pugi.XMLDocument()
@@ -677,6 +725,12 @@ def test_first_element_by_path():
     assert doc.first_element_by_path("\\node\\child1", "\\") == node.child(
         "child1"
     )
+
+    with pytest.raises(TypeError):
+        _ = doc.first_element_by_path(None, "/")  # path is None
+
+    with pytest.raises(TypeError):
+        _ = doc.first_element_by_path("/", None)  # delimiter is None
 
 
 def test_first_last_attribute():
@@ -790,6 +844,9 @@ def test_insert_attribute_after():
         == '<node a1="v1" a4="v4" a3="v3" a5="v5"><child a2="v2"/></node>'
     )
 
+    with pytest.raises(TypeError):
+        node.insert_attribute_after(None, a1)  # name is None
+
 
 def test_insert_attribute_before():
     doc = pugi.XMLDocument()
@@ -830,6 +887,9 @@ def test_insert_attribute_before():
         == '<node a5="v5" a3="v3" a4="v4" a1="v1"><child a2="v2"/></node>'
     )
 
+    with pytest.raises(TypeError):
+        node.insert_attribute_before(None, a1)  # name is None
+
 
 def test_insert_child_after_name():
     doc = pugi.XMLDocument()
@@ -851,6 +911,9 @@ def test_insert_child_after_name():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == "<node>foo<child/><n2/><n1/></node>"
+
+    with pytest.raises(TypeError):
+        node.insert_child_after(None, child)  # name is None
 
 
 def test_insert_child_after_type():
@@ -914,6 +977,9 @@ def test_insert_child_before_name():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == "<node>foo<n1/><n2/><child/></node>"
+
+    with pytest.raises(TypeError):
+        node.insert_child_before(None, child)  # name is None
 
 
 def test_insert_child_before_type():
@@ -1247,6 +1313,12 @@ def test_next_previous_sibling():
     assert child3.previous_sibling("child1") == child1
     assert child3.previous_sibling("child") == pugi.XMLNode()
 
+    with pytest.raises(TypeError):
+        _ = child1.next_sibling(None)
+
+    with pytest.raises(TypeError):
+        _ = child1.previous_sibling(None)
+
 
 def test_offset_debug():
     doc = pugi.XMLDocument()
@@ -1341,6 +1413,9 @@ def test_path():
     doc.append_child(pugi.NODE_ELEMENT)
     assert doc.last_child().path() == "/"
 
+    with pytest.raises(TypeError):
+        _ = node.path(None)
+
 
 def test_prepend_attribute():
     doc = pugi.XMLDocument()
@@ -1365,6 +1440,9 @@ def test_prepend_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == '<node a2="v2" a1="v1"><child a3="v3"/></node>'
+
+    with pytest.raises(TypeError):
+        node.prepend_attribute(None)
 
 
 def test_prepend_copy_attribute():
@@ -1482,6 +1560,15 @@ def test_prepend_child():
         "<!--n4--><node><n2/><n1/>foo<child>n3</child></node>"
     )
 
+    n0 = node.prepend_child("n0")
+    assert isinstance(n0, pugi.XMLNode)
+    assert n0.name() == "n0"
+    assert n0.type() == pugi.NODE_ELEMENT
+    assert node.first_child() == n0
+
+    with pytest.raises(TypeError):
+        _ = node.prepend_child(None)
+
 
 def test_prepend_move():
     doc = pugi.XMLDocument()
@@ -1537,6 +1624,10 @@ def test_print():
         b"\x00e\x00>\x00\n\x00"
     )
 
+    writer = _TestWriter()
+    with pytest.raises(TypeError):
+        doc.print(writer, indent=None)
+
 
 def test_print_writer(capsys):
     doc = pugi.XMLDocument()
@@ -1578,6 +1669,9 @@ def test_remove_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == '<node a2="v2"><child/></node>'
+
+    with pytest.raises(TypeError):
+        node.remove_attribute(None)
 
 
 def test_remove_attributes():
@@ -1622,6 +1716,9 @@ def test_remove_child():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == "<node><n2/><child/></node>"
+
+    with pytest.raises(TypeError):
+        node.remove_child(None)
 
 
 def test_remove_children():
@@ -1708,6 +1805,9 @@ def test_set_name():
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == "<n>text</n>"
 
+    with pytest.raises(TypeError):
+        node.set_name(None)
+
 
 def test_set_value():
     doc = pugi.XMLDocument()
@@ -1736,10 +1836,13 @@ def test_set_value():
     assert not pugi.XMLNode().set_value("no text", 2)
 
     with pytest.raises(TypeError):
-        assert child.set_value(None, 2)  # value is None
+        child.set_value(None)  # value is None
 
     with pytest.raises(TypeError):
-        assert child.set_value("no text", -1)  # negative size
+        child.set_value(None, 2)  # value is None
+
+    with pytest.raises(TypeError):
+        child.set_value("no text", -1)  # negative size
 
 
 def test_string_writer():

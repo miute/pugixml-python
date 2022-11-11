@@ -224,6 +224,9 @@ def test_defaults():
     assert attr.as_llong(42) == 42
     assert attr.as_ullong(42) == 42
 
+    with pytest.raises(TypeError):
+        _ = attr.as_string(None)
+
 
 def test_empty():
     doc = pugi.XMLDocument()
@@ -346,6 +349,9 @@ def test_set_name():
     assert attr.set_name("n")
     assert attr.name() == "n"
 
+    with pytest.raises(TypeError):
+        attr.set_name(None)
+
 
 def test_set_value():
     doc = pugi.XMLDocument()
@@ -369,6 +375,10 @@ def test_set_value():
         'attr8="true"/>'
     )
 
+    attr = node.append_attribute("attr1")
+    with pytest.raises(TypeError):
+        attr.set_value(None)
+
     attr = node.append_attribute("attr9")
     assert attr.set_value("v2", 1024)  # len(value) <= size
     assert attr.value() == "v2"
@@ -382,10 +392,10 @@ def test_set_value():
     assert not pugi.XMLAttribute().set_value("v2", 2)
 
     with pytest.raises(TypeError):
-        assert attr.set_value(None, 2)  # value is None
+        attr.set_value(None, 2)  # value is None
 
     with pytest.raises(TypeError):
-        assert attr.set_value("v2", -1)  # negative size
+        attr.set_value("v2", -1)  # negative size
 
 
 def test_set_value_double():

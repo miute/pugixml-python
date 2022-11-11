@@ -86,7 +86,7 @@ def test_load_buffer():
         assert result.encoding == pugi.ENCODING_UTF16_BE
 
         with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
-            path = Path(temp, "temp-{}.xml".format(os.getpid()))
+            path = Path(temp, "test_load_buffer-{}.xml".format(os.getpid()))
             assert doc.save_file(
                 path,
                 flags=pugi.FORMAT_RAW
@@ -196,6 +196,9 @@ def test_load_string_fail():
     )
     assert repr(result).endswith(" description='Start-end tags mismatch'>")
 
+    with pytest.raises(TypeError):
+        doc.load_string(None)
+
 
 def test_parse_result():
     result = pugi.XMLParseResult()
@@ -265,13 +268,17 @@ def test_save():
     )
     assert writer.getvalue() == b"\xfe\xff\x00<\x00n\x00/\x00>"
 
+    writer = _TestWriter()
+    with pytest.raises(TypeError):
+        doc.save(writer, indent=None)  # indent is None
+
 
 def test_save_file():
     doc = pugi.XMLDocument()
 
     doc.load_string("<node><child/></node>")
     with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
-        path = Path(temp, "temp-{}.xml".format(os.getpid()))
+        path = Path(temp, "test_save_file-{}.xml".format(os.getpid()))
         assert doc.save_file(str(path))  # string
         with open(path, "rb") as f:
             contents = f.read()
@@ -292,6 +299,10 @@ def test_save_file_fail():
     doc = pugi.XMLDocument()
 
     doc.load_string("<node><child/></node>")
-    with tempfile.TemporaryDirectory(prefix="pugixml-"):
+    with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
         with pytest.raises(TypeError):
             doc.save_file(object())
+
+        path = Path(temp, "test_save_file_fail-{}.xml".format(os.getpid()))
+        with pytest.raises(TypeError):
+            doc.save_file(path, indent=None)  # indent is None

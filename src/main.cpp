@@ -749,7 +749,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.as_string`
            )doc");
 
-  attr.def("as_string", &xml_attribute::as_string, py::arg("default") = PUGIXML_TEXT(""),
+  attr.def("as_string", &xml_attribute::as_string, py::arg("default").none(false) = PUGIXML_TEXT(""),
            R"doc(
            Return the attribute value.
 
@@ -838,7 +838,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                or the default value if conversion did not succeed or attribute is empty.
            )doc");
 
-  attr.def("set_name", &xml_attribute::set_name, py::arg("name"),
+  attr.def("set_name", &xml_attribute::set_name, py::arg("name").none(false),
            R"doc(
            Set the attribute name.
 
@@ -849,7 +849,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                bool: :obj:`False` if attribute is empty or there is not enough memory.
            )doc");
 
-  attr.def("set_value", py::overload_cast<const char_t *>(&xml_attribute::set_value), py::arg("value"),
+  attr.def("set_value", py::overload_cast<const char_t *>(&xml_attribute::set_value), py::arg("value").none(false),
            "\tSet the attribute value.")
       .def(
           "set_value",
@@ -863,7 +863,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
             return self.set_value(value, std::min(size, sz));
           },
           py::arg("value").none(false), py::arg("size"), "\tSet the attribute value with the specified length.")
-      .def("set_value", py::overload_cast<bool>(&xml_attribute::set_value), py::arg("value"),
+      .def("set_value", py::overload_cast<bool>(&xml_attribute::set_value), py::arg("value").noconvert(),
            "\tSet the attribute value as a boolean (\"true\" or \"false\").")
       .def("set_value", py::overload_cast<double>(&xml_attribute::set_value), py::arg("value").noconvert(),
            "\tSet the attribute value as a number [DBL_MIN, DBL_MAX].")
@@ -1130,7 +1130,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   node.def("next_sibling", py::overload_cast<>(&xml_node::next_sibling, py::const_),
            "\tReturn the next sibling node in the document tree.")
-      .def("next_sibling", py::overload_cast<const char_t *>(&xml_node::next_sibling, py::const_), py::arg("name"),
+      .def("next_sibling", py::overload_cast<const char_t *>(&xml_node::next_sibling, py::const_),
+           py::arg("name").none(false),
            "\tReturn the next sibling node with the specified name in the document tree.\n\n"
            "Args:\n"
            "    name (str): The name of the target node.\n\n"
@@ -1142,7 +1143,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   node.def("previous_sibling", py::overload_cast<>(&xml_node::previous_sibling, py::const_),
            "\tReturn the previous sibling node in the document tree.")
       .def("previous_sibling", py::overload_cast<const char_t *>(&xml_node::previous_sibling, py::const_),
-           py::arg("name"),
+           py::arg("name").none(false),
            "\tReturn the previous sibling node with the specified name in the document tree.\n\n"
            "Args:\n"
            "    name (str): The name of the target node.\n\n"
@@ -1175,7 +1176,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                XMLText: The text object.
            )doc");
 
-  node.def("child", &xml_node::child, py::arg("name"),
+  node.def("child", &xml_node::child, py::arg("name").none(false),
            R"doc(
            Return a child node with the specified name.
 
@@ -1186,10 +1187,10 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                XMLNode: The first node found, or empty node if not exists.
            )doc");
 
-  node.def("attribute", py::overload_cast<const char_t *>(&xml_node::attribute, py::const_), py::arg("name"),
-           "\tReturn the attribute with the specified name for this node.")
+  node.def("attribute", py::overload_cast<const char_t *>(&xml_node::attribute, py::const_),
+           py::arg("name").none(false), "\tReturn the attribute with the specified name for this node.")
       .def("attribute", py::overload_cast<const char_t *, xml_attribute &>(&xml_node::attribute, py::const_),
-           py::arg("name"), py::arg("hint"),
+           py::arg("name").none(false), py::arg("hint"),
            "\tReturn the attribute with the specified name and *hint* for this node.\n\n"
            "Args:\n"
            "    name (str): The attribute name to find.\n"
@@ -1219,7 +1220,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   node.def("child_value", py::overload_cast<>(&xml_node::child_value, py::const_),
            "\tReturn the value of the first child node with node type :attr:`NODE_PCDATA` or :attr:`NODE_CDATA`.")
-      .def("child_value", py::overload_cast<const char_t *>(&xml_node::child_value, py::const_), py::arg("name"),
+      .def("child_value", py::overload_cast<const char_t *>(&xml_node::child_value, py::const_),
+           py::arg("name").none(false),
            "\tReturn the value of the child node with the specified name.\n\n"
            "Args:\n"
            "    name (str): The node name to find.\n\n"
@@ -1239,7 +1241,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "    >>> doc.child('node').child_value('child3')\n"
            "    'value3'\n");
 
-  node.def("set_name", &xml_node::set_name, py::arg("name"),
+  node.def("set_name", &xml_node::set_name, py::arg("name").none(false),
            R"doc(
            Set the node name.
 
@@ -1250,7 +1252,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                bool: :obj:`False` if node is empty, there is not enough memory, or node can not have name.
            )doc");
 
-  node.def("set_value", py::overload_cast<const char_t *>(&xml_node::set_value), py::arg("value"),
+  node.def("set_value", py::overload_cast<const char_t *>(&xml_node::set_value), py::arg("value").none(false),
            "\tSet the node value.")
       .def(
           "set_value",
@@ -1271,7 +1273,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
           "Returns:\n"
           "    bool: :obj:`False` if node is empty, there is not enough memory, or node can not have value.");
 
-  node.def("append_attribute", &xml_node::append_attribute, py::arg("name"),
+  node.def("append_attribute", &xml_node::append_attribute, py::arg("name").none(false),
            R"doc(
            Add a new attribute with the specified name to the end of the list of attributes for this node.
 
@@ -1285,7 +1287,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.prepend_attribute`, :meth:`.insert_attribute_after`, :meth:`.insert_attribute_before`
            )doc");
 
-  node.def("prepend_attribute", &xml_node::prepend_attribute, py::arg("name"),
+  node.def("prepend_attribute", &xml_node::prepend_attribute, py::arg("name").none(false),
            R"doc(
            Add a new attribute with the specified name to the top of the list of attributes for this node.
 
@@ -1299,7 +1301,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.append_attribute`, :meth:`.insert_attribute_after`, :meth:`.insert_attribute_before`
            )doc");
 
-  node.def("insert_attribute_after", &xml_node::insert_attribute_after, py::arg("name"), py::arg("attr"),
+  node.def("insert_attribute_after", &xml_node::insert_attribute_after, py::arg("name").none(false), py::arg("attr"),
            R"doc(
            Insert a new attribute with the specified name after *attr* in the list of attributes for this node.
 
@@ -1314,7 +1316,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.append_attribute`, :meth:`.prepend_attribute`, :meth:`.insert_attribute_before`
            )doc");
 
-  node.def("insert_attribute_before", &xml_node::insert_attribute_before, py::arg("name"), py::arg("attr"),
+  node.def("insert_attribute_before", &xml_node::insert_attribute_before, py::arg("name").none(false), py::arg("attr"),
            R"doc(
            Insert a new attribute with the specified name before *attr* in the list of attributes for this node.
 
@@ -1401,7 +1403,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   node.def("append_child", py::overload_cast<xml_node_type>(&xml_node::append_child),
            py::arg("node_type") = node_element,
            "\tAdd a new node with the specified node type to the end of the list of children.")
-      .def("append_child", py::overload_cast<const char_t *>(&xml_node::append_child), py::arg("name"),
+      .def("append_child", py::overload_cast<const char_t *>(&xml_node::append_child), py::arg("name").none(false),
            "\tAdd a new node with the specified name to the end of the list of children.\n\n"
            "Args:\n"
            "    node_type (XMLNodeType): The node type to add.\n"
@@ -1414,7 +1416,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   node.def("prepend_child", py::overload_cast<xml_node_type>(&xml_node::prepend_child),
            py::arg("node_type") = node_element,
            "\tAdd a new node with the specified node type to the top of the list of children.")
-      .def("prepend_child", py::overload_cast<const char_t *>(&xml_node::prepend_child), py::arg("name"),
+      .def("prepend_child", py::overload_cast<const char_t *>(&xml_node::prepend_child), py::arg("name").none(false),
            "\tAdd a new node with the specified name to the top of the list of children.\n\n"
            "Args:\n"
            "    node_type (XMLNodeType): The node type to add.\n"
@@ -1428,7 +1430,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            py::arg("node_type"), py::arg("node"),
            "\tInsert a new node with the specified node type after *node* in the list of children.")
       .def("insert_child_after", py::overload_cast<const char_t *, const xml_node &>(&xml_node::insert_child_after),
-           py::arg("name"), py::arg("node"),
+           py::arg("name").none(false), py::arg("node"),
            "\tInsert a new node with the specified name after *node* in the list of children.\n\n"
            "Args:\n"
            "    node_type (XMLNodeType): The node type to insert.\n"
@@ -1443,7 +1445,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            py::arg("node_type"), py::arg("node"),
            "\tInsert a new node with the specified node type before *node* in the list of children.")
       .def("insert_child_before", py::overload_cast<const char_t *, const xml_node &>(&xml_node::insert_child_before),
-           py::arg("name"), py::arg("node"),
+           py::arg("name").none(false), py::arg("node"),
            "\tInsert a new node with the specified name before *node* in the list of children.\n\n"
            "Args:\n"
            "    node_type (XMLNodeType): The node type to insert.\n"
@@ -1514,7 +1516,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   node.def("remove_attribute", py::overload_cast<const xml_attribute &>(&xml_node::remove_attribute), py::arg("attr"),
            "\tRemove the attribute with the specified *attr* from the list of attributes for this node.")
-      .def("remove_attribute", py::overload_cast<const char_t *>(&xml_node::remove_attribute), py::arg("name"),
+      .def("remove_attribute", py::overload_cast<const char_t *>(&xml_node::remove_attribute),
+           py::arg("name").none(false),
            "\tRemove the attribute with the specified name from the list of attributes for this node.\n\n"
            "Args:\n"
            "    attr (XMLAttribute): The attribute to remove.\n"
@@ -1535,7 +1538,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   node.def("remove_child", py::overload_cast<const xml_node &>(&xml_node::remove_child), py::arg("node"),
            "\tRemove the child node specified by *node* and its entire subtree (including all descendant nodes "
            "and attributes) from the document.")
-      .def("remove_child", py::overload_cast<const char_t *>(&xml_node::remove_child), py::arg("name"),
+      .def("remove_child", py::overload_cast<const char_t *>(&xml_node::remove_child), py::arg("name").none(false),
            "\tRemove the child node specified by name and its entire subtree (including all descendant nodes and "
            "attributes) from the document.\n\n"
            "Args:\n"
@@ -1659,11 +1662,11 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   node.def("find_child_by_attribute",
            py::overload_cast<const char_t *, const char_t *, const char_t *>(&xml_node::find_child_by_attribute,
                                                                              py::const_),
-           py::arg("name"), py::arg("attr_name"), py::arg("attr_value"),
+           py::arg("name").none(false), py::arg("attr_name").none(false), py::arg("attr_value").none(false),
            "\tFind the child node with the specified node name, attribute name, and attribute value.")
       .def("find_child_by_attribute",
            py::overload_cast<const char_t *, const char_t *>(&xml_node::find_child_by_attribute, py::const_),
-           py::arg("attr_name"), py::arg("attr_value"),
+           py::arg("attr_name").none(false), py::arg("attr_value").none(false),
            "\tFind the child node with the specified attribute name and attribute value.\n\n"
            "Args:\n"
            "    name (str): The node name to find.\n"
@@ -1672,7 +1675,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "Returns:\n"
            "    XMLNode: The first child found, or empty node if not exists.");
 
-  node.def("path", &xml_node::path, py::arg("delimiter") = '/',
+  node.def("path", &xml_node::path, py::arg("delimiter").none(false) = '/',
            R"doc(
            Return the absolute node path from the root as a text string.
 
@@ -1686,7 +1689,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.first_element_by_path`
            )doc");
 
-  node.def("first_element_by_path", &xml_node::first_element_by_path, py::arg("path"), py::arg("delimiter") = '/',
+  node.def("first_element_by_path", &xml_node::first_element_by_path, py::arg("path").none(false),
+           py::arg("delimiter").none(false) = '/',
            R"doc(
            Search for a node by path consisting of node names and '.' or '..' elements.
 
@@ -1738,7 +1742,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            )doc");
 
   node.def("select_node", py::overload_cast<const char_t *, xpath_variable_set *>(&xml_node::select_node, py::const_),
-           py::arg("query"), py::arg("variables") = nullptr,
+           py::arg("query").none(false), py::arg("variables") = nullptr,
            "\tSelect a single node by evaluating XPath expression with variables.\n\n"
            "\tThis is equivalent to ``select_nodes(query, variables).first()``.")
       .def("select_node", py::overload_cast<const xpath_query &>(&xml_node::select_node, py::const_), py::arg("query"),
@@ -1775,7 +1779,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "    False\n");
 
   node.def("select_nodes", py::overload_cast<const char_t *, xpath_variable_set *>(&xml_node::select_nodes, py::const_),
-           py::arg("query"), py::arg("variables") = nullptr,
+           py::arg("query").none(false), py::arg("variables") = nullptr,
            "\tSelect the node set by evaluating XPath expression with variables.")
       .def("select_nodes", py::overload_cast<const xpath_query &>(&xml_node::select_nodes, py::const_),
            py::arg("query"),
@@ -1814,7 +1818,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   node.def("print",
            py::overload_cast<xml_writer &, const char_t *, unsigned int, xml_encoding, unsigned int>(&xml_node::print,
                                                                                                      py::const_),
-           py::arg("writer"), py::arg("indent") = PUGIXML_TEXT("\t"),
+           py::arg("writer"), py::arg("indent").none(false) = PUGIXML_TEXT("\t"),
            py::arg_v("flags", format_default, "pugixml.pugi.FORMAT_DEFAULT"), py::arg("encoding") = encoding_auto,
            py::arg("depth") = 0,
            R"doc(
@@ -1877,7 +1881,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
             //  py::make_iterator(children.begin(), children.end()) causes segmentation fault.
             return std::make_unique<Iterator<xml_named_node_iterator, xml_node>>(self.children(name));
           },
-          py::keep_alive<0, 1>(), py::arg("name"),
+          py::keep_alive<0, 1>(), py::arg("name").none(false),
           "\tReturn an iterator of children with the specified name.\n\n"
           "Args:\n"
           "    name (str): The node name to find.\n\n"
@@ -1971,7 +1975,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.as_string`
            )doc");
 
-  text.def("as_string", &xml_text::as_string, py::arg("default") = PUGIXML_TEXT(""),
+  text.def("as_string", &xml_text::as_string, py::arg("default").none(false) = PUGIXML_TEXT(""),
            R"doc(
            Return the contents.
 
@@ -2060,7 +2064,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                or the default value if conversion did not succeed or object is empty.
            )doc");
 
-  text.def("set", py::overload_cast<const char_t *>(&xml_text::set), py::arg("value"), "\tSet the contents.")
+  text.def("set", py::overload_cast<const char_t *>(&xml_text::set), py::arg("value").none(false),
+           "\tSet the contents.")
       .def(
           "set",
           [](xml_text &self, const char_t *value, size_t size) {
@@ -2073,7 +2078,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
             return self.set(value, std::min(size, sz));
           },
           py::arg("value").none(false), py::arg("size"), "\tSet the contents with the specified length.")
-      .def("set", py::overload_cast<bool>(&xml_text::set), py::arg("value"),
+      .def("set", py::overload_cast<bool>(&xml_text::set), py::arg("value").noconvert(),
            "\tSet the contents as a boolean (\"true\" or \"false\").")
       .def("set", py::overload_cast<double>(&xml_text::set), py::arg("value").noconvert(),
            "\tSet the contents as a number [DBL_MIN, DBL_MAX].")
@@ -2318,7 +2323,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   options.disable_function_signatures();
   xdoc.def("save",
            py::overload_cast<xml_writer &, const char_t *, unsigned int, xml_encoding>(&xml_document::save, py::const_),
-           py::arg("writer"), py::arg("indent") = PUGIXML_TEXT("\t"),
+           py::arg("writer"), py::arg("indent").none(false) = PUGIXML_TEXT("\t"),
            py::arg_v("flags", format_default, "pugixml.pugi.FORMAT_DEFAULT"), py::arg("encoding") = encoding_auto,
            R"doc(
            save(self: pugixml.pugi.XMLDocument, writer: pugixml.pugi.XMLWriter, indent: str = '\t', flags: int = pugixml.pugi.FORMAT_DEFAULT, encoding: pugixml.pugi.XMLEncoding = pugixml.pugi.ENCODING_AUTO) -> None
@@ -2363,7 +2368,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       "save_file",
       [](const xml_document &self, const fs::path &path, const char_t *indent, unsigned int flags,
          xml_encoding encoding) { return self.save_file(path.string<char>().c_str(), indent, flags, encoding); },
-      py::arg("path"), py::arg("indent") = PUGIXML_TEXT("\t"),
+      py::arg("path"), py::arg("indent").none(false) = PUGIXML_TEXT("\t"),
       py::arg_v("flags", format_default, "pugixml.pugi.FORMAT_DEFAULT"), py::arg("encoding") = encoding_auto,
       R"doc(
       save_file(self: pugixml.pugi.XMLDocument, path: os.PathLike, indent: str = '\t', flags: int = pugixml.pugi.FORMAT_DEFAULT, encoding: pugixml.pugi.XMLEncoding = pugixml.pugi.ENCODING_AUTO) -> bool
@@ -2489,9 +2494,9 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   // NOTE: Do not change the order of the method chaining. (double -> bool)
   xpv.def("set", py::overload_cast<double>(&xpath_variable::set), py::arg("value"),
           "\tSet the variable value as a number [DBL_MIN, DBL_MAX].")
-      .def("set", py::overload_cast<bool>(&xpath_variable::set), py::arg("value"),
+      .def("set", py::overload_cast<bool>(&xpath_variable::set), py::arg("value").noconvert(),
            "\tSet the variable value as a boolean.")
-      .def("set", py::overload_cast<const char_t *>(&xpath_variable::set), py::arg("value"),
+      .def("set", py::overload_cast<const char_t *>(&xpath_variable::set), py::arg("value").none(false),
            "\tSet the variable value as a string.")
       .def("set", py::overload_cast<const xpath_node_set &>(&xpath_variable::set), py::arg("value"),
            "\tSet the variable value as the XPath node set.\n\n"
@@ -2508,7 +2513,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   // .def(py::init<const xpath_variable_set &>(), py::arg("other"));
 
   options.disable_function_signatures();
-  xpvs.def("add", &xpath_variable_set::add, py::return_value_policy::reference, py::arg("name"), py::arg("value_type"),
+  xpvs.def("add", &xpath_variable_set::add, py::return_value_policy::reference, py::arg("name").none(false),
+           py::arg("value_type"),
            R"doc(
            add(self: pugixml.pugi.XPathVariableSet, name: str, value_type: pugixml.pugi.XPathValueType) -> typing.Optional[pugixml.pugi.XPathVariable]
 
@@ -2524,14 +2530,15 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   options.enable_function_signatures();
 
   // NOTE: Do not change the order of the method chaining. (double -> bool)
-  xpvs.def("set", py::overload_cast<const char_t *, double>(&xpath_variable_set::set), py::arg("name"),
+  xpvs.def("set", py::overload_cast<const char_t *, double>(&xpath_variable_set::set), py::arg("name").none(false),
            py::arg("value"), "\tSet the value of an existing variable as a number [DBL_MIN, DBL_MAX].")
-      .def("set", py::overload_cast<const char_t *, bool>(&xpath_variable_set::set), py::arg("name"), py::arg("value"),
-           "\tSet the value of an existing variable as a boolean.")
-      .def("set", py::overload_cast<const char_t *, const char_t *>(&xpath_variable_set::set), py::arg("name"),
-           py::arg("value"), "\tSet the value of an existing variable as a string.")
-      .def("set", py::overload_cast<const char_t *, const xpath_node_set &>(&xpath_variable_set::set), py::arg("name"),
-           py::arg("value"),
+      .def("set", py::overload_cast<const char_t *, bool>(&xpath_variable_set::set), py::arg("name").none(false),
+           py::arg("value").noconvert(), "\tSet the value of an existing variable as a boolean.")
+      .def("set", py::overload_cast<const char_t *, const char_t *>(&xpath_variable_set::set),
+           py::arg("name").none(false), py::arg("value").none(false),
+           "\tSet the value of an existing variable as a string.")
+      .def("set", py::overload_cast<const char_t *, const xpath_node_set &>(&xpath_variable_set::set),
+           py::arg("name").none(false), py::arg("value"),
            "\tSet the value of an existing variable as the XPath node set.\n\n"
            "No type conversion is performed.\n\n"
            "This is equivalent to ``add(name, value_type).set(value)``.\n\n"
@@ -2543,7 +2550,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   options.disable_function_signatures();
   xpvs.def("get", py::overload_cast<const char_t *>(&xpath_variable_set::get, py::const_),
-           py::return_value_policy::reference, py::arg("name"),
+           py::return_value_policy::reference, py::arg("name").none(false),
            R"doc(
            get(self: pugixml.pugi.XPathVariableSet, name: str) -> typing.Optional[pugixml.pugi.XPathVariable]
 
@@ -2560,8 +2567,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //
   // pugi::xpath_query
   //
-  xpq.def(py::init<const char_t *, xpath_variable_set *>(), py::arg("query"), py::arg("variables") = nullptr,
-          "\tInitialize ``XPathQuery`` with the XPath expression and variables.")
+  xpq.def(py::init<const char_t *, xpath_variable_set *>(), py::arg("query").none(false),
+          py::arg("variables") = nullptr, "\tInitialize ``XPathQuery`` with the XPath expression and variables.")
       .def(py::init<>(), "\tInitialize ``XPathQuery`` as an invalid expression.\n\n"
                          "Args:\n"
                          "    query (str): The XPath expression.\n"

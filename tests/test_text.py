@@ -223,6 +223,9 @@ def test_defaults():
     assert text.as_llong(42) == 42
     assert text.as_ullong(42) == 42
 
+    with pytest.raises(TypeError):
+        _ = text.as_string(None)
+
 
 def test_get():
     doc = pugi.XMLDocument()
@@ -307,10 +310,13 @@ def test_set_value():
     assert not pugi.XMLText().set("v2", 2)
 
     with pytest.raises(TypeError):
-        assert text.set(None, 2)  # value is None
+        text.set(None)  # value is None
 
     with pytest.raises(TypeError):
-        assert text.set("v2", -1)  # negative size
+        text.set(None, 2)  # value is None
+
+    with pytest.raises(TypeError):
+        text.set("v2", -1)  # negative size
 
 
 def test_set_value_double():

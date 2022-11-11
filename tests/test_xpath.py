@@ -94,6 +94,9 @@ def test_nodeset_accessors():
     with pytest.raises(ValueError):
         _ = ns[::0]  # ValueError: slice step cannot be zero
 
+    with pytest.raises(TypeError):
+        _ = doc.select_nodes(None)
+
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath.cpp
 # xpath_sort_attributes()
@@ -175,6 +178,9 @@ def test_query():
     )
 
     assert q.evaluate_string(c) == 'a"b'
+
+    with pytest.raises(TypeError):
+        _ = pugi.XPathQuery(None)
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
@@ -350,6 +356,9 @@ def test_select_node():
     assert n4.node().attribute("id").as_int() == 1
     assert n5.node().attribute("id").as_int() == 1
 
+    with pytest.raises(TypeError):
+        _ = doc.select_node(None)
+
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_variables.cpp
 # xpath_variables_type_boolean()
@@ -464,6 +473,9 @@ def test_variable_type_string():
     assert var.get_string() == "abc"
     assert var.get_node_set().empty()
 
+    with pytest.raises(TypeError):
+        var.set(None)
+
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_variables.cpp
 # xpath_variables_set_operations()
@@ -495,12 +507,18 @@ def test_variableset_operations():
     assert varset1.add("var3", pugi.XPATH_TYPE_NODE_SET) == v3
     assert varset1.add("var4", pugi.XPATH_TYPE_BOOLEAN) == v4
 
+    with pytest.raises(TypeError):
+        _ = varset1.add(None, pugi.XPATH_TYPE_STRING)  # name is None
+
     assert varset1.get("var1") == v1
     assert varset1.get("var2") == v2
     assert varset1.get("var") is None
     assert varset1.get("var11") is None
     assert varset1.get("var3") == v3
     assert varset1.get("var4") == v4
+
+    with pytest.raises(TypeError):
+        _ = varset1.get(None)  # name is None
 
     # XPATH_TYPE_NUMBER
     assert varset1.set("var1", 1.0)  # float
@@ -511,6 +529,12 @@ def test_variableset_operations():
     assert not varset1.set("var1", doc.select_nodes("*"))  # XPath node set
     assert not varset1.set("var1", True)  # boolean
 
+    with pytest.raises(TypeError):
+        varset1.set(None, 1.0)  # name is None, value is float
+
+    with pytest.raises(TypeError):
+        varset1.set(None, 1)  # name is None, value is int
+
     # XPATH_TYPE_STRING
     assert not varset1.set("var2", 1.0)  # float
     assert not varset1.set("var2", 1)  # int
@@ -518,6 +542,12 @@ def test_variableset_operations():
     assert v2.get_string() == "value"
     assert not varset1.set("var2", doc.select_nodes("*"))  # XPath node set
     assert not varset1.set("var2", True)  # boolean
+
+    with pytest.raises(TypeError):
+        varset1.set(None, "value")  # name is None, value is string
+
+    with pytest.raises(TypeError):
+        varset1.set("var2", None)  # name is string, value is None
 
     # XPATH_TYPE_NODE_SET
     assert not varset1.set("var3", 1.0)  # float
@@ -529,6 +559,11 @@ def test_variableset_operations():
     assert v3.get_node_set()[0] == doc.first_child()
     assert not varset1.set("var3", True)  # boolean
 
+    with pytest.raises(TypeError):
+        varset1.set(
+            None, doc.select_nodes("*")
+        )  # name is None, value is XPath node set
+
     # XPATH_TYPE_BOOLEAN
     assert not varset1.set("var4", 1.0)  # float
     assert not varset1.set("var4", 1)  # int
@@ -536,3 +571,6 @@ def test_variableset_operations():
     assert not varset1.set("var4", doc.select_nodes("*"))  # XPath node set
     assert varset1.set("var4", True)  # boolean
     assert v4.get_boolean() is True
+
+    with pytest.raises(TypeError):
+        varset1.set(None, True)  # name is None, value is boolean
