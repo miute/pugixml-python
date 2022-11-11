@@ -28,6 +28,7 @@
 
 
 
+
       ~XPathParseResult.__init__
 
 

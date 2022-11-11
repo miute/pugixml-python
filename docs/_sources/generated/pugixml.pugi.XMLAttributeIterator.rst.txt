@@ -28,6 +28,7 @@
 
 
 
+
       ~XMLAttributeIterator.__init__
 
 

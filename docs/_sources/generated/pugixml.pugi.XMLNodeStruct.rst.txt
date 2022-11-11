@@ -26,6 +26,7 @@
 
 
 
+
       ~XMLNodeStruct.__hash__
 
 

@@ -28,6 +28,7 @@
 
 
 
+
       ~XPathQuery.__init__
 
 

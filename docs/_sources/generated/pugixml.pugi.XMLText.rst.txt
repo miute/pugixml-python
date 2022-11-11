@@ -28,6 +28,7 @@
 
 
 
+
       ~XMLText.__init__
 
 

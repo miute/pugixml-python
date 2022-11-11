@@ -28,6 +28,7 @@
 
 
 
+
       ~XMLNodeIterator.__init__
 
 

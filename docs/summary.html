@@ -2,13 +2,13 @@
 <html class="no-js" lang="en">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="pugixml.pugi" href="attributes.html" /><link rel="prev" title="Installation" href="install.html" />
 
-    <meta name="generator" content="sphinx-5.1.1, furo 2022.06.21"/>
-        <title>API Reference - pugixml-python 0.3.0</title>
+    <meta name="generator" content="sphinx-5.3.0, furo 2022.09.29"/>
+        <title>API Reference - pugixml-python 0.4.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=d81277517bee4d6b0349d71bb2661d4890b5617c" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
@@ -125,7 +125,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">pugixml-python 0.3.0</div></a>
+      <a href="index.html"><div class="brand">pugixml-python 0.4.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -148,7 +148,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
 
 
-  <span class="sidebar-brand-text">pugixml-python 0.3.0</span>
+  <span class="sidebar-brand-text">pugixml-python 0.4.0</span>
 
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder=Search name="q" aria-label="Search">
@@ -210,7 +210,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -231,16 +232,112 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="attributes.html">pugixml.pugi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html#encodings">Encodings</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html#output-options">Output Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html#node-types">Node Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html#parsing-options">Parsing Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html#parsing-status">Parsing Status</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html#xpath-query-return-type">XPath Query Return Type</a></li>
-<li class="toctree-l2"><a class="reference internal" href="attributes.html#misc">Misc.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#encodings">Encodings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_AUTO"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_AUTO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_LATIN1"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_LATIN1</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_UTF16"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_UTF16</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_UTF16_BE"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_UTF16_BE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_UTF16_LE"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_UTF16_LE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_UTF32"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_UTF32</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_UTF32_BE"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_UTF32_BE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_UTF32_LE"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_UTF32_LE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_UTF8"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_UTF8</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.ENCODING_WCHAR"><code class="docutils literal notranslate"><span class="pre">pugi.ENCODING_WCHAR</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#output-options">Output Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_ATTRIBUTE_SINGLE_QUOTE"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_ATTRIBUTE_SINGLE_QUOTE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_DEFAULT"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_INDENT"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_INDENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_INDENT_ATTRIBUTES"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_INDENT_ATTRIBUTES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_NO_DECLARATION"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_NO_DECLARATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_NO_EMPTY_ELEMENT_TAGS"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_NO_EMPTY_ELEMENT_TAGS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_NO_ESCAPES"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_NO_ESCAPES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_RAW"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_RAW</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_SAVE_FILE_TEXT"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_SAVE_FILE_TEXT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_SKIP_CONTROL_CHARS"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_SKIP_CONTROL_CHARS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.FORMAT_WRITE_BOM"><code class="docutils literal notranslate"><span class="pre">pugi.FORMAT_WRITE_BOM</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#node-types">Node Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_CDATA"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_CDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_COMMENT"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_COMMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_DECLARATION"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_DECLARATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_DOCTYPE"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_DOCTYPE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_DOCUMENT"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_DOCUMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_ELEMENT"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_ELEMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_NULL"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_NULL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.NODE_PI"><code class="docutils literal notranslate"><span class="pre">pugi.NODE_PI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#parsing-options">Parsing Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_CDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_CDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_COMMENTS"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_COMMENTS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_DECLARATION"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_DECLARATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_DEFAULT"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_DOCTYPE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_DOCTYPE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_EMBED_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_EMBED_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_EOL"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_EOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_ESCAPES"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_ESCAPES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_FRAGMENT"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_FRAGMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_FULL"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_FULL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_MINIMAL"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_MINIMAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_PI"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_PI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_TRIM_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_TRIM_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_WCONV_ATTRIBUTE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WCONV_ATTRIBUTE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_WNORM_ATTRIBUTE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WNORM_ATTRIBUTE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_WS_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WS_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PARSE_WS_PCDATA_SINGLE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WS_PCDATA_SINGLE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#parsing-status">Parsing Status</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_APPEND_INVALID_ROOT"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_APPEND_INVALID_ROOT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_ATTRIBUTE"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_ATTRIBUTE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_CDATA"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_CDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_COMMENT"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_COMMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_DOCTYPE"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_DOCTYPE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_END_ELEMENT"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_END_ELEMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_PI"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_PI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_BAD_START_ELEMENT"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_BAD_START_ELEMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_END_ELEMENT_MISMATCH"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_END_ELEMENT_MISMATCH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_FILE_NOT_FOUND"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_FILE_NOT_FOUND</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_INTERNAL_ERROR"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_INTERNAL_ERROR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_IO_ERROR"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_IO_ERROR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_NO_DOCUMENT_ELEMENT"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_NO_DOCUMENT_ELEMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_OK"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_OK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_OUT_OF_MEMORY"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_OUT_OF_MEMORY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.STATUS_UNRECOGNIZED_TAG"><code class="docutils literal notranslate"><span class="pre">pugi.STATUS_UNRECOGNIZED_TAG</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#xpath-query-return-type">XPath Query Return Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.XPATH_TYPE_BOOLEAN"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_BOOLEAN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.XPATH_TYPE_NODE_SET"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_NODE_SET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.XPATH_TYPE_NONE"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_NONE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.XPATH_TYPE_NUMBER"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_NUMBER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.XPATH_TYPE_STRING"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_STRING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#misc">Misc.</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="attributes.html#pugixml.pugi.PUGIXML_VERSION"><code class="docutils literal notranslate"><span class="pre">pugi.PUGIXML_VERSION</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="attributes.html#module-pugixml.pugi.limits">pugixml.pugi.limits</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.DBL_MAX"><code class="docutils literal notranslate"><span class="pre">limits.DBL_MAX</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.DBL_MIN"><code class="docutils literal notranslate"><span class="pre">limits.DBL_MIN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.FLT_MAX"><code class="docutils literal notranslate"><span class="pre">limits.FLT_MAX</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.FLT_MIN"><code class="docutils literal notranslate"><span class="pre">limits.FLT_MIN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.INT_MAX"><code class="docutils literal notranslate"><span class="pre">limits.INT_MAX</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.INT_MIN"><code class="docutils literal notranslate"><span class="pre">limits.INT_MIN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.LLONG_MAX"><code class="docutils literal notranslate"><span class="pre">limits.LLONG_MAX</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.LLONG_MIN"><code class="docutils literal notranslate"><span class="pre">limits.LLONG_MIN</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.UINT_MAX"><code class="docutils literal notranslate"><span class="pre">limits.UINT_MAX</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="attributes.html#pugixml.pugi.limits.ULLONG_MAX"><code class="docutils literal notranslate"><span class="pre">limits.ULLONG_MAX</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -250,13 +347,13 @@
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.BytesWriter" title="pugixml.pugi.BytesWriter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.BytesWriter</span></code></a></p></td>
-<td><p>(pugixml-python only) <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code> implementation for <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p></td>
+<td><p>(pugixml-python only) <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code> implementation for <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytes</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.FileWriter" title="pugixml.pugi.FileWriter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.FileWriter</span></code></a></p></td>
 <td><p>(pugixml-python only) <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code> implementation for a file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.PrintWriter" title="pugixml.pugi.PrintWriter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.PrintWriter</span></code></a></p></td>
-<td><p>(pugixml-python only) <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code> implementation for <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.stdout" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sys.stdout</span></code></a>.</p></td>
+<td><p>(pugixml-python only) <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code> implementation for <a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.stdout" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sys.stdout</span></code></a>.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="reference.html#pugixml.pugi.StringWriter" title="pugixml.pugi.StringWriter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pugixml.pugi.StringWriter</span></code></a></p></td>
 <td><p>(pugixml-python only) <code class="xref py py-class docutils literal notranslate"><span class="pre">XMLWriter</span></code> implementation for string.</p></td>
@@ -348,10 +445,10 @@
                 </div>
                 <div class="title">pugixml.pugi</div>
               </div>
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
           <a class="prev-page" href="install.html">
-              <svg><use href="#svg-arrow-right"></use></svg>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
@@ -387,7 +484,7 @@
       <div class="toc-sticky toc-scroll">
         <div class="toc-title-container">
           <span class="toc-title">
-            Contents
+            On this page
           </span>
         </div>
         <div class="toc-tree-container">
@@ -412,6 +509,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
