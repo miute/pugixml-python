@@ -1808,6 +1808,13 @@ def test_set_name():
     with pytest.raises(TypeError):
         node.set_name(None)
 
+    assert node.set_name("n1234", 3)
+    assert node.name() == "n12"
+    assert not pugi.XMLNode().set_name("n1234", 3)
+
+    with pytest.raises(TypeError):
+        node.set_name(None, 3)
+
 
 def test_set_value():
     doc = pugi.XMLDocument()

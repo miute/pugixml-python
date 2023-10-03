@@ -352,6 +352,13 @@ def test_set_name():
     with pytest.raises(TypeError):
         attr.set_name(None)
 
+    assert attr.set_name("n1234", 3)
+    assert attr.name() == "n12"
+    assert not pugi.XMLAttribute().set_name("n1234", 3)
+
+    with pytest.raises(TypeError):
+        attr.set_name(None, 3)
+
 
 def test_set_value():
     doc = pugi.XMLDocument()

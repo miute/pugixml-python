@@ -838,16 +838,16 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                or the default value if conversion did not succeed or attribute is empty.
            )doc");
 
-  attr.def("set_name", &xml_attribute::set_name, py::arg("name").none(false),
-           R"doc(
-           Set the attribute name.
-
-           Args:
-               name (str): The attribute name to set.
-
-           Returns:
-               bool: :obj:`False` if attribute is empty or there is not enough memory.
-           )doc");
+  attr.def("set_name", py::overload_cast<const char_t *>(&xml_attribute::set_name), py::arg("name").none(false),
+           "\tSet the attribute name.")
+      .def("set_name", py::overload_cast<const char_t *, size_t>(&xml_attribute::set_name), py::arg("name").none(false),
+           py::arg("size"),
+           "\tSet the attribute name with the specified length.\n\n"
+           "Args:\n"
+           "    name (str): The attribute name to set.\n"
+           "    size (int): The length of the attribute name.\n\n"
+           "Returns:\n"
+           "    bool: :obj:`False` if attribute is empty or there is not enough memory.");
 
   attr.def("set_value", py::overload_cast<const char_t *>(&xml_attribute::set_value), py::arg("value").none(false),
            "\tSet the attribute value.")
@@ -1241,16 +1241,16 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "    >>> doc.child('node').child_value('child3')\n"
            "    'value3'\n");
 
-  node.def("set_name", &xml_node::set_name, py::arg("name").none(false),
-           R"doc(
-           Set the node name.
-
-           Args:
-               name (str): The node name to set.
-
-           Returns:
-               bool: :obj:`False` if node is empty, there is not enough memory, or node can not have name.
-           )doc");
+  node.def("set_name", py::overload_cast<const char_t *>(&xml_node::set_name), py::arg("name").none(false),
+           "\tSet the node name.")
+      .def("set_name", py::overload_cast<const char_t *, size_t>(&xml_node::set_name), py::arg("name").none(false),
+           py::arg("size"),
+           "\tSet the node name with the specified length.\n\n"
+           "Args:\n"
+           "    name (str): The node name to set.\n"
+           "    size (int): The length of the node name.\n\n"
+           "Returns:\n"
+           "    bool: :obj:`False` if node is empty, there is not enough memory, or node can not have name.");
 
   node.def("set_value", py::overload_cast<const char_t *>(&xml_node::set_value), py::arg("value").none(false),
            "\tSet the node value.")

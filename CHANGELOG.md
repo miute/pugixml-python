@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## WIP
+
+- Added
+  - Add pugixml.pugi.XMLAttribute.set_name(name: str, size: int)
+  - Add pugixml.pugi.XMLNode.set_name(name: str, size: int)
+- Changed
+  - Update pugixml from 1.13 to 1.14
+  - Update pybind11 from 2.10.1 to 2.11.1
+
 ## v0.4.0 / 2022-11-11
 
 - Added
