@@ -200,6 +200,34 @@ def test_load_string_fail():
         doc.load_string(None)
 
 
+# https://github.com/zeux/pugixml/blob/master/tests/test_parse.cpp
+# TEST(parse_merge_pcdata)
+def test_parse_merge_pcdata():
+    doc = pugi.XMLDocument()
+
+    flags = pugi.PARSE_MERGE_PCDATA
+    result = doc.load_string(
+        "<node>"
+        "First text<!-- here is a mesh node -->Second text"
+        "<![CDATA[someothertext]]>some more text<?include somedata?>Last text"
+        "</node>",
+        flags,
+    )
+    assert isinstance(result, pugi.XMLParseResult)
+    assert result.status == pugi.STATUS_OK
+
+    child = doc.child("node")
+    assert child.first_child() == child.last_child()
+    assert child.first_child().type() == pugi.NODE_PCDATA
+
+    writer = pugi.StringWriter()
+    doc.print(writer, indent="", flags=pugi.FORMAT_RAW)
+    assert (
+        writer.getvalue()
+        == "<node>First textSecond textsome more textLast text</node>"
+    )
+
+
 def test_parse_result():
     result = pugi.XMLParseResult()
     assert not result

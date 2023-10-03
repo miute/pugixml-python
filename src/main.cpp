@@ -159,6 +159,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   m.attr("PARSE_TRIM_PCDATA") = parse_trim_pcdata;
   m.attr("PARSE_FRAGMENT") = parse_fragment;
   m.attr("PARSE_EMBED_PCDATA") = parse_embed_pcdata;
+  m.attr("PARSE_MERGE_PCDATA") = parse_merge_pcdata;
   m.attr("PARSE_DEFAULT") = parse_default;
   m.attr("PARSE_FULL") = parse_full;
 

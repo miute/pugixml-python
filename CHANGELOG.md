@@ -3,6 +3,7 @@
 ## WIP
 
 - Added
+  - Add pugixml.pugi.PARSE_MERGE_PCDATA
   - Add pugixml.pugi.XMLAttribute.set_name(name: str, size: int)
   - Add pugixml.pugi.XMLNode.set_name(name: str, size: int)
 - Changed
