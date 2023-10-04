@@ -855,7 +855,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       .def("set_value", py::overload_cast<const char_t *, size_t>(&xml_attribute::set_value),
            py::arg("value").none(false), py::arg("size"), "\tSet the attribute value with the specified length.")
       .def("set_value", py::overload_cast<bool>(&xml_attribute::set_value), py::arg("value").noconvert(),
-           "\tSet the attribute value as a boolean (\"true\" or \"false\").")
+           "\tSet the attribute value as a boolean (True or False).")
       .def("set_value", py::overload_cast<double>(&xml_attribute::set_value), py::arg("value").noconvert(),
            "\tSet the attribute value as a number [DBL_MIN, DBL_MAX].")
       .def("set_value", py::overload_cast<double, int>(&xml_attribute::set_value), py::arg("value"),
@@ -867,8 +867,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "\tSet the attribute value as a number [0, ULLONG_MAX].\n\n"
            "Args:\n"
            "    value (typing.Union[str, bool, float, int]): The attribute value to set.\n"
-           "    size (int): The length for the attribute value as a string.\n"
-           "    precision (int): The precision for the attribute value as a floating point number.\n\n"
+           "    size (int): The length of the attribute value as a string.\n"
+           "    precision (int): The precision of the attribute value as a floating point number.\n\n"
            "Returns:\n"
            "    bool: :obj:`False` if attribute is empty or there is not enough memory.");
 
@@ -2050,7 +2050,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       .def("set", py::overload_cast<const char_t *, size_t>(&xml_text::set), py::arg("value").none(false),
            py::arg("size"), "\tSet the contents with the specified length.")
       .def("set", py::overload_cast<bool>(&xml_text::set), py::arg("value").noconvert(),
-           "\tSet the contents as a boolean (\"true\" or \"false\").")
+           "\tSet the contents as a boolean (True or False).")
       .def("set", py::overload_cast<double>(&xml_text::set), py::arg("value").noconvert(),
            "\tSet the contents as a number [DBL_MIN, DBL_MAX].")
       .def("set", py::overload_cast<double, int>(&xml_text::set), py::arg("value"), py::arg("precision"),
@@ -2061,8 +2061,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "\tSet the contents as a number [0, ULLONG_MAX].\n\n"
            "Args:\n"
            "    value (typing.Union[str, bool, float, int]): The contents to set.\n"
-           "    size (int): The length for the contents as a string.\n"
-           "    precision (int): The precision for the contents as a floating point number.\n\n"
+           "    size (int): The length of the contents as a string.\n"
+           "    precision (int): The precision of the contents as a floating point number.\n\n"
            "Returns:\n"
            "    bool: :obj:`False` if object is empty or there is not enough memory.");
 
