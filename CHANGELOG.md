@@ -1,6 +1,6 @@
 # Changelog
 
-## WIP
+## v0.5.0 / 2023-10-04
 
 - New
   - Add support for Python 3.12
