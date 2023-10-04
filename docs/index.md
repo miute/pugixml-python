@@ -28,6 +28,7 @@ maxdepth: 2
 limits
 install
 summary
+changelog
 ```
 
 ## Indices and tables

@@ -230,6 +230,11 @@ These flags control the contents of the resulting tree for all loading functions
    Nodes of all types are added to the DOM tree, character/reference entities are expanded,
    End-of-Line characters are normalized, attribute values are normalized using CDATA normalization rules.
 
+.. autoattribute:: pugixml.pugi.PARSE_MERGE_PCDATA
+
+	This flag determines whether determines whether the the two PCDATA should be merged or not, if no intermediatory data are parsed in the document.
+	This flag is off by default.
+
 .. autoattribute:: pugixml.pugi.PARSE_MINIMAL
 
    Minimal parsing mode (equivalent to turning all other flags off).
