@@ -2,10 +2,12 @@
 <html class="no-js" lang="en" data-content_root="./">
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="pugixml.pugi.XPathVariableSet" href="generated/pugixml.pugi.XPathVariableSet.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 --><title>Python Module Index - pugixml-python 0.5.0</title>
-<link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
+        <title>Changelog - pugixml-python 0.5.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
@@ -134,7 +136,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -154,7 +156,7 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <ul>
+  <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="limits.html">Limitations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="summary.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
@@ -189,7 +191,7 @@
 <li class="toctree-l2"><a class="reference internal" href="generated/pugixml.pugi.XPathVariableSet.html">pugixml.pugi.XPathVariableSet</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Changelog</a></li>
 </ul>
 
 </div>
@@ -209,7 +211,8 @@
           <span>Back to top</span>
         </a>
         <div class="content-icon-container">
-          <div class="theme-toggle-container theme-toggle-content">
+
+<div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -217,38 +220,140 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main">
-
-<section class="domainindex-section">
-  <h1>Python Module Index</h1>
-  <div class="domainindex-jumpbox"><a href="#cap-p"><strong>p</strong></a></div>
+          <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h1>
+<section id="v0-5-0-2023-10-04">
+<h2>v0.5.0 / 2023-10-04<a class="headerlink" href="#v0-5-0-2023-10-04" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>New</p>
+<ul>
+<li><p>Add support for Python 3.12</p></li>
+</ul>
+</li>
+<li><p>Added</p>
+<ul>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.PARSE_MERGE_PCDATA</span></code></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.set_name(name:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.set_name(name:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+</ul>
+</li>
+<li><p>Changed</p>
+<ul>
+<li><p>Update pugixml from 1.13 to 1.14</p></li>
+<li><p>Update pybind11 from 2.10.1 to 2.11.1</p></li>
+</ul>
+</li>
+<li><p>Fixed</p>
+<ul>
+<li><p>Remove unnecessary length check:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.set_value(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.set_value(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLText.set(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </section>
-<table class="domainindex-table">
-  <tr class="pcap">
-    <td></td><td>&#160;</td><td></td>
-  </tr>
-  <tr class="cap" id="cap-p">
-    <td></td><td><strong>p</strong></td><td></td>
-  </tr>
-  <tr>
-    <td><img src="_static/minus.png" class="toggler"
-              id="toggle-1" style="display: none" alt="-" /></td>
-    <td>
-        <code class="xref">pugixml</code></td><td>
-    <em></em></td>
-  </tr>
-  <tr class="cg-1">
-    <td></td>
-    <td>&#160;&#160;&#160;
-        <a href="attributes.html#module-pugixml.pugi.limits"><code class="xref">pugixml.pugi.limits</code></a></td><td>
-    <em></em></td>
-  </tr>
-</table>
+<section id="v0-4-0-2022-11-11">
+<h2>v0.4.0 / 2022-11-11<a class="headerlink" href="#v0-4-0-2022-11-11" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Added</p>
+<ul>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.set_value(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.set_value(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLText.set(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
+</ul>
+</li>
+<li><p>Changed</p>
+<ul>
+<li><p>Update pugixml from <a class="reference external" href="https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563">521b2cd</a> to 1.13</p></li>
+<li><p>Update pybind11 from 2.10.0 to 2.10.1</p></li>
+</ul>
+</li>
+<li><p>Improved</p>
+<ul>
+<li><p>Improve type checking</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="v0-3-0-2022-10-03">
+<h2>v0.3.0 / 2022-10-03<a class="headerlink" href="#v0-3-0-2022-10-03" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>New</p>
+<ul>
+<li><p>Add support for Python 3.11</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.BytesWriter</span></code> class</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.FileWriter</span></code> class</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.limits</span></code> submodule</p></li>
+</ul>
+</li>
+<li><p>Added</p>
+<ul>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.StringWriter.__len__()</span></code></p></li>
+</ul>
+</li>
+<li><p>Changed</p>
+<ul>
+<li><p>Update pugixml to <a class="reference external" href="https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563">521b2cd</a></p></li>
+<li><p>Update pybind11 to 2.10.0</p></li>
+</ul>
+</li>
+<li><p>Fixed</p>
+<ul>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.PrintWriter</span></code> to raise an exception when encoding fails</p></li>
+</ul>
+</li>
+<li><p>Improved</p>
+<ul>
+<li><p>Update docstring</p></li>
+<li><p>Change arguments of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.StringWriter.getvalue()</span></code> → <code class="docutils literal notranslate"><span class="pre">getvalue(encoding:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'utf-8',</span> <span class="pre">errors:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'strict')</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="v0-2-0-2022-06-10">
+<h2>v0.2.0 / 2022-06-10<a class="headerlink" href="#v0-2-0-2022-06-10" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>New</p>
+<ul>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttributeStruct</span></code> class</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNodeStruct</span></code> class</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttributeIterator</span></code> class</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNodeIterator</span></code> class</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNamedNodeIterator</span></code> class</p></li>
+</ul>
+</li>
+<li><p>Added</p>
+<ul>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.internal_object()</span></code></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.__init__(p:</span> <span class="pre">XMLAttributeStruct)</span></code></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.internal_object()</span></code></p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.__init__(p:</span> <span class="pre">XMLNodeStruct)</span></code></p></li>
+</ul>
+</li>
+<li><p>Fixed</p>
+<ul>
+<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.attributes()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">List[XMLAttribute]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLAttributeIterator</span></code></p></li>
+<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.children()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">List[XMLNode]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLNodeIterator</span></code></p></li>
+<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.children(name:</span> <span class="pre">str)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">List[XMLNode]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLNamedNodeIterator</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="v0-1-0-2022-05-27">
+<h2>v0.1.0 / 2022-05-27<a class="headerlink" href="#v0-1-0-2022-05-27" title="Link to this heading">#</a></h2>
+<p>Initial release.</p>
+</section>
+</section>
 
         </article>
       </div>
@@ -256,7 +361,17 @@
 
         <div class="related-pages">
 
+          <a class="prev-page" href="generated/pugixml.pugi.XPathVariableSet.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
 
+                <div class="title">pugixml.pugi.XPathVariableSet</div>
+
+              </div>
+            </a>
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -275,8 +390,31 @@
 
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
 
+
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#v0-5-0-2023-10-04">v0.5.0 / 2023-10-04</a></li>
+<li><a class="reference internal" href="#v0-4-0-2022-11-11">v0.4.0 / 2022-11-11</a></li>
+<li><a class="reference internal" href="#v0-3-0-2022-10-03">v0.3.0 / 2022-10-03</a></li>
+<li><a class="reference internal" href="#v0-2-0-2022-06-10">v0.2.0 / 2022-06-10</a></li>
+<li><a class="reference internal" href="#v0-1-0-2022-05-27">v0.1.0 / 2022-05-27</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
 
 
     </aside>

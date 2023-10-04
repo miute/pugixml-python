@@ -6,7 +6,7 @@ The following APIs are not implemented.
 
 ### Structures/Classes
 
-- pugi::xml_writer_file
+- pugi::xml_writer_file - Use {class}`pugixml.pugi.FileWriter` instead.
 - pugi::xml_writer_stream
 - pugi::xpath_exception
 
@@ -15,13 +15,6 @@ The following APIs are not implemented.
 - General
   - Move constructors
   - Assignment operators
-- pugi::xml_attribute
-  - set_value(float, int)
-  - set_value(float)
-  - set_value(int)
-  - set_value(long)
-  - set_value(unsigned int)
-  - set_value(unsigned long)
 - pugi::xml_document
   - load(std::basic_istream, ...)
   - load_buffer_inplace_own(...)
@@ -34,13 +27,6 @@ The following APIs are not implemented.
   - end()
   - print(std::basic_ostream, ...)
   - select_single_node(...)
-- pugi::xml_text
-  - set(float, int)
-  - set(float)
-  - set(int)
-  - set(long)
-  - set(unsigned int)
-  - set(unsigned long)
 
 ## Changes
 
