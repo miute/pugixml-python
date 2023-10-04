@@ -2,6 +2,8 @@
 
 ## WIP
 
+- New
+  - Add support for Python 3.12
 - Added
   - Add `pugixml.pugi.PARSE_MERGE_PCDATA`
   - Add `pugixml.pugi.XMLAttribute.set_name(name: str, size: int)`

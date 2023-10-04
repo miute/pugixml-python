@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-20.04, windows-2022, macos-11]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
           CIBW_ARCHS_MACOS: universal2
           CIBW_SKIP: "*-musllinux_* pp*"
           CIBW_TEST_REQUIRES: pytest
-          CIBW_TEST_COMMAND: pytest --color=yes {project}/tests
+          CIBW_TEST_COMMAND: pytest {project}/tests
 
       - name: Build sdist
         if: startsWith(matrix.os, 'ubuntu')
