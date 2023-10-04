@@ -852,18 +852,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   attr.def("set_value", py::overload_cast<const char_t *>(&xml_attribute::set_value), py::arg("value").none(false),
            "\tSet the attribute value.")
-      .def(
-          "set_value",
-          [](xml_attribute &self, const char_t *value, size_t size) {
-            size_t sz =
-#ifdef PUGIXML_WCHAR_MODE
-                wcslen(value);
-#else
-                strlen(value);
-#endif
-            return self.set_value(value, std::min(size, sz));
-          },
-          py::arg("value").none(false), py::arg("size"), "\tSet the attribute value with the specified length.")
+      .def("set_value", py::overload_cast<const char_t *, size_t>(&xml_attribute::set_value),
+           py::arg("value").none(false), py::arg("size"), "\tSet the attribute value with the specified length.")
       .def("set_value", py::overload_cast<bool>(&xml_attribute::set_value), py::arg("value").noconvert(),
            "\tSet the attribute value as a boolean (\"true\" or \"false\").")
       .def("set_value", py::overload_cast<double>(&xml_attribute::set_value), py::arg("value").noconvert(),
@@ -1255,24 +1245,14 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   node.def("set_value", py::overload_cast<const char_t *>(&xml_node::set_value), py::arg("value").none(false),
            "\tSet the node value.")
-      .def(
-          "set_value",
-          [](xml_node &self, const char_t *value, size_t size) {
-            size_t sz =
-#ifdef PUGIXML_WCHAR_MODE
-                wcslen(value);
-#else
-                strlen(value);
-#endif
-            return self.set_value(value, std::min(size, sz));
-          },
-          py::arg("value").none(false), py::arg("size"),
-          "\tSet the node value with the specified length.\n\n"
-          "Args:\n"
-          "    value (str): The node value to set.\n"
-          "    size (int): The length of the value.\n\n"
-          "Returns:\n"
-          "    bool: :obj:`False` if node is empty, there is not enough memory, or node can not have value.");
+      .def("set_value", py::overload_cast<const char_t *, size_t>(&xml_node::set_value), py::arg("value").none(false),
+           py::arg("size"),
+           "\tSet the node value with the specified length.\n\n"
+           "Args:\n"
+           "    value (str): The node value to set.\n"
+           "    size (int): The length of the value.\n\n"
+           "Returns:\n"
+           "    bool: :obj:`False` if node is empty, there is not enough memory, or node can not have value.");
 
   node.def("append_attribute", &xml_node::append_attribute, py::arg("name").none(false),
            R"doc(
@@ -2067,18 +2047,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
   text.def("set", py::overload_cast<const char_t *>(&xml_text::set), py::arg("value").none(false),
            "\tSet the contents.")
-      .def(
-          "set",
-          [](xml_text &self, const char_t *value, size_t size) {
-            size_t sz =
-#ifdef PUGIXML_WCHAR_MODE
-                wcslen(value);
-#else
-                strlen(value);
-#endif
-            return self.set(value, std::min(size, sz));
-          },
-          py::arg("value").none(false), py::arg("size"), "\tSet the contents with the specified length.")
+      .def("set", py::overload_cast<const char_t *, size_t>(&xml_text::set), py::arg("value").none(false),
+           py::arg("size"), "\tSet the contents with the specified length.")
       .def("set", py::overload_cast<bool>(&xml_text::set), py::arg("value").noconvert(),
            "\tSet the contents as a boolean (\"true\" or \"false\").")
       .def("set", py::overload_cast<double>(&xml_text::set), py::arg("value").noconvert(),
