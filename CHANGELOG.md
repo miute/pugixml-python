@@ -2,8 +2,11 @@
 
 ## WIP
 
+- **Fixed**
+  - Fix problems with macOS builds ([#82](https://github.com/miute/pugixml-python/pull/82))
 - **Removed**
   - Drop support for macOS 11
+  - Drop support for Python 3.7
 
 ## v0.5.0 (2023-10-04)
 

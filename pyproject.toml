@@ -13,7 +13,7 @@ testpaths = [
 [tool.black]
 line-length = 79
 target-version = [
-  "py311",
+  "py38",
 ]
 extend-exclude = """
 ^/src/third_party/
@@ -27,7 +27,7 @@ extend_skip = [
 ]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.8"
 warn_unused_configs = true
 warn_return_any = true
 check_untyped_defs = true
