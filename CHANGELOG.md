@@ -1,5 +1,10 @@
 # Changelog
 
+## WIP
+
+- **Removed**
+  - Drop support for macOS 11
+
 ## v0.5.0 (2023-10-04)
 
 - **New**
