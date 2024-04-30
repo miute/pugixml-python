@@ -2,6 +2,8 @@
 
 ## WIP
 
+- **Changed**
+  - Update pybind11 from 2.11.1 to 2.12.0
 - **Fixed**
   - Fix problems with macOS builds ([#82](https://github.com/miute/pugixml-python/pull/82))
 - **Removed**
