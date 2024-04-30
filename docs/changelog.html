@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="pugixml.pugi.XPathVariableSet" href="generated/pugixml.pugi.XPathVariableSet.html" />
 
-    <!-- Generated with Sphinx 7.2.6 and Furo 2023.09.10 -->
-        <title>Changelog - pugixml-python 0.5.0</title>
+    <!-- Generated with Sphinx 7.3.7 and Furo 2024.04.27 -->
+        <title>Changelog - pugixml-python 0.6.0</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=135e06be" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=437aa6ec" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=f75f74b5" />
@@ -114,6 +114,8 @@
   <div class="visually-hidden">Hide table of contents sidebar</div>
 </label>
 
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
 
 
 <div class="page">
@@ -125,7 +127,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">pugixml-python 0.5.0</div></a>
+      <a href="index.html"><div class="brand">pugixml-python 0.6.0</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -148,7 +150,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
 
 
-  <span class="sidebar-brand-text">pugixml-python 0.5.0</span>
+  <span class="sidebar-brand-text">pugixml-python 0.6.0</span>
 
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -225,31 +227,52 @@
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
-        <article role="main">
+        <article role="main" id="furo-main-content">
           <section id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h1>
-<section id="v0-5-0-2023-10-04">
-<h2>v0.5.0 / 2023-10-04<a class="headerlink" href="#v0-5-0-2023-10-04" title="Link to this heading">#</a></h2>
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">¶</a></h1>
+<section id="v0-6-0-2024-04-30">
+<h2>v0.6.0 (2024-04-30)<a class="headerlink" href="#v0-6-0-2024-04-30" title="Link to this heading">¶</a></h2>
+<p>Maintenance release.</p>
 <ul class="simple">
-<li><p>New</p>
+<li><p><strong>Changed</strong></p>
 <ul>
-<li><p>Add support for Python 3.12</p></li>
+<li><p>Update pybind11 from 2.11.1 to 2.12.0</p></li>
 </ul>
 </li>
-<li><p>Added</p>
+<li><p><strong>Fixed</strong></p>
+<ul>
+<li><p>Fix problems with macOS builds (<a class="reference external" href="https://github.com/miute/pugixml-python/pull/82">#82</a>, <a class="reference external" href="https://github.com/miute/pugixml-python/pull/85">#85</a>)</p></li>
+</ul>
+</li>
+<li><p><strong>Removed</strong></p>
+<ul>
+<li><p>Drop support for macOS 11</p></li>
+<li><p>Drop support for Python 3.7</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="v0-5-0-2023-10-04">
+<h2>v0.5.0 (2023-10-04)<a class="headerlink" href="#v0-5-0-2023-10-04" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>New</strong></p>
+<ul>
+<li><p>Add support for Python 3.12</p></li>
+<li><p>Add support for pugixml 1.14</p>
 <ul>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.PARSE_MERGE_PCDATA</span></code></p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.set_name(name:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.set_name(name:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
 </ul>
 </li>
-<li><p>Changed</p>
+</ul>
+</li>
+<li><p><strong>Changed</strong></p>
 <ul>
-<li><p>Update pugixml from 1.13 to 1.14</p></li>
 <li><p>Update pybind11 from 2.10.1 to 2.11.1</p></li>
 </ul>
 </li>
-<li><p>Fixed</p>
+<li><p><strong>Fixed</strong></p>
 <ul>
 <li><p>Remove unnecessary length check:</p>
 <ul>
@@ -263,22 +286,25 @@
 </ul>
 </section>
 <section id="v0-4-0-2022-11-11">
-<h2>v0.4.0 / 2022-11-11<a class="headerlink" href="#v0-4-0-2022-11-11" title="Link to this heading">#</a></h2>
+<h2>v0.4.0 (2022-11-11)<a class="headerlink" href="#v0-4-0-2022-11-11" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Added</p>
+<li><p><strong>New</strong></p>
+<ul>
+<li><p>Add support for pugixml 1.13</p>
 <ul>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.set_value(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.set_value(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLText.set(value:</span> <span class="pre">str,</span> <span class="pre">size:</span> <span class="pre">int)</span></code></p></li>
 </ul>
 </li>
-<li><p>Changed</p>
+</ul>
+</li>
+<li><p><strong>Changed</strong></p>
 <ul>
-<li><p>Update pugixml from <a class="reference external" href="https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563">521b2cd</a> to 1.13</p></li>
 <li><p>Update pybind11 from 2.10.0 to 2.10.1</p></li>
 </ul>
 </li>
-<li><p>Improved</p>
+<li><p><strong>Improved</strong></p>
 <ul>
 <li><p>Improve type checking</p></li>
 </ul>
@@ -286,9 +312,9 @@
 </ul>
 </section>
 <section id="v0-3-0-2022-10-03">
-<h2>v0.3.0 / 2022-10-03<a class="headerlink" href="#v0-3-0-2022-10-03" title="Link to this heading">#</a></h2>
+<h2>v0.3.0 (2022-10-03)<a class="headerlink" href="#v0-3-0-2022-10-03" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>New</p>
+<li><p><strong>New</strong></p>
 <ul>
 <li><p>Add support for Python 3.11</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.BytesWriter</span></code> class</p></li>
@@ -296,23 +322,23 @@
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.limits</span></code> submodule</p></li>
 </ul>
 </li>
-<li><p>Added</p>
+<li><p><strong>Added</strong></p>
 <ul>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.StringWriter.__len__()</span></code></p></li>
 </ul>
 </li>
-<li><p>Changed</p>
+<li><p><strong>Changed</strong></p>
 <ul>
-<li><p>Update pugixml to <a class="reference external" href="https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563">521b2cd</a></p></li>
-<li><p>Update pybind11 to 2.10.0</p></li>
+<li><p>Update pugixml from 1.12 to <a class="reference external" href="https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563">521b2cd</a></p></li>
+<li><p>Update pybind11 from 2.9.2 to 2.10.0</p></li>
 </ul>
 </li>
-<li><p>Fixed</p>
+<li><p><strong>Fixed</strong></p>
 <ul>
 <li><p>Fix <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.PrintWriter</span></code> to raise an exception when encoding fails</p></li>
 </ul>
 </li>
-<li><p>Improved</p>
+<li><p><strong>Improved</strong></p>
 <ul>
 <li><p>Update docstring</p></li>
 <li><p>Change arguments of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.StringWriter.getvalue()</span></code> → <code class="docutils literal notranslate"><span class="pre">getvalue(encoding:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'utf-8',</span> <span class="pre">errors:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'strict')</span></code></p></li>
@@ -321,9 +347,9 @@
 </ul>
 </section>
 <section id="v0-2-0-2022-06-10">
-<h2>v0.2.0 / 2022-06-10<a class="headerlink" href="#v0-2-0-2022-06-10" title="Link to this heading">#</a></h2>
+<h2>v0.2.0 (2022-06-10)<a class="headerlink" href="#v0-2-0-2022-06-10" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>New</p>
+<li><p><strong>New</strong></p>
 <ul>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttributeStruct</span></code> class</p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNodeStruct</span></code> class</p></li>
@@ -332,7 +358,7 @@
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNamedNodeIterator</span></code> class</p></li>
 </ul>
 </li>
-<li><p>Added</p>
+<li><p><strong>Added</strong></p>
 <ul>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.internal_object()</span></code></p></li>
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLAttribute.__init__(p:</span> <span class="pre">XMLAttributeStruct)</span></code></p></li>
@@ -340,17 +366,17 @@
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.__init__(p:</span> <span class="pre">XMLNodeStruct)</span></code></p></li>
 </ul>
 </li>
-<li><p>Fixed</p>
+<li><p><strong>Fixed</strong></p>
 <ul>
-<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.attributes()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">List[XMLAttribute]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLAttributeIterator</span></code></p></li>
-<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.children()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">List[XMLNode]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLNodeIterator</span></code></p></li>
-<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.children(name:</span> <span class="pre">str)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">List[XMLNode]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLNamedNodeIterator</span></code></p></li>
+<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.attributes()</span> <span class="pre">-&gt;</span> <span class="pre">List[XMLAttribute]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLAttributeIterator</span></code></p></li>
+<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.children()</span> <span class="pre">-&gt;</span> <span class="pre">List[XMLNode]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLNodeIterator</span></code></p></li>
+<li><p>Change return type of <code class="docutils literal notranslate"><span class="pre">pugixml.pugi.XMLNode.children(name:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">List[XMLNode]</span></code> → <code class="docutils literal notranslate"><span class="pre">XMLNamedNodeIterator</span></code></p></li>
 </ul>
 </li>
 </ul>
 </section>
 <section id="v0-1-0-2022-05-27">
-<h2>v0.1.0 / 2022-05-27<a class="headerlink" href="#v0-1-0-2022-05-27" title="Link to this heading">#</a></h2>
+<h2>v0.1.0 (2022-05-27)<a class="headerlink" href="#v0-1-0-2022-05-27" title="Link to this heading">¶</a></h2>
 <p>Initial release.</p>
 </section>
 </section>
@@ -403,11 +429,12 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#v0-5-0-2023-10-04">v0.5.0 / 2023-10-04</a></li>
-<li><a class="reference internal" href="#v0-4-0-2022-11-11">v0.4.0 / 2022-11-11</a></li>
-<li><a class="reference internal" href="#v0-3-0-2022-10-03">v0.3.0 / 2022-10-03</a></li>
-<li><a class="reference internal" href="#v0-2-0-2022-06-10">v0.2.0 / 2022-06-10</a></li>
-<li><a class="reference internal" href="#v0-1-0-2022-05-27">v0.1.0 / 2022-05-27</a></li>
+<li><a class="reference internal" href="#v0-6-0-2024-04-30">v0.6.0 (2024-04-30)</a></li>
+<li><a class="reference internal" href="#v0-5-0-2023-10-04">v0.5.0 (2023-10-04)</a></li>
+<li><a class="reference internal" href="#v0-4-0-2022-11-11">v0.4.0 (2022-11-11)</a></li>
+<li><a class="reference internal" href="#v0-3-0-2022-10-03">v0.3.0 (2022-10-03)</a></li>
+<li><a class="reference internal" href="#v0-2-0-2022-06-10">v0.2.0 (2022-06-10)</a></li>
+<li><a class="reference internal" href="#v0-1-0-2022-05-27">v0.1.0 (2022-05-27)</a></li>
 </ul>
 </li>
 </ul>
@@ -419,10 +446,10 @@
 
     </aside>
   </div>
-</div><script src="_static/documentation_options.js?v=1dd76d02"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+</div><script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/furo.js?v=32e29ea5"></script>
+    <script src="_static/scripts/furo.js?v=4e2eecee"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=30646c52"></script>
     </body>
