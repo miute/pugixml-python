@@ -1,11 +1,13 @@
 # Changelog
 
-## WIP
+## v0.6.0 (2024-04-30)
+
+Maintenance release.
 
 - **Changed**
   - Update pybind11 from 2.11.1 to 2.12.0
 - **Fixed**
-  - Fix problems with macOS builds ([#82](https://github.com/miute/pugixml-python/pull/82))
+  - Fix problems with macOS builds ([#82](https://github.com/miute/pugixml-python/pull/82), [#85](https://github.com/miute/pugixml-python/pull/85))
 - **Removed**
   - Drop support for macOS 11
   - Drop support for Python 3.7
