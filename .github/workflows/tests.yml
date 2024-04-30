@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  MACOSX_DEPLOYMENT_TARGET: "11.0"
+  MACOSX_DEPLOYMENT_TARGET: "12.0"
 
 jobs:
   test:
@@ -18,8 +18,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11", "3.12"]
+        os: [ubuntu-latest, windows-latest, macos-13, macos-14]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        exclude:
+          - os: macos-14
+            python-version: "3.8"
+          - os: macos-14
+            python-version: "3.9"
 
     steps:
       - uses: actions/checkout@v4
@@ -27,7 +32,7 @@ jobs:
           submodules: "recursive"
 
       - name: Set up Python ${{matrix.python-version}}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{matrix.python-version}}
 

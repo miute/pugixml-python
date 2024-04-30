@@ -2851,8 +2851,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
             Returns:
                 int: The contents size in bytes.
             )doc")
-      .def(
-          "getvalue", [](const BytesWriter &self) { return py::bytes(self.contents); }, R"doc(
+      .def("getvalue", [](const BytesWriter &self) { return py::bytes(self.contents); }, R"doc(
           Return the entire contents of the buffer.
 
           Returns:
