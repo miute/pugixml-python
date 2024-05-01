@@ -26,10 +26,6 @@ jobs:
         if: startsWith(matrix.os, 'macos-13')
         run: echo "SYSTEM_VERSION_COMPAT=0" >> $GITHUB_ENV
 
-      - name: Set env (macOS 14 Arm64)
-        if: startsWith(matrix.os, 'macos-14')
-        run: echo "CIBW_PROJECT_REQUIRES_PYTHON=>=3.10" >> $GITHUB_ENV
-
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.17.0
         env:
