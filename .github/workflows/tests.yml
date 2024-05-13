@@ -2,15 +2,13 @@ name: tests
 
 on:
   push:
-    branches:
-      - 'main'
-    tags-ignore:
-      - '**'
+    branches: [main]
+    tags-ignore: ['**']
   pull_request:
   workflow_dispatch:
 
 env:
-  MACOSX_DEPLOYMENT_TARGET: "12.0"
+  MACOSX_DEPLOYMENT_TARGET: '12.0'
 
 jobs:
   test:
@@ -19,12 +17,12 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-13, macos-14]
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
 
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: "recursive"
+          submodules: recursive
 
       - name: Set up Python ${{matrix.python-version}}
         uses: actions/setup-python@v5
@@ -42,5 +40,5 @@ jobs:
           python -m pip install --user --pre tox-gh-actions
 
       - name: Run tests
-        run: |
+        run: |-
           python -m tox
