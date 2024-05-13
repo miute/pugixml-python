@@ -1,0 +1,5 @@
+explicit_start = false
+whitelines = 1
+comments_whitelines = 1
+section_whitelines = 1
+line_length = 120

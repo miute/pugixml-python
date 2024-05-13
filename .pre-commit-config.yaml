@@ -1,3 +1,6 @@
+default_language_version:
+  python: python3.8
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
@@ -10,11 +13,18 @@ repos:
       - id: check-added-large-files
       - id: check-toml
 
+  - repo: https://github.com/lyz-code/yamlfix
+    rev: 1.16.0
+    hooks:
+      - id: yamlfix
+        args: [--config-file, .yamlfix.toml]
+        exclude: src/.clang-format
+
   - repo: https://github.com/pre-commit/mirrors-clang-format
     rev: v18.1.5
     hooks:
-    - id: clang-format
-      types: [file, c++]
+      - id: clang-format
+        types_or: [c++, c]
 
   - repo: https://github.com/psf/black
     rev: 24.4.2
