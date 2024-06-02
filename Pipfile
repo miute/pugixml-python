@@ -11,6 +11,8 @@ sphinx = "*"
 furo = "*"
 sphinx-copybutton = "*"
 myst-parser = "*"
+setuptools = "*"
+tomli = "*"
 
 [pipenv]
 allow_prereleases = true
