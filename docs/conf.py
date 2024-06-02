@@ -20,7 +20,8 @@ del path
 
 md = metadata("pugixml")
 project = "pugixml-python"
-author = md["Author"]
+author = md["Author-email"]
+author = author[: author.index("<")].strip()
 copyright = f"2022, {author}"  # noqa: A001
 version = release = md["Version"]
 

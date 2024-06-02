@@ -1,9 +1,9 @@
 import os
 import subprocess
 import sys
-from configparser import ConfigParser
 from pathlib import Path
 
+import tomli  # TODO: Use tomlib instead of tomli.
 from setuptools import Extension
 from setuptools.command.build_ext import build_ext
 
@@ -130,17 +130,12 @@ class CMakeBuild(build_ext):
 
 
 def build(setup_kwargs):
-    config = ConfigParser()
     here = Path(__file__).parent.resolve()
-    config.read(here / "setup.cfg")
-    pairs = [x for x in config["options"]["package_dir"].split("\n") if x]
-    items = [list(map(str.strip, x.split("="))) for x in pairs]  # type: ignore
-    package_dir = dict(items)
-    ext_modules = [CMakeExtension(config["metadata"]["name"], package_dir[""])]
-    cmdclass = dict(build_ext=CMakeBuild)
-    setup_kwargs.update(
-        {
-            "ext_modules": ext_modules,
-            "cmdclass": cmdclass,
-        }
-    )
+    with open(here / "pyproject.toml", "rb") as f:
+        md = tomli.load(f)
+        setup_kwargs.update(
+            {
+                "ext_modules": [CMakeExtension(md["project"]["name"], "src")],
+                "cmdclass": {"build_ext": CMakeBuild},
+            }
+        )
