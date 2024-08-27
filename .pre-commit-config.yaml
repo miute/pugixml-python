@@ -14,7 +14,7 @@ repos:
       - id: check-toml
 
   - repo: https://github.com/lyz-code/yamlfix
-    rev: 1.16.0
+    rev: 1.17.0
     hooks:
       - id: yamlfix
         args: [--config-file, .yamlfix.toml]
@@ -45,6 +45,6 @@ repos:
         exclude: ^src/third_party
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.11.1
+    rev: v1.11.2
     hooks:
       - id: mypy
