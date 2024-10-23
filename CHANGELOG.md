@@ -1,5 +1,10 @@
 # Changelog
 
+## WIP
+
+- **New**
+  - Add support for Python 3.13
+
 ## v0.6.0 (2024-04-30)
 
 Maintenance release.
