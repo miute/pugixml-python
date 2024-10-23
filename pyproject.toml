@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pugixml"
 version = "0.7.0.dev1"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 description = "Light-weight, simple and fast XML parser with XPath support"
 authors = [
   { name = "Tetsuya Miura", email = "miute.dev@gmail.com" },
@@ -30,7 +30,6 @@ classifiers = [
   "Operating System :: POSIX",
   "Programming Language :: C++",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -65,7 +64,6 @@ testpaths = [
 [tool.black]
 line-length = 79
 target-version = [
-  "py38",
   "py39",
   "py310",
   "py311",

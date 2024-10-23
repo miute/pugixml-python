@@ -4,6 +4,8 @@
 
 - **New**
   - Add support for Python 3.13
+- **Removed**
+  - Drop support for Python 3.8
 
 ## v0.6.0 (2024-04-30)
 
