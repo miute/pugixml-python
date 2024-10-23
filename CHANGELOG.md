@@ -1,5 +1,14 @@
 # Changelog
 
+## WIP
+
+- **New**
+  - Add support for Python 3.13
+- **Changed**
+  - Update pybind11 from 2.12.0 to 2.13.6
+- **Removed**
+  - Drop support for Python 3.8
+
 ## v0.6.0 (2024-04-30)
 
 Maintenance release.
