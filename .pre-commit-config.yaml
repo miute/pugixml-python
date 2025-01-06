@@ -21,7 +21,7 @@ repos:
         exclude: src/.clang-format
 
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v19.1.5
+    rev: v19.1.6
     hooks:
       - id: clang-format
         types_or: [c++, c]
@@ -45,6 +45,6 @@ repos:
         exclude: ^src/third_party
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.14.0
+    rev: v1.14.1
     hooks:
       - id: mypy
