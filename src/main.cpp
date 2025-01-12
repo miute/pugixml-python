@@ -1167,7 +1167,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                XMLText: The text object.
            )doc");
 
-  node.def("child", &xml_node::child, py::arg("name").none(false),
+  node.def("child", py::overload_cast<const char_t *>(&xml_node::child, py::const_), py::arg("name").none(false),
            R"doc(
            Return a child node with the specified name.
 
@@ -1254,7 +1254,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "Returns:\n"
            "    bool: :obj:`False` if node is empty, there is not enough memory, or node can not have value.");
 
-  node.def("append_attribute", &xml_node::append_attribute, py::arg("name").none(false),
+  node.def("append_attribute", py::overload_cast<const char_t *>(&xml_node::append_attribute),
+           py::arg("name").none(false),
            R"doc(
            Add a new attribute with the specified name to the end of the list of attributes for this node.
 
@@ -1268,7 +1269,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.prepend_attribute`, :meth:`.insert_attribute_after`, :meth:`.insert_attribute_before`
            )doc");
 
-  node.def("prepend_attribute", &xml_node::prepend_attribute, py::arg("name").none(false),
+  node.def("prepend_attribute", py::overload_cast<const char_t *>(&xml_node::prepend_attribute),
+           py::arg("name").none(false),
            R"doc(
            Add a new attribute with the specified name to the top of the list of attributes for this node.
 
@@ -1282,7 +1284,9 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.append_attribute`, :meth:`.insert_attribute_after`, :meth:`.insert_attribute_before`
            )doc");
 
-  node.def("insert_attribute_after", &xml_node::insert_attribute_after, py::arg("name").none(false), py::arg("attr"),
+  node.def("insert_attribute_after",
+           py::overload_cast<const char_t *, const xml_attribute &>(&xml_node::insert_attribute_after),
+           py::arg("name").none(false), py::arg("attr"),
            R"doc(
            Insert a new attribute with the specified name after *attr* in the list of attributes for this node.
 
@@ -1297,7 +1301,9 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                :meth:`.append_attribute`, :meth:`.prepend_attribute`, :meth:`.insert_attribute_before`
            )doc");
 
-  node.def("insert_attribute_before", &xml_node::insert_attribute_before, py::arg("name").none(false), py::arg("attr"),
+  node.def("insert_attribute_before",
+           py::overload_cast<const char_t *, const xml_attribute &>(&xml_node::insert_attribute_before),
+           py::arg("name").none(false), py::arg("attr"),
            R"doc(
            Insert a new attribute with the specified name before *attr* in the list of attributes for this node.
 

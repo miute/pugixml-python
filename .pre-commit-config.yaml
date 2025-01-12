@@ -1,9 +1,9 @@
 default_language_version:
-  python: python3.8
+  python: python3.9
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
         exclude: ^docs/generated/
@@ -14,20 +14,21 @@ repos:
       - id: check-toml
 
   - repo: https://github.com/lyz-code/yamlfix
-    rev: 1.16.0
+    rev: 1.17.0
     hooks:
       - id: yamlfix
         args: [--config-file, .yamlfix.toml]
         exclude: src/.clang-format
 
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v18.1.5
+    rev: v19.1.6
     hooks:
       - id: clang-format
         types_or: [c++, c]
+        exclude: ^src/third_party
 
   - repo: https://github.com/psf/black
-    rev: 24.4.2
+    rev: 24.10.0
     hooks:
       - id: black
 
@@ -37,12 +38,13 @@ repos:
       - id: isort
 
   - repo: https://github.com/PyCQA/flake8
-    rev: 7.0.0
+    rev: 7.1.1
     hooks:
       - id: flake8
-        additional_dependencies: [flake8-2020, flake8-bugbear, flake8-builtins]
+        additional_dependencies: [flake8-pyproject, flake8-2020, flake8-bugbear, flake8-builtins]
+        exclude: ^src/third_party
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.0
+    rev: v1.14.1
     hooks:
       - id: mypy

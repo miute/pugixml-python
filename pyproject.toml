@@ -1,11 +1,62 @@
 [build-system]
 requires = [
-  "setuptools>=58.0",
-  "wheel",
+  "setuptools>=61.0",
+  "tomli",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pugixml"
+version = "0.7.0.dev1"
+requires-python = ">=3.9"
+description = "Light-weight, simple and fast XML parser with XPath support"
+authors = [
+  { name = "Tetsuya Miura", email = "miute.dev@gmail.com" },
+]
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { file = "LICENSE" }
+keywords = [
+  "dom",
+  "xml",
+  "xpath",
+  "xml-parser",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS :: MacOS X",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX",
+  "Programming Language :: C++",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Libraries",
+  "Topic :: Text Processing :: Markup :: XML",
 ]
 
+[project.urls]
+pugixml = "https://pugixml.org/docs/quickstart.html"
+Repository = "https://github.com/miute/pugixml-python"
+Documentation = "https://miute.github.io/pugixml-python/"
+Changelog = "https://miute.github.io/pugixml-python/changelog.html"
+
+[tool.setuptools.packages.find]
+where = [
+  "src",
+]
+namespaces = false
+
 [tool.pytest.ini_options]
-addopts = "--tb=short -ra --color=yes"
+addopts = [
+  "--tb=short",
+  "-ra",
+  "--color=yes",
+]
 testpaths = [
   "tests",
 ]
@@ -13,7 +64,11 @@ testpaths = [
 [tool.black]
 line-length = 79
 target-version = [
-  "py38",
+  "py39",
+  "py310",
+  "py311",
+  "py312",
+  "py313",
 ]
 extend-exclude = """
 ^/src/third_party/
@@ -26,8 +81,20 @@ extend_skip = [
   "src/third_party/",
 ]
 
+[tool.flake8]
+max-line-length = 88
+ignore = [
+  "E203",
+  "W503",
+]
+exclude = [
+  "src/third_party",
+]
+
 [tool.mypy]
-python_version = "3.8"
 warn_unused_configs = true
 warn_return_any = true
 check_untyped_defs = true
+exclude = [
+  "^src/third_party",
+]
