@@ -1,9 +1,9 @@
 # Changelog
 
-## WIP
+## v0.7.0 (2025-01-13)
 
 - **New**
-  - Add support for pugixml 1.15
+  - Add support for pugixml 1.15 ([#109](https://github.com/miute/pugixml-python/pull/109))
   - Add support for Python 3.13
 - **Changed**
   - Update pybind11 from 2.12.0 to 2.13.6
