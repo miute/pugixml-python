@@ -3,9 +3,9 @@
 ## v0.7.0 (2025-01-13)
 
 - **New**
-  - Add support for pugixml 1.15 ([#109](https://github.com/miute/pugixml-python/pull/109))
   - Add support for Python 3.13
 - **Changed**
+  - Update pugixml from 1.14 to 1.15 ([#109](https://github.com/miute/pugixml-python/pull/109))
   - Update pybind11 from 2.12.0 to 2.13.6
 - **Removed**
   - Drop support for Python 3.8
@@ -26,11 +26,11 @@ Maintenance release.
 
 - **New**
   - Add support for Python 3.12
-  - Add support for pugixml 1.14
+- **Changed**
+  - Update pugixml from 1.13 to 1.14
     - Add `pugixml.pugi.PARSE_MERGE_PCDATA`
     - Add `pugixml.pugi.XMLAttribute.set_name(name: str, size: int)`
     - Add `pugixml.pugi.XMLNode.set_name(name: str, size: int)`
-- **Changed**
   - Update pybind11 from 2.10.1 to 2.11.1
 - **Fixed**
   - Remove unnecessary length check:
@@ -40,12 +40,11 @@ Maintenance release.
 
 ## v0.4.0 (2022-11-11)
 
-- **New**
-  - Add support for pugixml 1.13
+- **Changed**
+  - Update pugixml from [521b2cd854f8d65f173107d056d2b9c6d49b6563](https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563) to 1.13
     - Add `pugixml.pugi.XMLAttribute.set_value(value: str, size: int)`
     - Add `pugixml.pugi.XMLNode.set_value(value: str, size: int)`
     - Add `pugixml.pugi.XMLText.set(value: str, size: int)`
-- **Changed**
   - Update pybind11 from 2.10.0 to 2.10.1
 - **Improved**
   - Improve type checking
@@ -60,7 +59,7 @@ Maintenance release.
 - **Added**
   - Add `pugixml.pugi.StringWriter.__len__()`
 - **Changed**
-  - Update pugixml from 1.12 to [521b2cd](https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563)
+  - Update pugixml from 1.12 to [521b2cd854f8d65f173107d056d2b9c6d49b6563](https://github.com/zeux/pugixml/tree/521b2cd854f8d65f173107d056d2b9c6d49b6563)
   - Update pybind11 from 2.9.2 to 2.10.0
 - **Fixed**
   - Fix `pugixml.pugi.PrintWriter` to raise an exception when encoding fails
