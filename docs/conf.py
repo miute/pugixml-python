@@ -88,3 +88,7 @@ autodoc_default_options = {
     "private-members": True,
     "exclude-members": "__annotations__, __module__, __repr__, _pybind11_conduit_v1_",
 }
+
+suppress_warnings = [
+    "autosummary.import_cycle",
+]
