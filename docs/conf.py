@@ -86,5 +86,5 @@ autodoc_default_options = {
     "undoc-members": True,
     "special-members": True,
     "private-members": True,
-    "exclude-members": "__annotations__, __module__, __repr__",
+    "exclude-members": "__annotations__, __module__, __repr__, _pybind11_conduit_v1_",
 }
