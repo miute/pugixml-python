@@ -45,6 +45,7 @@
 
 
 
+
       ~XMLText.as_bool
 
 

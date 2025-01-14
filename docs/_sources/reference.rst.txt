@@ -1,8 +1,6 @@
 pugixml.pugi
 ============
 
-.. currentmodule:: pugixml
-
 .. rubric:: Classes
 
 .. autoclass:: pugixml.pugi.BytesWriter
