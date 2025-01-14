@@ -1,8 +1,6 @@
 API Reference
 =============
 
-.. currentmodule:: pugixml
-
 Attributes
 ----------
 
