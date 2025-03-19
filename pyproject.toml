@@ -57,6 +57,9 @@ addopts = [
   "-ra",
   "--color=yes",
 ]
+pythonpath = [
+  "src",
+]
 testpaths = [
   "tests",
 ]
