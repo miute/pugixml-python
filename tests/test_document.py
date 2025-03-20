@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 import tempfile
 from pathlib import Path
@@ -28,7 +30,7 @@ testdata = (
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_document.cpp
 # document_element()
-def test_document_element():
+def test_document_element() -> None:
     doc = pugi.XMLDocument()
 
     node = doc.document_element()
@@ -47,7 +49,7 @@ def test_document_element():
     assert node == doc.child("node")
 
 
-def test_hash_value():
+def test_hash_value() -> None:
     doc = pugi.XMLDocument()
 
     assert doc.hash_value() > 0
@@ -56,7 +58,7 @@ def test_hash_value():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_document.cpp
 # document_contents_preserve()
-def test_load_buffer():
+def test_load_buffer() -> None:
     doc = pugi.XMLDocument()
 
     contents = "<?xml?><node/>"  # type: str | bytes
@@ -100,7 +102,7 @@ def test_load_buffer():
                 assert contents2 == contents
 
 
-def test_load_file():
+def test_load_file() -> None:
     doc = pugi.XMLDocument()
 
     result = doc.load_file(str(testdata / "small.xml"))  # string
@@ -137,7 +139,7 @@ def test_load_file():
     assert writer.getvalue() == "<node/>"
 
 
-def test_load_file_fail():
+def test_load_file_fail() -> None:
     doc = pugi.XMLDocument()
 
     with pytest.raises(TypeError):
@@ -147,7 +149,7 @@ def test_load_file_fail():
     assert result.status == pugi.STATUS_FILE_NOT_FOUND
 
 
-def test_load_string():
+def test_load_string() -> None:
     doc = pugi.XMLDocument()
 
     result = doc.load_string(
@@ -180,7 +182,7 @@ def test_load_string():
     )
 
 
-def test_load_string_fail():
+def test_load_string_fail() -> None:
     doc = pugi.XMLDocument()
 
     result = doc.load_string("<foo><bar/>")
@@ -202,7 +204,7 @@ def test_load_string_fail():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_parse.cpp
 # TEST(parse_merge_pcdata)
-def test_parse_merge_pcdata():
+def test_parse_merge_pcdata() -> None:
     doc = pugi.XMLDocument()
 
     flags = pugi.PARSE_MERGE_PCDATA
@@ -228,7 +230,7 @@ def test_parse_merge_pcdata():
     )
 
 
-def test_parse_result():
+def test_parse_result() -> None:
     result = pugi.XMLParseResult()
     assert not result
     assert result.status == pugi.STATUS_INTERNAL_ERROR
@@ -243,14 +245,14 @@ def test_parse_result():
     assert repr(result).endswith(" description='Internal error occurred'>")
 
 
-def test_repr():
+def test_repr() -> None:
     doc = pugi.XMLDocument()
 
     assert repr(doc).startswith("<XMLDocument hash=0x")
     assert repr(doc).endswith(">")
 
 
-def test_reset():
+def test_reset() -> None:
     doc = pugi.XMLDocument()
 
     doc.append_child().set_name("node")
@@ -273,7 +275,7 @@ def test_reset():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_document.cpp
 # document_save_bom()
-def test_save():
+def test_save() -> None:
     doc = pugi.XMLDocument()
 
     doc.load_string("<node/>")
@@ -301,7 +303,7 @@ def test_save():
         doc.save(writer, indent=None)  # indent is None
 
 
-def test_save_file():
+def test_save_file() -> None:
     doc = pugi.XMLDocument()
 
     doc.load_string("<node><child/></node>")
@@ -323,7 +325,7 @@ def test_save_file():
             assert contents == b'<?xml version="1.0"?><node><child/></node>'
 
 
-def test_save_file_fail():
+def test_save_file_fail() -> None:
     doc = pugi.XMLDocument()
 
     doc.load_string("<node><child/></node>")

@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import sys
 
 import pytest
@@ -6,7 +8,7 @@ from pugixml import pugi
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_traverse.cpp
-def test_as_bool():
+def test_as_bool() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='0' attr2='1' attr3='true' attr4='True' attr5='Yes' "
@@ -37,7 +39,7 @@ def test_as_bool():
     assert attr.value() == "false"
 
 
-def test_as_double():
+def test_as_double() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='0' attr2='1' attr3='0.12' attr4='-5.1' attr5='3e-4' "
@@ -65,7 +67,7 @@ def test_as_double():
     assert attr.value() == "3.14159265358979323846"
 
 
-def test_as_float():
+def test_as_float() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='0' attr2='1' attr3='0.12' attr4='-5.1' "
@@ -93,7 +95,7 @@ def test_as_float():
     assert attr.value() == "3.14159265358979323846"
 
 
-def test_as_int():
+def test_as_int() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='1' attr2='-1' attr3='-2147483648' attr4='2147483647' attr5='0'/>"
@@ -117,7 +119,7 @@ def test_as_int():
     assert attr.value() == "0"
 
 
-def test_as_llong():
+def test_as_llong() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='1' attr2='-1' attr3='-9223372036854775808' "
@@ -142,7 +144,7 @@ def test_as_llong():
     assert attr.value() == "0"
 
 
-def test_as_string():
+def test_as_string() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='1'/>")
 
@@ -151,7 +153,7 @@ def test_as_string():
     assert attr.value() == "1"
 
 
-def test_as_uint():
+def test_as_uint() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='0' attr2='1' attr3='2147483647' attr4='4294967295' attr5='0'/>"
@@ -175,7 +177,7 @@ def test_as_uint():
     assert attr.value() == "0"
 
 
-def test_as_ullong():
+def test_as_ullong() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='0' attr2='1' attr3='9223372036854775807' "
@@ -200,7 +202,7 @@ def test_as_ullong():
     assert attr.value() == "0"
 
 
-def test_bool():
+def test_bool() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='0' />")
 
@@ -208,7 +210,7 @@ def test_bool():
     assert doc.child("node").attribute("attr1")
 
 
-def test_defaults():
+def test_defaults() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")
@@ -228,7 +230,7 @@ def test_defaults():
         _ = attr.as_string(None)
 
 
-def test_empty():
+def test_empty() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='1' attr2='2'/>")
     node = doc.child("node")
@@ -238,7 +240,7 @@ def test_empty():
     assert not node.attribute("attr2").empty()
 
 
-def test_hash_value():
+def test_hash_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='1' attr2='2'/>")
     node = doc.child("node")
@@ -255,7 +257,7 @@ def test_hash_value():
     assert hash(attr2) == attr2.hash_value()
 
 
-def test_internal_object():
+def test_internal_object() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='value'>value</node>")
     node = doc.child("node")
@@ -273,7 +275,7 @@ def test_internal_object():
     assert attr.value() == "v"
 
 
-def test_next_previous_attribute():
+def test_next_previous_attribute() -> None:
     doc = pugi.XMLDocument()
 
     doc.load_string("<node attr1='1' attr2='2'/>")
@@ -288,7 +290,7 @@ def test_next_previous_attribute():
     assert attr1.previous_attribute() == pugi.XMLAttribute()
 
 
-def test_operators():
+def test_operators() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='0' attr2='0'/>")
     node = doc.child("node")
@@ -321,7 +323,7 @@ def test_operators():
     assert attr2 >= attr3
 
 
-def test_repr():
+def test_repr() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='1' attr2='2'/>")
     node = doc.child("node")
@@ -340,7 +342,7 @@ def test_repr():
     assert repr(attr3).endswith(">")
 
 
-def test_set_name():
+def test_set_name() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='value' />")
 
@@ -360,7 +362,7 @@ def test_set_name():
         attr.set_name(None, 3)
 
 
-def test_set_value():
+def test_set_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")
@@ -405,7 +407,7 @@ def test_set_value():
         attr.set_value("v2", -1)  # negative size
 
 
-def test_set_value_double():
+def test_set_value_double() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")
@@ -425,7 +427,7 @@ def test_set_value_double():
     assert writer.getvalue() == '<node attr="3.142"/>'
 
 
-def test_set_value_long_long():
+def test_set_value_long_long() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")

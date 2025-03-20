@@ -1,7 +1,10 @@
+from __future__ import annotations
+
 import os
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
 
 import tomli  # TODO: Use tomlib instead of tomli.
 from setuptools import Extension
@@ -17,13 +20,13 @@ PLAT_TO_CMAKE = {
 
 
 class CMakeExtension(Extension):
-    def __init__(self, name, sourcedir=""):
+    def __init__(self, name: str, sourcedir: str = "") -> None:
         Extension.__init__(self, name, sources=[])
         self.sourcedir = os.path.abspath(sourcedir)
 
 
 class CMakeBuild(build_ext):
-    def build_extension(self, ext):
+    def build_extension(self, ext: CMakeExtension) -> None:
         extdir = os.path.abspath(
             os.path.dirname(self.get_ext_fullpath(ext.name))
         )
@@ -129,7 +132,7 @@ class CMakeBuild(build_ext):
         )
 
 
-def build(setup_kwargs):
+def build(setup_kwargs: dict[str, Any]) -> None:
     here = Path(__file__).parent.resolve()
     with open(here / "pyproject.toml", "rb") as f:
         md = tomli.load(f)

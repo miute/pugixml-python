@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 
 import pytest
@@ -7,7 +9,7 @@ from pugixml import pugi
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
 # xpath_api_node_accessors()
-def test_node_accessors():
+def test_node_accessors() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='value'/>")
 
@@ -30,7 +32,7 @@ def test_node_accessors():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
 # xpath_api_node_bool_ops()
-def test_node_bool():
+def test_node_bool() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='value'/>")
 
@@ -40,7 +42,7 @@ def test_node_bool():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
 # xpath_api_node_eq_ops()
-def test_node_eq():
+def test_node_eq() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='value'/>")
 
@@ -58,7 +60,7 @@ def test_node_eq():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
 # xpath_api_nodeset_accessors()
-def test_nodeset_accessors():
+def test_nodeset_accessors() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><foo/><foo/></node>")
 
@@ -100,7 +102,7 @@ def test_nodeset_accessors():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath.cpp
 # xpath_sort_attributes()
-def test_nodeset_sort_attributes():
+def test_nodeset_sort_attributes() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     n = doc.child("node")
@@ -120,7 +122,7 @@ def test_nodeset_sort_attributes():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath.cpp
 # xpath_sort_children()
-def test_nodeset_sort_children():
+def test_nodeset_sort_children() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -148,7 +150,7 @@ def test_nodeset_sort_children():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_parse.cpp
 # xpath_parse_result_default()
-def test_parse_result_default():
+def test_parse_result_default() -> None:
     result = pugi.XPathParseResult()
     assert not result
     assert isinstance(result.error, str)
@@ -161,7 +163,7 @@ def test_parse_result_default():
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_parse.cpp
-def test_query():
+def test_query() -> None:
     c = pugi.XMLNode()
 
     q = pugi.XPathQuery("'a\"b'")
@@ -185,7 +187,7 @@ def test_query():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
 # xpath_api_evaluate()
-def test_query_evaluate():
+def test_query_evaluate() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='3'/>")
 
@@ -206,7 +208,7 @@ def test_query_evaluate():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
 # xpath_api_evaluate_attr()
-def test_query_evaluate_attr():
+def test_query_evaluate_attr() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='3'/>")
 
@@ -230,7 +232,7 @@ def test_query_evaluate_attr():
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_parse.cpp
-def test_query_fail():
+def test_query_fail() -> None:
     q = pugi.XPathQuery('"')
     assert not q
     result = q.result()
@@ -255,7 +257,7 @@ def test_query_fail():
 
 
 # https://pugixml.org/docs/samples/xpath_variables.cpp
-def test_query_vars():
+def test_query_vars() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         '<Profile FormatVersion="1">'
@@ -326,7 +328,7 @@ def test_query_vars():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
 # xpath_api_select_nodes()
-def test_select_node():
+def test_select_node() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><head/><foo id='1'/><foo/><tail/></node>")
 
@@ -362,7 +364,7 @@ def test_select_node():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_variables.cpp
 # xpath_variables_type_boolean()
-def test_variable_type_boolean():
+def test_variable_type_boolean() -> None:
     varset = pugi.XPathVariableSet()
 
     var = varset.add("target", pugi.XPATH_TYPE_BOOLEAN)
@@ -388,7 +390,7 @@ def test_variable_type_boolean():
     assert var.get_node_set().empty()
 
 
-def test_variable_type_nodeset():
+def test_variable_type_nodeset() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
 
@@ -422,7 +424,7 @@ def test_variable_type_nodeset():
     assert ns[0] == doc.first_child()
 
 
-def test_variable_type_number():
+def test_variable_type_number() -> None:
     varset = pugi.XPathVariableSet()
 
     var = varset.add("target", pugi.XPATH_TYPE_NUMBER)
@@ -448,7 +450,7 @@ def test_variable_type_number():
     assert var.get_node_set().empty()
 
 
-def test_variable_type_string():
+def test_variable_type_string() -> None:
     varset = pugi.XPathVariableSet()
 
     var = varset.add("target", pugi.XPATH_TYPE_STRING)
@@ -480,7 +482,7 @@ def test_variable_type_string():
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_variables.cpp
 # xpath_variables_set_operations()
 # xpath_variables_set_operations_set()
-def test_variableset_operations():
+def test_variableset_operations() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
 
