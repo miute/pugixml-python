@@ -93,23 +93,6 @@ allow-magic-value-types = ["str", "bytes", "float", "int"]
 [tool.ruff.format]
 line-ending = "lf"
 
-[tool.black]
-line-length = 79
-target-version = ["py39", "py310", "py311", "py312", "py313"]
-extend-exclude = """
-^/src/third_party/
-"""
-
-[tool.isort]
-profile = "black"
-line_length = 79
-extend_skip = ["src/third_party/"]
-
-[tool.flake8]
-max-line-length = 88
-ignore = ["E203", "E402", "W503"]
-exclude = ["src/third_party"]
-
 [tool.mypy]
 warn_unused_configs = true
 warn_return_any = true
