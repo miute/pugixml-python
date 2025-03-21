@@ -571,12 +571,16 @@ def test_file_writer() -> None:
         writer = pugi.FileWriter(file)
         del writer
 
-        with pytest.raises(OSError, match="iostream stream error"):
+        with pytest.raises(
+            OSError, match="(stream error)|(iostream_category error)"
+        ):
             _ = pugi.FileWriter(".")
 
         writer = pugi.FileWriter(file)
         writer.close()
-        with pytest.raises(OSError, match="iostream stream error"):
+        with pytest.raises(
+            OSError, match="(stream error)|(iostream_category error)"
+        ):
             doc.print(writer)
 
 
