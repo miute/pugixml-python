@@ -1,7 +1,11 @@
+from __future__ import annotations
+
 import os
 import subprocess
 import sys
+from logging import INFO
 from pathlib import Path
+from typing import Any
 
 import tomli  # TODO: Use tomlib instead of tomli.
 from setuptools import Extension
@@ -17,30 +21,24 @@ PLAT_TO_CMAKE = {
 
 
 class CMakeExtension(Extension):
-    def __init__(self, name, sourcedir=""):
+    def __init__(self, name: str, sourcedir: str = "") -> None:
         Extension.__init__(self, name, sources=[])
-        self.sourcedir = os.path.abspath(sourcedir)
+        self.root = Path(__file__).parent.resolve()
+        self.sourcedir = self.root / sourcedir
 
 
 class CMakeBuild(build_ext):
-    def build_extension(self, ext):
-        extdir = os.path.abspath(
-            os.path.dirname(self.get_ext_fullpath(ext.name))
-        )
-        extdir = os.path.join(extdir, ext.name)
-
-        # required for auto-detection of auxiliary "native" libs
-        if not extdir.endswith(os.path.sep):
-            extdir += os.path.sep
+    def build_extension(self, ext: CMakeExtension) -> None:
+        extdir = (ext.root / self.get_ext_fullpath(ext.name)).parent / ext.name
 
         env = os.environ.copy()
         cmake_build_type = env.get("CMAKE_BUILD_TYPE", "Release")
         cfg = "Debug" if self.debug else cmake_build_type
 
         cmake_args = [
-            "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=" + extdir,
-            "-DPYTHON_EXECUTABLE=" + sys.executable,
-            "-DCMAKE_BUILD_TYPE=" + cfg,
+            f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}",
+            f"-DPYTHON_EXECUTABLE={sys.executable}",
+            f"-DCMAKE_BUILD_TYPE={cfg}",
             "-Wno-dev",
         ]
         build_args = []
@@ -57,21 +55,18 @@ class CMakeBuild(build_ext):
 
         if is_multi_config:
             cmake_args += [
-                "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{}={}".format(
-                    cfg.upper(), extdir
-                ),
+                f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{cfg.upper()}={extdir}",
             ]
             build_args += [
                 "--config",
                 cfg,
             ]
 
-        if is_msbuild:
-            if "CMAKE_GENERATOR_PLATFORM" not in env:
-                cmake_args += [
-                    "-A",
-                    PLAT_TO_CMAKE[self.plat_name],
-                ]
+        if is_msbuild and "CMAKE_GENERATOR_PLATFORM" not in env:
+            cmake_args += [
+                "-A",
+                PLAT_TO_CMAKE[self.plat_name],
+            ]
 
         if (
             "CMAKE_BUILD_PARALLEL_LEVEL" not in env
@@ -91,45 +86,48 @@ class CMakeBuild(build_ext):
                 ]
 
         self.announce(
-            "-- CXX environment variable: {!r}".format(env.get("CXX")),
-            level=2,
+            f"-- CXX environment variable: {env.get('CXX')!r}",
+            level=INFO,
         )
         self.announce(
-            "-- CXXFLAGS environment variable: {!r}".format(
-                env.get("CXXFLAGS")
-            ),
-            level=2,
+            f"-- CXXFLAGS environment variable: {env.get('CXXFLAGS')!r}",
+            level=INFO,
         )
         self.announce(
             "-- CMake environment variables: {!r}".format(
                 [
-                    "{}={}".format(k, v)
+                    f"{k}={v}"
                     for k, v in env.items()
                     if k.upper().startswith("CMAKE")
                 ]
             ),
-            level=2,
+            level=INFO,
         )
         self.announce(
-            "-- CMake build system options: {!r}".format(cmake_args), level=2
+            f"-- CMake build system options: {cmake_args!r}", level=INFO
         )
-        self.announce(
-            "-- CMake build options: {!r}".format(build_args), level=2
+        self.announce(f"-- CMake build options: {build_args!r}", level=INFO)
+
+        build_temp = ext.root / self.build_temp / ext.name
+        if not build_temp.exists():
+            build_temp.mkdir(parents=True)
+        self.announce(f"-- Working directory: {build_temp!r}", level=INFO)
+
+        subprocess.run(  # noqa: S603
+            ["cmake", ext.sourcedir, *cmake_args],  # noqa: S607
+            cwd=build_temp,
+            check=True,
+            env=env,
+        )
+        subprocess.run(  # noqa: S603
+            ["cmake", "--build", ".", *build_args],  # noqa: S607
+            cwd=build_temp,
+            check=True,
+            env=env,
         )
 
-        if not os.path.exists(self.build_temp):
-            os.makedirs(self.build_temp)
 
-        subprocess.check_call(
-            ["cmake", ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env
-        )
-        subprocess.check_call(
-            ["cmake", "--build", "."] + build_args,
-            cwd=self.build_temp,
-        )
-
-
-def build(setup_kwargs):
+def build(setup_kwargs: dict[str, Any]) -> None:
     here = Path(__file__).parent.resolve()
     with open(here / "pyproject.toml", "rb") as f:
         md = tomli.load(f)

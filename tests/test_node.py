@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 import tempfile
 from contextlib import closing
@@ -53,7 +55,7 @@ class _TestWalker(pugi.XMLTreeWalker):
         return self._log
 
 
-def test_append_attribute():
+def test_append_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child/></node>")
     node = doc.child("node")
@@ -82,7 +84,7 @@ def test_append_attribute():
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_modify.cpp
-def test_append_buffer():
+def test_append_buffer() -> None:
     doc = pugi.XMLDocument()
 
     data = "<child1 id='1' /><child2>text</child2>"  # type: str | bytes
@@ -116,7 +118,7 @@ def test_append_buffer():
     assert writer.getvalue() == "<node>test<n/><n/></node>"
 
 
-def test_append_child():
+def test_append_child() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -159,7 +161,7 @@ def test_append_child():
         doc.append_child(None)
 
 
-def test_append_copy_attribute():
+def test_append_copy_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1'><child a2='v2'/><child/></node>")
     node = doc.child("node")
@@ -189,10 +191,7 @@ def test_append_copy_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a1="v1" a2="v2">'
-        '<child a2="v2"/>'
-        '<child a1="v1"/>'
-        "</node>"
+        '<node a1="v1" a1="v1" a2="v2"><child a2="v2"/><child a1="v1"/></node>'
     )
 
     a3.set_name("a3")
@@ -207,14 +206,11 @@ def test_append_copy_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a3="v3" a4="v4">'
-        '<child a2="v2"/>'
-        '<child a5="v5"/>'
-        "</node>"
+        '<node a1="v1" a3="v3" a4="v4"><child a2="v2"/><child a5="v5"/></node>'
     )
 
 
-def test_append_copy_node():
+def test_append_copy_node() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -241,7 +237,7 @@ def test_append_copy_node():
     )
 
 
-def test_append_move():
+def test_append_move() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -267,7 +263,7 @@ def test_append_move():
     assert writer.getvalue() == "<node><child>foo</child></node>"
 
 
-def test_attribute():
+def test_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='0' attr2='1'/>")
     node = doc.child("node")
@@ -290,7 +286,7 @@ def test_attribute():
         _ = node.attribute(None)
 
 
-def test_attribute_hinted():
+def test_attribute_hinted() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='1' attr2='2' attr3='3' />")
     node = doc.child("node")
@@ -323,7 +319,7 @@ def test_attribute_hinted():
         _ = node.attribute(None, hint)
 
 
-def test_attributes():
+def test_attributes() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node1 attr1='value1' attr2='value2' /><node2 />")
     node = doc.child("node1")
@@ -348,7 +344,7 @@ def test_attributes():
     with pytest.raises(IndexError):
         _ = attrs[-3]
     assert attrs[:] == [node.first_attribute(), node.last_attribute()]
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="slice step cannot be zero"):
         _ = attrs[::0]
     assert list(reversed(attrs)) == [
         node.last_attribute(),
@@ -356,7 +352,7 @@ def test_attributes():
     ]
 
 
-def test_bool():
+def test_bool() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
 
@@ -364,7 +360,7 @@ def test_bool():
     assert doc.child("node")
 
 
-def test_bytes_writer():
+def test_bytes_writer() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
 
@@ -375,7 +371,7 @@ def test_bytes_writer():
     assert writer.getvalue().decode("utf-32be") == "<node/>"
 
 
-def test_child():
+def test_child() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1/><child2/></node>")
 
@@ -395,7 +391,7 @@ def test_child():
         _ = node.child(None)
 
 
-def test_child_value():
+def test_child_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -421,7 +417,7 @@ def test_child_value():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_traverse.cpp
 # dom_ranged_for()
-def test_children():
+def test_children() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node attr1='1' attr2='2'>"
@@ -446,7 +442,7 @@ def test_children():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_traverse.cpp
 # dom_node_named_iterator
-def test_children_name():
+def test_children_name() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -495,7 +491,7 @@ def test_children_name():
     with pytest.raises(IndexError):
         _ = r0[-5]
     assert r0[1:3] == [node2, node3]
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="slice step cannot be zero"):
         _ = r0[::0]
     assert list(reversed(r0)) == [node4, node3, node2, node1]
 
@@ -524,7 +520,7 @@ def test_children_name():
     assert r2[0] == node2.first_child()
     assert r2[1] == node2.last_child()
     assert r2[:] == [node2.first_child(), node2.last_child()]
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="slice step cannot be zero"):
         _ = r2[::0]
     assert list(reversed(r2)) == [node2.last_child(), node2.first_child()]
 
@@ -535,7 +531,7 @@ def test_children_name():
     assert r4[0] != node4.last_child()
 
 
-def test_empty():
+def test_empty() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
 
@@ -543,13 +539,13 @@ def test_empty():
     assert not doc.child("node").empty()
 
 
-def test_file_writer():
+def test_file_writer() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>\U0001f308</child></node>")
     expected = "<node>\n\t<child>\U0001f308</child>\n</node>\n"
 
     with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
-        file = Path(temp, "test_file_writer-{}.xml".format(os.getpid()))
+        file = Path(temp, f"test_file_writer-{os.getpid()}.xml")
 
         with closing(pugi.FileWriter(file)) as writer:
             doc.print(writer)
@@ -575,16 +571,20 @@ def test_file_writer():
         writer = pugi.FileWriter(file)
         del writer
 
-        with pytest.raises(OSError):
+        with pytest.raises(
+            OSError, match="(stream error)|(iostream_category error)"
+        ):
             _ = pugi.FileWriter(".")
 
         writer = pugi.FileWriter(file)
         writer.close()
-        with pytest.raises(OSError):
+        with pytest.raises(
+            OSError, match="(stream error)|(iostream_category error)"
+        ):
             doc.print(writer)
 
 
-def test_find_attribute():
+def test_find_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='0' attr2='1'/>")
     node = doc.child("node")
@@ -603,7 +603,7 @@ def test_find_attribute():
     )
 
 
-def test_find_child():
+def test_find_child() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1/><child2/></node>")
     node = doc.child("node")
@@ -625,7 +625,7 @@ def test_find_child():
     )
 
 
-def test_find_child_by_attribute():
+def test_find_child_by_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -672,7 +672,7 @@ def test_find_child_by_attribute():
         _ = node.find_child_by_attribute("attr", None)  # attr_value is None
 
 
-def test_find_node():
+def test_find_node() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1/><child2/></node>")
     node = doc.child("node")
@@ -707,7 +707,7 @@ def test_find_node():
     )
 
 
-def test_first_element_by_path():
+def test_first_element_by_path() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1>text<child2/></child1></node>")
     node = doc.child("node")
@@ -733,7 +733,7 @@ def test_first_element_by_path():
         _ = doc.first_element_by_path("/", None)  # delimiter is None
 
 
-def test_first_last_attribute():
+def test_first_last_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='0' attr2='1'/>")
     node = doc.child("node")
@@ -755,7 +755,7 @@ def test_first_last_attribute():
     assert attr.empty()
 
 
-def test_first_last_child():
+def test_first_last_child() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1/><child2/></node>")
     node = doc.child("node")
@@ -777,7 +777,7 @@ def test_first_last_child():
     assert child == node
 
 
-def test_hash_value():
+def test_hash_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")
@@ -788,7 +788,7 @@ def test_hash_value():
     assert hash(node) == node.hash_value()
 
 
-# def test_iter():
+# def test_iter() -> None:
 #     doc = pugi.XMLDocument()
 #     doc.load_string(
 #         "<?xml?><!DOCTYPE><?pi?><!--comment--><node>pcdata<![CDATA[cdata]]></node>",
@@ -805,7 +805,7 @@ def test_hash_value():
 #     assert t2 == t1
 
 
-def test_insert_attribute_after():
+def test_insert_attribute_after() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1'><child a2='v2'/></node>")
     node = doc.child("node")
@@ -848,7 +848,7 @@ def test_insert_attribute_after():
         node.insert_attribute_after(None, a1)  # name is None
 
 
-def test_insert_attribute_before():
+def test_insert_attribute_before() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1'><child a2='v2'/></node>")
     node = doc.child("node")
@@ -891,7 +891,7 @@ def test_insert_attribute_before():
         node.insert_attribute_before(None, a1)  # name is None
 
 
-def test_insert_child_after_name():
+def test_insert_child_after_name() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -916,7 +916,7 @@ def test_insert_child_after_name():
         node.insert_child_after(None, child)  # name is None
 
 
-def test_insert_child_after_type():
+def test_insert_child_after_type() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -957,7 +957,7 @@ def test_insert_child_after_type():
     assert writer.getvalue() == "<node>foo<?n4?><child/><n2/>n3<n1/></node>"
 
 
-def test_insert_child_before_name():
+def test_insert_child_before_name() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -982,7 +982,7 @@ def test_insert_child_before_name():
         node.insert_child_before(None, child)  # name is None
 
 
-def test_insert_child_before_type():
+def test_insert_child_before_type() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -1023,7 +1023,7 @@ def test_insert_child_before_type():
     assert writer.getvalue() == "<node><?n4?>foo<n1/>n3<n2/><child/></node>"
 
 
-def test_insert_copy_after_attribute():
+def test_insert_copy_after_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1'><child a2='v2'/>text</node>")
     node = doc.child("node")
@@ -1055,10 +1055,7 @@ def test_insert_copy_after_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a2="v2" a2="v2" a1="v1">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a1="v1" a2="v2" a2="v2" a1="v1"><child a2="v2"/>text</node>'
     )
 
     a3.set_name("a3")
@@ -1073,14 +1070,11 @@ def test_insert_copy_after_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a5="v5" a4="v4" a3="v3">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a1="v1" a5="v5" a4="v4" a3="v3"><child a2="v2"/>text</node>'
     )
 
 
-def test_insert_copy_after_node():
+def test_insert_copy_after_node() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -1104,7 +1098,7 @@ def test_insert_copy_after_node():
     assert writer.getvalue() == "<node>foofoo<child/><child/>foo</node>"
 
 
-def test_insert_copy_before_attribute():
+def test_insert_copy_before_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1'><child a2='v2'/>text</node>")
     node = doc.child("node")
@@ -1136,10 +1130,7 @@ def test_insert_copy_before_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a2="v2" a2="v2" a1="v1">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a1="v1" a2="v2" a2="v2" a1="v1"><child a2="v2"/>text</node>'
     )
 
     a3.set_name("a3")
@@ -1154,14 +1145,11 @@ def test_insert_copy_before_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a3="v3" a4="v4" a5="v5" a1="v1">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a3="v3" a4="v4" a5="v5" a1="v1"><child a2="v2"/>text</node>'
     )
 
 
-def test_insert_copy_before_node():
+def test_insert_copy_before_node() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -1189,7 +1177,7 @@ def test_insert_copy_before_node():
     assert writer.getvalue() == "<node>foo<child/>foo<child/><child/></node>"
 
 
-def test_insert_move_after():
+def test_insert_move_after() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child>bar</child></node>")
     node = doc.child("node")
@@ -1216,7 +1204,7 @@ def test_insert_move_after():
     assert writer.getvalue() == "<node><child>barfoo</child></node>"
 
 
-def test_insert_move_before():
+def test_insert_move_before() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child>bar</child></node>")
     node = doc.child("node")
@@ -1243,7 +1231,7 @@ def test_insert_move_before():
     assert writer.getvalue() == "<node><child>foobar</child></node>"
 
 
-def test_internal_object():
+def test_internal_object() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='value'>value</node>")
     node = doc.child("node")
@@ -1259,7 +1247,7 @@ def test_internal_object():
     assert node.name() == "n"
 
 
-def test_name_value():
+def test_name_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<?xml?><!DOCTYPE id><?pi?><!--comment-->"
@@ -1292,7 +1280,7 @@ def test_name_value():
     assert children[1].value() == "cdata"
 
 
-def test_next_previous_sibling():
+def test_next_previous_sibling() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1/><child2/><child3/></node>")
     node = doc.child("node")
@@ -1320,7 +1308,7 @@ def test_next_previous_sibling():
         _ = child1.previous_sibling(None)
 
 
-def test_offset_debug():
+def test_offset_debug() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<?xml?><!DOCTYPE><?pi?><!--comment-->"
@@ -1346,7 +1334,7 @@ def test_offset_debug():
     assert children[1].offset_debug() == 58
 
 
-def test_operators():
+def test_operators() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><node1/><node2/></node>")
     node = doc.child("node")
@@ -1354,12 +1342,12 @@ def test_operators():
     node2 = node.child("node2")
     node3 = node.first_child()
 
-    assert not (node1 == node2)
+    assert not (node1 == node2)  # noqa: SIM201
     assert node1 == node3
-    assert not (node2 == node3)
+    assert not (node2 == node3)  # noqa: SIM201
 
     assert node1 != node2
-    assert not (node1 != node3)
+    assert not (node1 != node3)  # noqa: SIM202
     assert node2 != node3
 
     assert node1 < node2
@@ -1379,7 +1367,7 @@ def test_operators():
     assert node2 >= node3
 
 
-def test_parent():
+def test_parent() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child/></node>")
     node = doc.child("node")
@@ -1397,7 +1385,7 @@ def test_parent():
     assert parent == doc
 
 
-def test_path():
+def test_path() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child1>text<child2/></child1></node>")
     node = doc.child("node")
@@ -1417,7 +1405,7 @@ def test_path():
         _ = node.path(None)
 
 
-def test_prepend_attribute():
+def test_prepend_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child/></node>")
     node = doc.child("node")
@@ -1445,7 +1433,7 @@ def test_prepend_attribute():
         node.prepend_attribute(None)
 
 
-def test_prepend_copy_attribute():
+def test_prepend_copy_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1'><child a2='v2'/><child/></node>")
     node = doc.child("node")
@@ -1475,10 +1463,7 @@ def test_prepend_copy_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a2="v2" a1="v1" a1="v1">'
-        '<child a2="v2"/>'
-        '<child a1="v1"/>'
-        "</node>"
+        '<node a2="v2" a1="v1" a1="v1"><child a2="v2"/><child a1="v1"/></node>'
     )
 
     a3.set_name("a3")
@@ -1493,14 +1478,11 @@ def test_prepend_copy_attribute():
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a4="v4" a3="v3" a1="v1">'
-        '<child a2="v2"/>'
-        '<child a5="v5"/>'
-        "</node>"
+        '<node a4="v4" a3="v3" a1="v1"><child a2="v2"/><child a5="v5"/></node>'
     )
 
 
-def test_prepend_copy_node():
+def test_prepend_copy_node() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -1527,7 +1509,7 @@ def test_prepend_copy_node():
     )
 
 
-def test_prepend_child():
+def test_prepend_child() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -1570,7 +1552,7 @@ def test_prepend_child():
         _ = node.prepend_child(None)
 
 
-def test_prepend_move():
+def test_prepend_move() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo<child/></node>")
     node = doc.child("node")
@@ -1598,7 +1580,7 @@ def test_prepend_move():
     assert writer.getvalue() == "<node><child>foo</child></node>"
 
 
-def test_print():
+def test_print() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr='1'><child>\U0001f308</child></node>")
     writer = _TestWriter()
@@ -1629,7 +1611,7 @@ def test_print():
         doc.print(writer, indent=None)
 
 
-def test_print_writer(capsys):
+def test_print_writer(capsys: pytest.CaptureFixture[str]) -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>\U0001f308</child></node>")
 
@@ -1646,7 +1628,7 @@ def test_print_writer(capsys):
         doc.print(writer, encoding=pugi.ENCODING_UTF32)
 
 
-def test_remove_attribute():
+def test_remove_attribute() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1' a2='v2' a3='v3'><child a4='v4'/></node>")
     node = doc.child("node")
@@ -1674,7 +1656,7 @@ def test_remove_attribute():
         node.remove_attribute(None)
 
 
-def test_remove_attributes():
+def test_remove_attributes() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node a1='v1' a2='v2' a3='v3'><child a4='v4'/></node>")
     node = doc.child("node")
@@ -1693,7 +1675,7 @@ def test_remove_attributes():
     assert writer.getvalue() == "<node><child/></node>"
 
 
-def test_remove_child():
+def test_remove_child() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><n1/><n2/><n3/><child><n4/></child></node>")
     node = doc.child("node")
@@ -1721,7 +1703,7 @@ def test_remove_child():
         node.remove_child(None)
 
 
-def test_remove_children():
+def test_remove_children() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><n1/><n2/><n3/><child><n4/></child></node>")
     node = doc.child("node")
@@ -1740,7 +1722,7 @@ def test_remove_children():
     assert writer.getvalue() == "<node/>"
 
 
-def test_repr():
+def test_repr() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<?xml?><!DOCTYPE><?pi?><!--comment-->"
@@ -1772,7 +1754,7 @@ def test_repr():
     assert repr(children[4]).endswith(" type=NODE_ELEMENT name='node'>")
 
 
-def test_root():
+def test_root() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child/></node>")
     node = doc.child("node")
@@ -1792,7 +1774,7 @@ def test_root():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_modify.cpp
 # dom_node_set_name()
-def test_set_name():
+def test_set_name() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>text</node>")
     node = doc.child("node")
@@ -1816,7 +1798,7 @@ def test_set_name():
         node.set_name(None, 3)
 
 
-def test_set_value():
+def test_set_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>text</node>")
     node = doc.child("node")
@@ -1852,7 +1834,7 @@ def test_set_value():
         child.set_value("no text", -1)  # negative size
 
 
-def test_string_writer():
+def test_string_writer() -> None:
     doc = pugi.XMLDocument()
     src = "<node>\ud83c\udf08</node>"
     buf = src.encode("utf-16", "surrogatepass")
@@ -1889,7 +1871,7 @@ def test_string_writer():
     assert writer.getvalue("utf-32", "surrogatepass") == "<node>\udf08</node>"
 
 
-def test_text():
+def test_text() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>text</child></node>")
     node = doc.child("node")
@@ -1905,7 +1887,7 @@ def test_text():
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_traverse.cpp
-def test_traverse():
+def test_traverse() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>text</child></node>")
     walker = _TestWalker()
@@ -1914,7 +1896,7 @@ def test_traverse():
     assert walker.log == "|-1 <=|0 !node=|1 !child=|2 !=text|-1 >="
 
 
-def test_traverse_child():
+def test_traverse_child() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>text</child></node><another>node</another>")
     walker = _TestWalker()
@@ -1923,7 +1905,7 @@ def test_traverse_child():
     assert walker.log == "|-1 <node=|0 !child=|1 !=text|-1 >node="
 
 
-def test_traverse_siblings():
+def test_traverse_siblings() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child/><child>text</child><child/></node>")
     walker = _TestWalker()
@@ -1935,7 +1917,7 @@ def test_traverse_siblings():
     )
 
 
-def test_traverse_stop_begin():
+def test_traverse_stop_begin() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>text</child></node>")
     walker = _TestWalker(1)
@@ -1944,7 +1926,7 @@ def test_traverse_stop_begin():
     assert walker.log == "|-1 <="
 
 
-def test_traverse_stop_end():
+def test_traverse_stop_end() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>text</child></node>")
     walker = _TestWalker(5)
@@ -1953,7 +1935,7 @@ def test_traverse_stop_end():
     assert walker.log == "|-1 <=|0 !node=|1 !child=|2 !=text|-1 >="
 
 
-def test_traverse_stop_for_each():
+def test_traverse_stop_for_each() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>text</child></node>")
     walker = _TestWalker(3)
@@ -1962,7 +1944,7 @@ def test_traverse_stop_for_each():
     assert walker.log == "|-1 <=|0 !node=|1 !child="
 
 
-def test_type():
+def test_type() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<?xml?><!DOCTYPE><?pi?><!--comment-->"

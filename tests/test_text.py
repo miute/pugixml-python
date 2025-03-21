@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import sys
 
 import pytest
@@ -5,7 +7,7 @@ import pytest
 from pugixml import pugi
 
 
-def test_as_bool():
+def test_as_bool() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -30,7 +32,7 @@ def test_as_bool():
     assert not node.child("text7").text().as_bool()
 
 
-def test_as_double():
+def test_as_double() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -53,7 +55,7 @@ def test_as_double():
     assert node.child("text6").text().as_double() == 3.14159265358979323846
 
 
-def test_as_float():
+def test_as_float() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -78,7 +80,7 @@ def test_as_float():
     )
 
 
-def test_as_int():
+def test_as_int() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -98,7 +100,7 @@ def test_as_int():
     assert node.child("text5").text().as_int() == 0
 
 
-def test_as_llong():
+def test_as_llong() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -119,7 +121,7 @@ def test_as_llong():
     assert node.child("text5").text().as_llong() == 0
 
 
-def test_as_string():
+def test_as_string() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -146,7 +148,7 @@ def test_as_string():
     assert len(pugi.XMLNode().text().as_string()) == 0
 
 
-def test_as_uint():
+def test_as_uint() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -167,7 +169,7 @@ def test_as_uint():
     assert node.child("text5").text().as_uint() == 0
 
 
-def test_as_ullong():
+def test_as_ullong() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node>"
@@ -188,7 +190,7 @@ def test_as_ullong():
     assert node.child("text5").text().as_ullong() == 0
 
 
-def test_bool():
+def test_bool() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo</node>")
 
@@ -196,7 +198,7 @@ def test_bool():
     assert doc.child("node").text()
 
 
-def test_data():
+def test_data() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node><a>foo</a><b><![CDATA[bar]]></b><c><?pi value?></c><d/></node>",
@@ -211,7 +213,7 @@ def test_data():
     assert pugi.XMLText().data() == pugi.XMLNode()
 
 
-def test_defaults():
+def test_defaults() -> None:
     text = pugi.XMLText()
 
     assert text.as_string("foo") == "foo"
@@ -227,7 +229,7 @@ def test_defaults():
         _ = text.as_string(None)
 
 
-def test_get():
+def test_get() -> None:
     doc = pugi.XMLDocument()
     doc.load_string(
         "<node><a>foo</a><b><![CDATA[bar]]></b><c><?pi value?></c><d/></node>",
@@ -249,7 +251,7 @@ def test_get():
     assert len(pugi.XMLNode().text().get()) == 0
 
 
-def test_repr():
+def test_repr() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node>foo</node>")
 
@@ -257,7 +259,7 @@ def test_repr():
     assert repr(doc.child("node").text()).startswith("<XMLText hash=0x")
 
 
-def test_set_value():
+def test_set_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")
@@ -319,7 +321,7 @@ def test_set_value():
         text.set("v2", -1)  # negative size
 
 
-def test_set_value_double():
+def test_set_value_double() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")
@@ -336,7 +338,7 @@ def test_set_value_double():
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_dom_text.cpp
 # dom_text_set_value_llong()
-def test_set_value_long_long():
+def test_set_value_long_long() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node/>")
     node = doc.child("node")
