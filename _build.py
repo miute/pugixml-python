@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import subprocess
 import sys
+from logging import INFO
 from pathlib import Path
 from typing import Any
 
@@ -92,11 +93,11 @@ class CMakeBuild(build_ext):
 
         self.announce(
             f"-- CXX environment variable: {env.get('CXX')!r}",
-            level=2,
+            level=INFO,
         )
         self.announce(
             f"-- CXXFLAGS environment variable: {env.get('CXXFLAGS')!r}",
-            level=2,
+            level=INFO,
         )
         self.announce(
             "-- CMake environment variables: {!r}".format(
@@ -106,12 +107,12 @@ class CMakeBuild(build_ext):
                     if k.upper().startswith("CMAKE")
                 ]
             ),
-            level=2,
+            level=INFO,
         )
         self.announce(
-            f"-- CMake build system options: {cmake_args!r}", level=2
+            f"-- CMake build system options: {cmake_args!r}", level=INFO
         )
-        self.announce(f"-- CMake build options: {build_args!r}", level=2)
+        self.announce(f"-- CMake build options: {build_args!r}", level=INFO)
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
