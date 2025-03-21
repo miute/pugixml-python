@@ -23,28 +23,22 @@ PLAT_TO_CMAKE = {
 class CMakeExtension(Extension):
     def __init__(self, name: str, sourcedir: str = "") -> None:
         Extension.__init__(self, name, sources=[])
-        self.sourcedir = os.path.abspath(sourcedir)
+        self.root = Path(__file__).parent.resolve()
+        self.sourcedir = self.root / sourcedir
 
 
 class CMakeBuild(build_ext):
     def build_extension(self, ext: CMakeExtension) -> None:
-        extdir = os.path.abspath(
-            os.path.dirname(self.get_ext_fullpath(ext.name))
-        )
-        extdir = os.path.join(extdir, ext.name)
-
-        # required for auto-detection of auxiliary "native" libs
-        if not extdir.endswith(os.path.sep):
-            extdir += os.path.sep
+        extdir = (ext.root / self.get_ext_fullpath(ext.name)).parent / ext.name
 
         env = os.environ.copy()
         cmake_build_type = env.get("CMAKE_BUILD_TYPE", "Release")
         cfg = "Debug" if self.debug else cmake_build_type
 
         cmake_args = [
-            "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=" + extdir,
-            "-DPYTHON_EXECUTABLE=" + sys.executable,
-            "-DCMAKE_BUILD_TYPE=" + cfg,
+            f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={extdir}",
+            f"-DPYTHON_EXECUTABLE={sys.executable}",
+            f"-DCMAKE_BUILD_TYPE={cfg}",
             "-Wno-dev",
         ]
         build_args = []
@@ -114,17 +108,19 @@ class CMakeBuild(build_ext):
         )
         self.announce(f"-- CMake build options: {build_args!r}", level=INFO)
 
-        if not os.path.exists(self.build_temp):
-            os.makedirs(self.build_temp)
+        build_temp = ext.root / self.build_temp / ext.name
+        if not build_temp.exists():
+            build_temp.mkdir(parents=True)
+        self.announce(f"-- Working directory: {build_temp!r}", level=INFO)
 
         subprocess.check_call(  # noqa: S603
             ["cmake", ext.sourcedir, *cmake_args],  # noqa: S607
-            cwd=self.build_temp,
+            cwd=build_temp,
             env=env,
         )
         subprocess.check_call(  # noqa: S603
             ["cmake", "--build", ".", *build_args],  # noqa: S607
-            cwd=self.build_temp,
+            cwd=build_temp,
         )
 
 
