@@ -41,7 +41,6 @@ namespaces = false
 
 [tool.pytest.ini_options]
 addopts = ["--tb=short", "-ra", "--color=yes"]
-pythonpath = ["src"]
 testpaths = ["tests"]
 
 [tool.ruff]
