@@ -50,12 +50,12 @@ def test_node_eq() -> None:
     n2 = doc.select_node("node/@attr")
 
     assert n1
-    assert n1 == n1
-    assert not (n1 != n1)
+    assert n1 == n1  # noqa: PLR0124
+    assert not (n1 != n1)  # noqa: PLR0124, SIM202
 
     assert n2
-    assert n2 == n2
-    assert not (n2 != n2)
+    assert n2 == n2  # noqa: PLR0124
+    assert not (n2 != n2)  # noqa: PLR0124, SIM202
 
 
 # https://github.com/zeux/pugixml/blob/master/tests/test_xpath_api.cpp
@@ -93,7 +93,7 @@ def test_nodeset_accessors() -> None:
 
     assert ns[:2] == [ns[0], ns[1]]
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="slice step cannot be zero"):
         _ = ns[::0]  # ValueError: slice step cannot be zero
 
     with pytest.raises(TypeError):

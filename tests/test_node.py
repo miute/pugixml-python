@@ -191,10 +191,7 @@ def test_append_copy_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a1="v1" a2="v2">'
-        '<child a2="v2"/>'
-        '<child a1="v1"/>'
-        "</node>"
+        '<node a1="v1" a1="v1" a2="v2"><child a2="v2"/><child a1="v1"/></node>'
     )
 
     a3.set_name("a3")
@@ -209,10 +206,7 @@ def test_append_copy_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a3="v3" a4="v4">'
-        '<child a2="v2"/>'
-        '<child a5="v5"/>'
-        "</node>"
+        '<node a1="v1" a3="v3" a4="v4"><child a2="v2"/><child a5="v5"/></node>'
     )
 
 
@@ -350,7 +344,7 @@ def test_attributes() -> None:
     with pytest.raises(IndexError):
         _ = attrs[-3]
     assert attrs[:] == [node.first_attribute(), node.last_attribute()]
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="slice step cannot be zero"):
         _ = attrs[::0]
     assert list(reversed(attrs)) == [
         node.last_attribute(),
@@ -497,7 +491,7 @@ def test_children_name() -> None:
     with pytest.raises(IndexError):
         _ = r0[-5]
     assert r0[1:3] == [node2, node3]
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="slice step cannot be zero"):
         _ = r0[::0]
     assert list(reversed(r0)) == [node4, node3, node2, node1]
 
@@ -526,7 +520,7 @@ def test_children_name() -> None:
     assert r2[0] == node2.first_child()
     assert r2[1] == node2.last_child()
     assert r2[:] == [node2.first_child(), node2.last_child()]
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="slice step cannot be zero"):
         _ = r2[::0]
     assert list(reversed(r2)) == [node2.last_child(), node2.first_child()]
 
@@ -551,7 +545,7 @@ def test_file_writer() -> None:
     expected = "<node>\n\t<child>\U0001f308</child>\n</node>\n"
 
     with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
-        file = Path(temp, "test_file_writer-{}.xml".format(os.getpid()))
+        file = Path(temp, f"test_file_writer-{os.getpid()}.xml")
 
         with closing(pugi.FileWriter(file)) as writer:
             doc.print(writer)
@@ -577,12 +571,12 @@ def test_file_writer() -> None:
         writer = pugi.FileWriter(file)
         del writer
 
-        with pytest.raises(OSError):
+        with pytest.raises(OSError, match="iostream stream error"):
             _ = pugi.FileWriter(".")
 
         writer = pugi.FileWriter(file)
         writer.close()
-        with pytest.raises(OSError):
+        with pytest.raises(OSError, match="iostream stream error"):
             doc.print(writer)
 
 
@@ -1057,10 +1051,7 @@ def test_insert_copy_after_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a2="v2" a2="v2" a1="v1">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a1="v1" a2="v2" a2="v2" a1="v1"><child a2="v2"/>text</node>'
     )
 
     a3.set_name("a3")
@@ -1075,10 +1066,7 @@ def test_insert_copy_after_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a5="v5" a4="v4" a3="v3">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a1="v1" a5="v5" a4="v4" a3="v3"><child a2="v2"/>text</node>'
     )
 
 
@@ -1138,10 +1126,7 @@ def test_insert_copy_before_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a1="v1" a2="v2" a2="v2" a1="v1">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a1="v1" a2="v2" a2="v2" a1="v1"><child a2="v2"/>text</node>'
     )
 
     a3.set_name("a3")
@@ -1156,10 +1141,7 @@ def test_insert_copy_before_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a3="v3" a4="v4" a5="v5" a1="v1">'
-        '<child a2="v2"/>'
-        "text"
-        "</node>"
+        '<node a3="v3" a4="v4" a5="v5" a1="v1"><child a2="v2"/>text</node>'
     )
 
 
@@ -1356,12 +1338,12 @@ def test_operators() -> None:
     node2 = node.child("node2")
     node3 = node.first_child()
 
-    assert not (node1 == node2)
+    assert not (node1 == node2)  # noqa: SIM201
     assert node1 == node3
-    assert not (node2 == node3)
+    assert not (node2 == node3)  # noqa: SIM201
 
     assert node1 != node2
-    assert not (node1 != node3)
+    assert not (node1 != node3)  # noqa: SIM202
     assert node2 != node3
 
     assert node1 < node2
@@ -1477,10 +1459,7 @@ def test_prepend_copy_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a2="v2" a1="v1" a1="v1">'
-        '<child a2="v2"/>'
-        '<child a1="v1"/>'
-        "</node>"
+        '<node a2="v2" a1="v1" a1="v1"><child a2="v2"/><child a1="v1"/></node>'
     )
 
     a3.set_name("a3")
@@ -1495,10 +1474,7 @@ def test_prepend_copy_attribute() -> None:
     writer = pugi.StringWriter()
     doc.print(writer, flags=pugi.FORMAT_RAW)
     assert writer.getvalue() == (
-        '<node a4="v4" a3="v3" a1="v1">'
-        '<child a2="v2"/>'
-        '<child a5="v5"/>'
-        "</node>"
+        '<node a4="v4" a3="v3" a1="v1"><child a2="v2"/><child a5="v5"/></node>'
     )
 
 

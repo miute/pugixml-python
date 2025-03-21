@@ -60,21 +60,18 @@ class CMakeBuild(build_ext):
 
         if is_multi_config:
             cmake_args += [
-                "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{}={}".format(
-                    cfg.upper(), extdir
-                ),
+                f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY_{cfg.upper()}={extdir}",
             ]
             build_args += [
                 "--config",
                 cfg,
             ]
 
-        if is_msbuild:
-            if "CMAKE_GENERATOR_PLATFORM" not in env:
-                cmake_args += [
-                    "-A",
-                    PLAT_TO_CMAKE[self.plat_name],
-                ]
+        if is_msbuild and "CMAKE_GENERATOR_PLATFORM" not in env:
+            cmake_args += [
+                "-A",
+                PLAT_TO_CMAKE[self.plat_name],
+            ]
 
         if (
             "CMAKE_BUILD_PARALLEL_LEVEL" not in env
@@ -94,19 +91,17 @@ class CMakeBuild(build_ext):
                 ]
 
         self.announce(
-            "-- CXX environment variable: {!r}".format(env.get("CXX")),
+            f"-- CXX environment variable: {env.get('CXX')!r}",
             level=2,
         )
         self.announce(
-            "-- CXXFLAGS environment variable: {!r}".format(
-                env.get("CXXFLAGS")
-            ),
+            f"-- CXXFLAGS environment variable: {env.get('CXXFLAGS')!r}",
             level=2,
         )
         self.announce(
             "-- CMake environment variables: {!r}".format(
                 [
-                    "{}={}".format(k, v)
+                    f"{k}={v}"
                     for k, v in env.items()
                     if k.upper().startswith("CMAKE")
                 ]
@@ -114,20 +109,20 @@ class CMakeBuild(build_ext):
             level=2,
         )
         self.announce(
-            "-- CMake build system options: {!r}".format(cmake_args), level=2
+            f"-- CMake build system options: {cmake_args!r}", level=2
         )
-        self.announce(
-            "-- CMake build options: {!r}".format(build_args), level=2
-        )
+        self.announce(f"-- CMake build options: {build_args!r}", level=2)
 
         if not os.path.exists(self.build_temp):
             os.makedirs(self.build_temp)
 
-        subprocess.check_call(
-            ["cmake", ext.sourcedir] + cmake_args, cwd=self.build_temp, env=env
+        subprocess.check_call(  # noqa: S603
+            ["cmake", ext.sourcedir, *cmake_args],  # noqa: S607
+            cwd=self.build_temp,
+            env=env,
         )
-        subprocess.check_call(
-            ["cmake", "--build", "."] + build_args,
+        subprocess.check_call(  # noqa: S603
+            ["cmake", "--build", ".", *build_args],  # noqa: S607
             cwd=self.build_temp,
         )
 

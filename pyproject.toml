@@ -1,8 +1,5 @@
 [build-system]
-requires = [
-  "setuptools>=61.0",
-  "tomli",
-]
+requires = ["setuptools>=61.0", "tomli"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,17 +7,10 @@ name = "pugixml"
 version = "0.7.0"
 requires-python = ">=3.9"
 description = "Light-weight, simple and fast XML parser with XPath support"
-authors = [
-  { name = "Tetsuya Miura", email = "miute.dev@gmail.com" },
-]
+authors = [{ name = "Tetsuya Miura", email = "miute.dev@gmail.com" }]
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
-keywords = [
-  "dom",
-  "xml",
-  "xpath",
-  "xml-parser",
-]
+keywords = ["dom", "xml", "xpath", "xml-parser"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
@@ -46,33 +36,66 @@ Documentation = "https://miute.github.io/pugixml-python/"
 Changelog = "https://miute.github.io/pugixml-python/changelog.html"
 
 [tool.setuptools.packages.find]
-where = [
-  "src",
-]
+where = ["src"]
 namespaces = false
 
 [tool.pytest.ini_options]
-addopts = [
-  "--tb=short",
-  "-ra",
-  "--color=yes",
+addopts = ["--tb=short", "-ra", "--color=yes"]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+src = ["src", "tests"]
+extend-exclude = ["src/third_party"]
+line-length = 79
+
+[tool.ruff.lint]
+extend-select = [
+  "A",    # flake8-builtins (A)
+  "ANN",  # flake8-annotations (ANN)
+  "B",    # flake8-bugbear (B)
+  "C4",   # flake8-comprehensions (C4)
+  "EM",   # flake8-errmsg (EM)
+  "FA",   # flake8-future-annotations (FA)
+  "FURB", # refurb (FURB)
+  "I",    # isort (I)
+  "ICN",  # flake8-import-conventions (ICN)
+  "ISC",  # flake8-implicit-str-concat (ISC)
+  "N",    # pep8-naming (N)
+  "PIE",  # flake8-pie (PIE)
+  "PL",   # Pylint (PL)
+  "PT",   # flake8-pytest-style (PT)
+  "Q",    # flake8-quotes (Q)
+  "RET",  # flake8-return (RET)
+  "RSE",  # flake8-raise (RSE)
+  "RUF",  # Ruff-specific rules (RUF)
+  "S",    # flake8-bandit (S)
+  "SIM",  # flake8-simplify (SIM)
+  "SLF",  # flake8-self (SLF)
+  "T20",  # flake8-print (T20)
+  "TRY",  # tryceratops (TRY)
+  "UP",   # pyupgrade (UP)
+  "YTT",  # flake8-2020 (YTT)
 ]
-pythonpath = [
-  "src",
+extend-ignore = [
+  "PLR0915", # Too many statements ({statements} > {max_statements})
 ]
-testpaths = [
-  "tests",
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**.py" = [
+  "S101", # Use of assert detected
 ]
+
+[tool.ruff.lint.pylint]
+allow-magic-value-types = ["str", "bytes", "float", "int"]
+
+[tool.ruff.format]
+line-ending = "lf"
 
 [tool.black]
 line-length = 79
-target-version = [
-  "py39",
-  "py310",
-  "py311",
-  "py312",
-  "py313",
-]
+target-version = ["py39", "py310", "py311", "py312", "py313"]
 extend-exclude = """
 ^/src/third_party/
 """
@@ -80,24 +103,15 @@ extend-exclude = """
 [tool.isort]
 profile = "black"
 line_length = 79
-extend_skip = [
-  "src/third_party/",
-]
+extend_skip = ["src/third_party/"]
 
 [tool.flake8]
 max-line-length = 88
-ignore = [
-  "E203",
-  "W503",
-]
-exclude = [
-  "src/third_party",
-]
+ignore = ["E203", "E402", "W503"]
+exclude = ["src/third_party"]
 
 [tool.mypy]
 warn_unused_configs = true
 warn_return_any = true
 check_untyped_defs = true
-exclude = [
-  "^src/third_party",
-]
+exclude = ["^src/third_party"]

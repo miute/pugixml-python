@@ -88,7 +88,7 @@ def test_load_buffer() -> None:
         assert result.encoding == pugi.ENCODING_UTF16_BE
 
         with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
-            path = Path(temp, "test_load_buffer-{}.xml".format(os.getpid()))
+            path = Path(temp, f"test_load_buffer-{os.getpid()}.xml")
             assert doc.save_file(
                 path,
                 flags=pugi.FORMAT_RAW
@@ -308,7 +308,7 @@ def test_save_file() -> None:
 
     doc.load_string("<node><child/></node>")
     with tempfile.TemporaryDirectory(prefix="pugixml-") as temp:
-        path = Path(temp, "test_save_file-{}.xml".format(os.getpid()))
+        path = Path(temp, f"test_save_file-{os.getpid()}.xml")
         assert doc.save_file(str(path))  # string
         with open(path, "rb") as f:
             contents = f.read()
@@ -333,6 +333,6 @@ def test_save_file_fail() -> None:
         with pytest.raises(TypeError):
             doc.save_file(object())
 
-        path = Path(temp, "test_save_file_fail-{}.xml".format(os.getpid()))
+        path = Path(temp, f"test_save_file_fail-{os.getpid()}.xml")
         with pytest.raises(TypeError):
             doc.save_file(path, indent=None)  # indent is None

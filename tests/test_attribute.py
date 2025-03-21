@@ -298,12 +298,12 @@ def test_operators() -> None:
     attr2 = node.attribute("attr2")
     attr3 = node.attribute("attr1")
 
-    assert not (attr1 == attr2)
+    assert not (attr1 == attr2)  # noqa: SIM201
     assert attr1 == attr3
-    assert not (attr2 == attr3)
+    assert not (attr2 == attr3)  # noqa: SIM201
 
     assert attr1 != attr2
-    assert not (attr1 != attr3)
+    assert not (attr1 != attr3)  # noqa: SIM202
     assert attr2 != attr3
 
     assert attr1 < attr2
