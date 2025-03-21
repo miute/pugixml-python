@@ -113,14 +113,17 @@ class CMakeBuild(build_ext):
             build_temp.mkdir(parents=True)
         self.announce(f"-- Working directory: {build_temp!r}", level=INFO)
 
-        subprocess.check_call(  # noqa: S603
+        subprocess.run(  # noqa: S603
             ["cmake", ext.sourcedir, *cmake_args],  # noqa: S607
             cwd=build_temp,
+            check=True,
             env=env,
         )
-        subprocess.check_call(  # noqa: S603
+        subprocess.run(  # noqa: S603
             ["cmake", "--build", ".", *build_args],  # noqa: S607
             cwd=build_temp,
+            check=True,
+            env=env,
         )
 
 
