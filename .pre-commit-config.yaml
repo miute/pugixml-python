@@ -9,9 +9,15 @@ repos:
         exclude: ^docs/generated/
       - id: end-of-file-fixer
         exclude: ^docs/generated/
-      - id: check-yaml
-      - id: check-added-large-files
       - id: check-toml
+      - id: check-yaml
+
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
+      - id: taplo-lint
+        args: [--no-schema]
 
   - repo: https://github.com/lyz-code/yamlfix
     rev: 1.17.0
