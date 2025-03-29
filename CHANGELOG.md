@@ -1,5 +1,10 @@
 # Changelog
 
+## WIP (2025-03-29)
+
+- **Removed**
+  - Drop support for CMake old than 3.15
+
 ## v0.7.0 (2025-01-13)
 
 - **New**

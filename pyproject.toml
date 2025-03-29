@@ -1,16 +1,15 @@
 [build-system]
-requires = ["setuptools>=77.0", "tomli"]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core>=0.10"]
+build-backend = "scikit_build_core.build"
 
 [project]
 name = "pugixml"
-version = "0.7.0"
+version = "0.8.0.dev1"
 requires-python = ">=3.9"
 description = "Light-weight, simple and fast XML parser with XPath support"
 authors = [{ name = "Tetsuya Miura", email = "miute.dev@gmail.com" }]
 readme = { file = "README.md", content-type = "text/markdown" }
 license = "MIT"
-license-files = ["LICENSE"]
 keywords = ["dom", "xml", "xpath", "xml-parser"]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -35,9 +34,31 @@ Repository = "https://github.com/miute/pugixml-python"
 Documentation = "https://miute.github.io/pugixml-python/"
 Changelog = "https://miute.github.io/pugixml-python/changelog.html"
 
-[tool.setuptools.packages.find]
-where = ["src"]
-namespaces = false
+[tool.scikit-build]
+wheel.expand-macos-universal-tags = true
+minimum-version = "build-system.requires"
+sdist.exclude = ["*"]
+sdist.include = [
+  "/CHANGELOG*",
+  "/CMakeLists.txt",
+  "/LICENSE*",
+  "/pyproject.toml",
+  "/README*",
+  "/src/pugixml/**/*.py",
+  "/src/*.cpp",
+  "/src/third_party/pugixml/scripts/",
+  "/src/third_party/pugixml/src/",
+  "/src/third_party/pugixml/CMakeLists.txt",
+  "/src/third_party/pugixml/LICEN[CS]E*",
+  "/src/third_party/pugixml/README*",
+  "/src/third_party/pugixml/readme*",
+  "/src/third_party/pybind11/include/",
+  "/src/third_party/pybind11/tools/",
+  "/src/third_party/pybind11/CMakeLists.txt",
+  "/src/third_party/pybind11/LICEN[CS]E*",
+  "/src/third_party/pybind11/README*",
+]
+wheel.license-files = ["LICENSE"]
 
 [tool.pytest.ini_options]
 addopts = ["--tb=short", "-ra", "--color=yes"]

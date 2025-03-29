@@ -90,7 +90,7 @@ pip install pugixml
 
 - Requirements:
   - C++17 compatible compiler (see [supported compilers](https://github.com/pybind/pybind11#supported-compilers))
-  - [CMake](https://cmake.org/) ≥ 3.12
+  - [CMake](https://cmake.org/) ≥ 3.15
 
 - Installing a package from PyPI:
 
