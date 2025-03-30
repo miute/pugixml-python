@@ -27,15 +27,26 @@ classifiers = [
   "Topic :: Software Development :: Libraries",
   "Topic :: Text Processing :: Markup :: XML",
 ]
+dependencies = []
 
 [project.urls]
 pugixml = "https://pugixml.org/docs/quickstart.html"
-Repository = "https://github.com/miute/pugixml-python"
 Documentation = "https://miute.github.io/pugixml-python/"
 Changelog = "https://miute.github.io/pugixml-python/changelog.html"
+Source = "https://github.com/miute/pugixml-python"
+
+[dependency-groups]
+dev = ["pytest>=8.3.5"]
+docs = [
+  "furo>=2024.8.6",
+  "myst-parser>=3.0.1",
+  "sphinx>=7.4.7",
+  "sphinx-copybutton>=0.5.2",
+]
 
 [tool.scikit-build]
 wheel.expand-macos-universal-tags = true
+wheel.license-files = ["LICENSE"]
 minimum-version = "build-system.requires"
 sdist.exclude = ["*"]
 sdist.include = [
@@ -58,7 +69,9 @@ sdist.include = [
   "/src/third_party/pybind11/LICEN[CS]E*",
   "/src/third_party/pybind11/README*",
 ]
-wheel.license-files = ["LICENSE"]
+
+[tool.uv]
+package = false
 
 [tool.pytest.ini_options]
 addopts = ["--tb=short", "-ra", "--color=yes"]
