@@ -5,7 +5,7 @@ cmake_policy(SET CMP0074 NEW)
 project(pugi LANGUAGES CXX)
 
 set(PYBIND11_FINDPYTHON ON)
-set(DESTDIR pugixml CACHE STRING "The directory where the binaries will be written. (e.g., path/to/pugixml/src/pugixml)")
+set(DESTDIR pugixml CACHE STRING "The directory where the binaries will be written. (e.g., path/to/pugixml-python/src/pugixml)")
 message(STATUS "DESTDIR: ${DESTDIR}")
 add_compile_definitions(PUGIXML_NO_EXCEPTIONS)
 

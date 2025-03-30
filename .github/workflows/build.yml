@@ -25,10 +25,13 @@ jobs:
         if: startsWith(matrix.os, 'macos-13')
         run: echo "SYSTEM_VERSION_COMPAT=0" >> $GITHUB_ENV
 
-      - name: Build wheels
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Build and test wheels
         uses: pypa/cibuildwheel@v2.23.2
         env:
-          CIBW_BUILD_FRONTEND: build
+          CIBW_BUILD_FRONTEND: build[uv]
           CIBW_ARCHS_LINUX: x86_64
           CIBW_ARCHS_WINDOWS: AMD64
           CIBW_SKIP: '*-musllinux_* pp*'
@@ -37,7 +40,7 @@ jobs:
 
       - name: Build sdist
         if: startsWith(matrix.os, 'ubuntu')
-        run: pipx run build --sdist
+        run: uv build --sdist
 
       - uses: actions/upload-artifact@v4
         with:
