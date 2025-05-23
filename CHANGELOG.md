@@ -1,7 +1,9 @@
 # Changelog
 
-## WIP (2025-03-29)
+## WIP (2025-05-23)
 
+- **Changed**
+  - Update pybind11 from 2.13.6 to 3.0.0rc1
 - **Removed**
   - Drop support for CMake old than 3.15
 
