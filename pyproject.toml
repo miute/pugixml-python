@@ -5,7 +5,7 @@ build-backend = "scikit_build_core.build"
 [project]
 name = "pugixml"
 version = "0.8.0.dev1"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 description = "Light-weight, simple and fast XML parser with XPath support"
 authors = [{ name = "Tetsuya Miura", email = "miute.dev@gmail.com" }]
 readme = { file = "README.md", content-type = "text/markdown" }
@@ -19,7 +19,6 @@ classifiers = [
   "Operating System :: POSIX",
   "Programming Language :: C++",
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -78,7 +77,7 @@ addopts = ["--tb=short", "-ra", "--color=yes"]
 testpaths = ["tests"]
 
 [tool.ruff]
-target-version = "py39"
+target-version = "py310"
 src = ["src", "tests"]
 extend-exclude = ["src/third_party"]
 line-length = 79
