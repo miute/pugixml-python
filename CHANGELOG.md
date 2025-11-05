@@ -1,11 +1,11 @@
 # Changelog
 
-## WIP (2025-11-03)
+## WIP (2025-11-06)
 
 - **New**
   - Add support for Python 3.14
 - **Changed**
-  - Update pybind11 from 2.13.6 to 3.0.0rc1
+  - Update pybind11 from 2.13.6 to 3.0.1
 - **Removed**
   - Drop support for CMake old than 3.15
   - Drop support for Python 3.9
