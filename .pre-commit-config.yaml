@@ -20,21 +20,21 @@ repos:
         args: [--no-schema]
 
   - repo: https://github.com/lyz-code/yamlfix
-    rev: 1.19.0
+    rev: 1.19.1
     hooks:
       - id: yamlfix
         args: [--config-file, .yamlfix.toml]
         exclude: src/.clang-format
 
   - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v21.1.7
+    rev: v21.1.8
     hooks:
       - id: clang-format
         types_or: [c++, c]
         exclude: ^src/third_party
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.9
+    rev: v0.14.10
     hooks:
       # Run the linter.
       - id: ruff-check
