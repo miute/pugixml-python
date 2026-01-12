@@ -34,7 +34,7 @@ repos:
         exclude: ^src/third_party
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.10
+    rev: v0.14.11
     hooks:
       # Run the linter.
       - id: ruff-check
