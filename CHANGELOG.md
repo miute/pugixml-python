@@ -1,11 +1,11 @@
 # Changelog
 
-## WIP (2025-11-06)
+## Unreleased
 
 - **New**
   - Add support for Python 3.14
 - **Changed**
-  - Update pybind11 from 2.13.6 to 3.0.1
+  - Bump pybind11 from 2.13.6 to 3.0.4 ([#141], [#159], [#198])
 - **Removed**
   - Drop support for CMake old than 3.15
   - Drop support for Python 3.9
@@ -98,3 +98,7 @@ Maintenance release.
 ## v0.1.0 (2022-05-27)
 
 Initial release.
+
+[#141]: https://github.com/miute/pugixml-python/pull/141
+[#159]: https://github.com/miute/pugixml-python/pull/159
+[#198]: https://github.com/miute/pugixml-python/pull/198
