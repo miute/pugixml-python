@@ -7,9 +7,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-env:
-  MACOSX_DEPLOYMENT_TARGET: '12.0'
-
 jobs:
   test:
     runs-on: ${{matrix.os}}
