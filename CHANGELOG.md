@@ -15,8 +15,9 @@
 
 ### Removed
 
-- Drop support for CMake old than 3.15 ([#130])
+- Drop support for CMake older than 3.15 ([#130])
 - Drop support for Python 3.9 ([#153])
+- Drop support for macOS older than 14 ([#201])
 
 ## 0.7.0 - 2025-01-13
 
@@ -140,3 +141,4 @@ Initial release.
 [#159]: https://github.com/miute/pugixml-python/pull/159
 [#198]: https://github.com/miute/pugixml-python/pull/198
 [#200]: https://github.com/miute/pugixml-python/pull/200
+[#201]: https://github.com/miute/pugixml-python/pull/201

@@ -11,29 +11,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-13, macos-14]
+        os: [ubuntu-latest, windows-latest, macos-14]
 
     steps:
       - uses: actions/checkout@v6
         with:
           submodules: recursive
 
-      - name: Set env (macOS 13)
-        if: startsWith(matrix.os, 'macos-13')
-        run: echo "SYSTEM_VERSION_COMPAT=0" >> $GITHUB_ENV
-
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
       - name: Build and test wheels
-        uses: pypa/cibuildwheel@v3.4.1
+        uses: pypa/cibuildwheel@v4.1.0
         env:
           CIBW_BUILD_FRONTEND: build[uv]
           CIBW_ARCHS_LINUX: x86_64
           CIBW_ARCHS_WINDOWS: AMD64
-          CIBW_SKIP: '*-musllinux_* pp*'
+          CIBW_SKIP: '*-musllinux_* cp3??t-*'
           CIBW_TEST_REQUIRES: pytest
           CIBW_TEST_COMMAND: pytest {project}/tests
+          MACOSX_DEPLOYMENT_TARGET: '14.5'
 
       - name: Build sdist
         if: startsWith(matrix.os, 'ubuntu')
