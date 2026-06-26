@@ -539,6 +539,29 @@ def test_empty() -> None:
     assert not doc.child("node").empty()
 
 
+def test_ensure_child() -> None:
+    doc = pugi.XMLDocument()
+    doc.load_string("<node>foo<child/></node>")
+    node = doc.child("node")
+
+    child = node.ensure_child("child")
+    assert isinstance(child, pugi.XMLNode)
+    assert not child.empty()
+    assert child == node.child("child")
+
+    n1 = node.ensure_child("n1")
+    assert isinstance(n1, pugi.XMLNode)
+    assert not n1.empty()
+
+    n2 = doc.ensure_child("n2")
+    assert isinstance(n2, pugi.XMLNode)
+    assert not n2.empty()
+
+    writer = pugi.StringWriter()
+    doc.print(writer, flags=pugi.FORMAT_RAW)
+    assert writer.getvalue() == "<node>foo<child/><n1/></node><n2/>"
+
+
 def test_file_writer() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node><child>\U0001f308</child></node>")

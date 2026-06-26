@@ -240,6 +240,35 @@ def test_empty() -> None:
     assert not node.attribute("attr2").empty()
 
 
+def test_ensure_attribute() -> None:
+    doc = pugi.XMLDocument()
+    doc.load_string("<node a1='v1'><child/></node>")
+    node = doc.child("node")
+
+    a1 = node.ensure_attribute("a1")
+    assert isinstance(a1, pugi.XMLAttribute)
+    assert not a1.empty()
+    assert a1 == node.attribute("a1")
+    assert a1.value() == "v1"
+
+    a2 = node.ensure_attribute("a2")
+    assert isinstance(a2, pugi.XMLAttribute)
+    assert not a2.empty()
+    assert a2 != a1
+    assert a2.set_value("v2")
+
+    a3 = node.child("child").ensure_attribute("a3")
+    assert isinstance(a3, pugi.XMLAttribute)
+    assert not a3.empty()
+    assert a3 != a2
+    assert a3 != a1
+    assert a3.set_value("v3")
+
+    writer = pugi.StringWriter()
+    doc.print(writer, flags=pugi.FORMAT_RAW)
+    assert writer.getvalue() == '<node a1="v1" a2="v2"><child a3="v3"/></node>'
+
+
 def test_hash_value() -> None:
     doc = pugi.XMLDocument()
     doc.load_string("<node attr1='1' attr2='2'/>")

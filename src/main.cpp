@@ -1048,6 +1048,39 @@ PYBIND11_MODULE(MODULE_NAME, m) {
                bool: :obj:`True` if node is empty, :obj:`False` otherwise.
            )doc");
 
+  node.def("ensure_attribute", py::overload_cast<const char *>(&xml_node::ensure_attribute),
+           py::arg("name").none(false),
+           R"doc(
+           Return the attribute with the specified name.
+
+           If the attribute with the specified name does not exist, it will be created.
+
+           Args:
+               name (str): The name of the attribute.
+
+           Returns:
+               XMLAttribute: The attribute with the specified name, or empty attribute if error occurs.
+
+           See Also:
+               :meth:`.attribute`
+           )doc");
+
+  node.def("ensure_child", py::overload_cast<const char *>(&xml_node::ensure_child), py::arg("name").none(false),
+           R"doc(
+           Return the child node with the specified name.
+
+           If the child node with the specified name does not exist, it will be created as an element.
+
+           Args:
+               name (str): The name of the child node.
+
+           Returns:
+               XMLNode: The child node with the specified name, or empty node if error occurs.
+
+           See Also:
+               :meth:`.child`
+           )doc");
+
   node.def("type", &xml_node::type,
            R"doc(
            Return the node type.
@@ -1176,6 +1209,9 @@ PYBIND11_MODULE(MODULE_NAME, m) {
 
            Returns:
                XMLNode: The first node found, or empty node if not exists.
+
+           See Also:
+               :meth:`.ensure_child`
            )doc");
 
   node.def("attribute", py::overload_cast<const char_t *>(&xml_node::attribute, py::const_),
@@ -1190,6 +1226,8 @@ PYBIND11_MODULE(MODULE_NAME, m) {
            "attribute after the one found, or with an empty attribute if not found.\n\n"
            "Returns:\n"
            "    XMLAttribute: The first attribute found, or empty attribute if not exists.\n\n"
+           "See Also:\n"
+           "    :meth:`.ensure_attribute`\n\n"
            "Examples:\n"
            "    >>> from pugixml import pugi\n"
            "    >>> doc = pugi.XMLDocument()\n"

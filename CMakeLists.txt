@@ -4,6 +4,13 @@ cmake_policy(SET CMP0074 NEW)
 
 project(pugi LANGUAGES CXX)
 
+if(APPLE)
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "14.5" CACHE STRING "Minimum macOS version" FORCE)
+    set(PUGIXML_CHARCONV_FLOAT OFF)  # PUGIXML_CHARCONV_FLOAT requires Xcode 26 or later
+else()
+    set(PUGIXML_CHARCONV_FLOAT ON)
+endif()
+
 set(PYBIND11_FINDPYTHON ON)
 set(DESTDIR pugixml CACHE STRING "The directory where the binaries will be written. (e.g., path/to/pugixml-python/src/pugixml)")
 message(STATUS "DESTDIR: ${DESTDIR}")
