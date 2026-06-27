@@ -8,6 +8,7 @@
   - Add `pugixml.pugi.XMLNode.ensure_attribute(name: str)`
   - Add `pugixml.pugi.XMLNode.ensure_child(name: str)`
 - Bump pybind11 from 2.13.6 to 3.0.4 ([#141], [#159], [#198])
+- Replace the base class of all enums from `pybind11_object` to `enum.IntEnum` ([#202])
 
 ### Added
 
@@ -142,3 +143,4 @@ Initial release.
 [#198]: https://github.com/miute/pugixml-python/pull/198
 [#200]: https://github.com/miute/pugixml-python/pull/200
 [#201]: https://github.com/miute/pugixml-python/pull/201
+[#202]: https://github.com/miute/pugixml-python/pull/202
