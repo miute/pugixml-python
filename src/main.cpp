@@ -7,6 +7,7 @@
 #include <optional>
 #include <pugixml.hpp>
 #include <pybind11/functional.h>
+#include <pybind11/native_enum.h>
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <pybind11/stl/filesystem.h>
@@ -179,7 +180,7 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   m.attr("DEFAULT_DOUBLE_PRECISION") = default_double_precision;
   m.attr("DEFAULT_FLOAT_PRECISION") = default_float_precision;
 
-  py::enum_<xml_node_type>(m, "XMLNodeType", "Tree node types.")
+  py::native_enum<xml_node_type>(m, "XMLNodeType", "enum.IntEnum", "Tree node types.")
       .value("NODE_NULL", node_null, "Empty (null) node handle.")
       .value("NODE_DOCUMENT", node_document, "A document tree's absolute root.")
       .value("NODE_ELEMENT", node_element, "Element tag, i.e. '<node/>'")
@@ -189,9 +190,11 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       .value("NODE_PI", node_pi, "Processing instruction, i.e. '<?name?>'")
       .value("NODE_DECLARATION", node_declaration, "Document declaration, i.e. '<?xml version=\"1.0\"?>'")
       .value("NODE_DOCTYPE", node_doctype, "Document type declaration, i.e. '<!DOCTYPE doc>'")
-      .export_values();
+      .export_values()
+      .finalize();
 
-  py::enum_<xml_encoding>(m, "XMLEncoding", "These flags determine the encoding of input/output data for XML document.")
+  py::native_enum<xml_encoding>(m, "XMLEncoding", "enum.IntEnum",
+                                "These flags determine the encoding of input/output data for XML document.")
       .value("ENCODING_AUTO", encoding_auto,
              "Auto-detect input encoding using BOM or '<' / '<?' detection; use UTF8 if BOM is not found.")
       .value("ENCODING_UTF8", encoding_utf8, "UTF8 encoding.")
@@ -203,10 +206,11 @@ PYBIND11_MODULE(MODULE_NAME, m) {
       .value("ENCODING_UTF32", encoding_utf32, "UTF32 with native endianness.")
       .value("ENCODING_WCHAR", encoding_wchar, "The same encoding wchar_t has (either UTF16 or UTF32).")
       .value("ENCODING_LATIN1", encoding_latin1, "ISO-8859-1 encoding (also known as Latin-1).")
-      .export_values();
+      .export_values()
+      .finalize();
 
-  py::enum_<xml_parse_status>(m, "XMLParseStatus",
-                              "Parsing status, returned as part of :class:`XMLParseResult` object.")
+  py::native_enum<xml_parse_status>(m, "XMLParseStatus", "enum.IntEnum",
+                                    "Parsing status, returned as part of :class:`XMLParseResult` object.")
       .value("STATUS_OK", status_ok, "No error.")
       .value("STATUS_FILE_NOT_FOUND", status_file_not_found, "File was not found during XMLDocument.load_file().")
       .value("STATUS_IO_ERROR", status_io_error, "Error reading from file/stream.")
@@ -232,15 +236,17 @@ PYBIND11_MODULE(MODULE_NAME, m) {
              "XMLNode.append_buffer()).")
       .value("STATUS_NO_DOCUMENT_ELEMENT", status_no_document_element,
              "Parsing resulted in a document without element nodes.")
-      .export_values();
+      .export_values()
+      .finalize();
 
-  py::enum_<xpath_value_type>(m, "XPathValueType", "XPath query return type.")
+  py::native_enum<xpath_value_type>(m, "XPathValueType", "enum.IntEnum", "XPath query return type.")
       .value("XPATH_TYPE_NONE", xpath_type_none, "Unknown type (query failed to compile).")
       .value("XPATH_TYPE_NODE_SET", xpath_type_node_set, "Node set (XPathNodeSet).")
       .value("XPATH_TYPE_NUMBER", xpath_type_number, "Number.")
       .value("XPATH_TYPE_STRING", xpath_type_string, "String.")
       .value("XPATH_TYPE_BOOLEAN", xpath_type_boolean, "Boolean.")
-      .export_values();
+      .export_values()
+      .finalize();
 
   py::class_<XMLAttributeStruct> atst(m, "XMLAttributeStruct", R"doc(
       The internal object of the attribute.
@@ -2750,11 +2756,12 @@ PYBIND11_MODULE(MODULE_NAME, m) {
   //
   // pugi::xpath_node_set
   //
-  py::enum_<xpath_node_set::type_t>(xpns, "Type", "Collection type.")
+  py::native_enum<xpath_node_set::type_t>(xpns, "Type", "enum.IntEnum", "Collection type.")
       .value("TYPE_UNSORTED", xpath_node_set::type_unsorted, "Not ordered.")
       .value("TYPE_SORTED", xpath_node_set::type_sorted, "Sorted by document order (ascending).")
       .value("TYPE_SORTED_REVERSE", xpath_node_set::type_sorted_reverse, "Sorted by document order (descending).")
-      .export_values();
+      .export_values()
+      .finalize();
 
   xpns.def(py::init<>(), "\tInitialize ``XPathNodeSet`` as an empty collection.")
       .def(py::init<const xpath_node_set &>(), py::arg("other"),
