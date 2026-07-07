@@ -198,8 +198,7 @@ src/
 tests/
 *.py
 *.yml
-*.in
-Pipfile*
 *.toml
-*.cfg
 *.ini
+.vscode/
+.clangd

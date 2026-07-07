@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLNode
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -91,6 +88,12 @@
 
 
       ~XMLNode.empty
+
+
+      ~XMLNode.ensure_attribute
+
+
+      ~XMLNode.ensure_child
 
 
       ~XMLNode.find_attribute
@@ -220,3 +223,10 @@
 
 
       ~XMLNode.value
+
+
+
+
+
+
+   .. rubric:: Member Documentation

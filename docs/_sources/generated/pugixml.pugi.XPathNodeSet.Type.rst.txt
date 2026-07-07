@@ -1,8 +1,0 @@
-﻿pugixml.pugi.XPathNodeSet.Type
-==============================
-
-.. currentmodule:: pugixml.pugi
-
-.. autoclass:: pugixml.pugi.XPathNodeSet.Type
-   :noindex:
-   :no-members:

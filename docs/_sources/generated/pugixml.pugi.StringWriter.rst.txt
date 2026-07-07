@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: StringWriter
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -47,3 +44,11 @@
 
 
       ~StringWriter.getvalue
+
+
+
+
+
+
+
+   .. rubric:: Member Documentation

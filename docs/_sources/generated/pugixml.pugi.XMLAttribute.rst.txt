@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLAttribute
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -109,3 +106,10 @@
 
 
       ~XMLAttribute.value
+
+
+
+
+
+
+   .. rubric:: Member Documentation

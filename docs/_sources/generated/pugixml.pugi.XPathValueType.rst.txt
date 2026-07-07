@@ -4,28 +4,3 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XPathValueType
-   :noindex:
-   :no-members:
-
-
-
-
-
-.. autoattribute:: pugixml.pugi.XPATH_TYPE_BOOLEAN
-   :noindex:
-
-
-.. autoattribute:: pugixml.pugi.XPATH_TYPE_NODE_SET
-   :noindex:
-
-
-.. autoattribute:: pugixml.pugi.XPATH_TYPE_NONE
-   :noindex:
-
-
-.. autoattribute:: pugixml.pugi.XPATH_TYPE_NUMBER
-   :noindex:
-
-
-.. autoattribute:: pugixml.pugi.XPATH_TYPE_STRING
-   :noindex:

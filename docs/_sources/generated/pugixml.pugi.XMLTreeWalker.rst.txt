@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLTreeWalker
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -53,3 +50,10 @@
 
 
       ~XMLTreeWalker.for_each
+
+
+
+
+
+
+   .. rubric:: Member Documentation

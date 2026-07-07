@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XPathParseResult
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -49,7 +46,10 @@
       ~XPathParseResult.description
 
 
-      ~XPathParseResult.error
 
 
-      ~XPathParseResult.offset
+
+
+
+
+   .. rubric:: Member Documentation

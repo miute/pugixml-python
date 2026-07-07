@@ -1,0 +1,170 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XPath Query Return Type &mdash; pugixml-python 0.7.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=b603860c" />
+
+
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=fe7df9b0"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Miscellaneous" href="pugi.MISC.html" />
+    <link rel="prev" title="Parsing Status" href="pugi.STATUS.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+          <a href="index.html" class="icon icon-home">
+            pugixml-python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="limits.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pugi.html">pugixml.pugi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.limits.html">Numeric Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.ENCODING.html">Encodings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.FORMAT.html">Output Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.NODE.html">Node Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.PARSE.html">Parsing Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.STATUS.html">Parsing Status</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">XPath Query Return Type</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.XPATH_TYPE_BOOLEAN"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_BOOLEAN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.XPATH_TYPE_NODE_SET"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_NODE_SET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.XPATH_TYPE_NONE"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_NONE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.XPATH_TYPE_NUMBER"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_NUMBER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.XPATH_TYPE_STRING"><code class="docutils literal notranslate"><span class="pre">pugi.XPATH_TYPE_STRING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.MISC.html">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pugixml-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">XPath Query Return Type</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pugi.XPATH_TYPE.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <section id="xpath-query-return-type">
+<h1>XPath Query Return Type<a class="headerlink" href="#xpath-query-return-type" title="Link to this heading"></a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="generated/pugixml.pugi.XPathValueType.html#pugixml.pugi.XPathValueType" title="pugixml.pugi.XPathValueType"><code class="xref py py-class docutils literal notranslate"><span class="pre">XPathValueType</span></code></a></p>
+</div>
+<p class="rubric">Attributes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.XPATH_TYPE_BOOLEAN">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">XPATH_TYPE_BOOLEAN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#pugixml.pugi.XPATH_TYPE_BOOLEAN" title="Link to this definition"></a></dt>
+<dd><p>Boolean.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.XPATH_TYPE_NODE_SET">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">XPATH_TYPE_NODE_SET</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#pugixml.pugi.XPATH_TYPE_NODE_SET" title="Link to this definition"></a></dt>
+<dd><p>Node set (<a class="reference internal" href="generated/pugixml.pugi.XPathNodeSet.html#pugixml.pugi.XPathNodeSet" title="pugixml.pugi.XPathNodeSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">XPathNodeSet</span></code></a>).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.XPATH_TYPE_NONE">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">XPATH_TYPE_NONE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#pugixml.pugi.XPATH_TYPE_NONE" title="Link to this definition"></a></dt>
+<dd><p>Unknown type (query failed to compile).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.XPATH_TYPE_NUMBER">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">XPATH_TYPE_NUMBER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#pugixml.pugi.XPATH_TYPE_NUMBER" title="Link to this definition"></a></dt>
+<dd><p>Number.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.XPATH_TYPE_STRING">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">XPATH_TYPE_STRING</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></span><a class="headerlink" href="#pugixml.pugi.XPATH_TYPE_STRING" title="Link to this definition"></a></dt>
+<dd><p>String.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pugi.STATUS.html" class="btn btn-neutral float-left" title="Parsing Status" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pugi.MISC.html" class="btn btn-neutral float-right" title="Miscellaneous" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tetsuya Miura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

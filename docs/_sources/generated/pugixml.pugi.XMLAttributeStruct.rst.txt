@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLAttributeStruct
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -38,3 +35,19 @@
 
 
       ~XMLAttributeStruct.__ne__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .. rubric:: Member Documentation

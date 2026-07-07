@@ -4,12 +4,8 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: BytesWriter
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
 
@@ -46,3 +42,11 @@
 
 
       ~BytesWriter.getvalue
+
+
+
+
+
+
+
+   .. rubric:: Member Documentation

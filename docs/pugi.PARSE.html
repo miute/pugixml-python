@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parsing Options &mdash; pugixml-python 0.7.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=b603860c" />
+
+
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=fe7df9b0"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parsing Status" href="pugi.STATUS.html" />
+    <link rel="prev" title="Node Types" href="pugi.NODE.html" />
+</head>
+
+<body class="wy-body-for-nav">
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+          <a href="index.html" class="icon icon-home">
+            pugixml-python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="limits.html">Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pugi.html">pugixml.pugi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.limits.html">Numeric Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.ENCODING.html">Encodings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.FORMAT.html">Output Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.NODE.html">Node Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parsing Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_CDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_CDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_COMMENTS"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_COMMENTS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_DECLARATION"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_DECLARATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_DEFAULT"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_DEFAULT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_DOCTYPE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_DOCTYPE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_EMBED_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_EMBED_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_EOL"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_EOL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_ESCAPES"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_ESCAPES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_FRAGMENT"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_FRAGMENT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_FULL"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_FULL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_MERGE_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_MERGE_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_MINIMAL"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_MINIMAL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_PI"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_PI</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_TRIM_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_TRIM_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_WCONV_ATTRIBUTE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WCONV_ATTRIBUTE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_WNORM_ATTRIBUTE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WNORM_ATTRIBUTE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_WS_PCDATA"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WS_PCDATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pugixml.pugi.PARSE_WS_PCDATA_SINGLE"><code class="docutils literal notranslate"><span class="pre">pugi.PARSE_WS_PCDATA_SINGLE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.STATUS.html">Parsing Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.XPATH_TYPE.html">XPath Query Return Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pugi.MISC.html">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pugixml-python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">Parsing Options</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pugi.PARSE.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <section id="parsing-options">
+<h1>Parsing Options<a class="headerlink" href="#parsing-options" title="Link to this heading"></a></h1>
+<p>These flags control the contents of the resulting tree for all loading functions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a bitmask that customizes the parsing process:
+to enable a flag, use <code class="docutils literal notranslate"><span class="pre">mask</span> <span class="pre">|</span> <span class="pre">flag</span></code>; to disable a flag, use <code class="docutils literal notranslate"><span class="pre">mask</span> <span class="pre">&amp;</span> <span class="pre">~flag</span></code>.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="generated/pugixml.pugi.XMLDocument.html#pugixml.pugi.XMLDocument.load_buffer" title="pugixml.pugi.XMLDocument.load_buffer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLDocument.load_buffer()</span></code></a>
+<a class="reference internal" href="generated/pugixml.pugi.XMLDocument.html#pugixml.pugi.XMLDocument.load_file" title="pugixml.pugi.XMLDocument.load_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLDocument.load_file()</span></code></a>
+<a class="reference internal" href="generated/pugixml.pugi.XMLDocument.html#pugixml.pugi.XMLDocument.load_string" title="pugixml.pugi.XMLDocument.load_string"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLDocument.load_string()</span></code></a>
+<a class="reference internal" href="generated/pugixml.pugi.XMLNode.html#pugixml.pugi.XMLNode.append_buffer" title="pugixml.pugi.XMLNode.append_buffer"><code class="xref py py-meth docutils literal notranslate"><span class="pre">XMLNode.append_buffer()</span></code></a></p>
+</div>
+<p class="rubric">Attributes</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_CDATA">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_CDATA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_CDATA" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if CDATA sections (<a class="reference internal" href="pugi.NODE.html#pugixml.pugi.NODE_CDATA" title="pugixml.pugi.NODE_CDATA"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NODE_CDATA</span></code></a>) are added to the DOM tree. This flag is on by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_COMMENTS">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_COMMENTS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_COMMENTS" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if comments (<a class="reference internal" href="pugi.NODE.html#pugixml.pugi.NODE_COMMENT" title="pugixml.pugi.NODE_COMMENT"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NODE_COMMENT</span></code></a>) are added to the DOM tree. This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_DECLARATION">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_DECLARATION</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">256</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_DECLARATION" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if document declaration (<a class="reference internal" href="pugi.NODE.html#pugixml.pugi.NODE_DECLARATION" title="pugixml.pugi.NODE_DECLARATION"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NODE_DECLARATION</span></code></a>) is added to the DOM tree.
+This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_DEFAULT">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_DEFAULT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">116</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_DEFAULT" title="Link to this definition"></a></dt>
+<dd><p>The default parsing mode.
+Elements, PCDATA and CDATA sections are added to the DOM tree, character/reference entities are expanded,
+End-of-Line characters are normalized, attribute values are normalized using CDATA normalization rules.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_DOCTYPE">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_DOCTYPE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">512</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_DOCTYPE" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if document type declaration (<a class="reference internal" href="pugi.NODE.html#pugixml.pugi.NODE_DOCTYPE" title="pugixml.pugi.NODE_DOCTYPE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NODE_DOCTYPE</span></code></a>) is added to the DOM tree. This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_EMBED_PCDATA">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_EMBED_PCDATA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8192</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_EMBED_PCDATA" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if plain character data is be stored in the parent element’s value.
+This significantly changes the structure of the document;
+this flag is only recommended for parsing documents with many PCDATA nodes in memory-constrained environments.
+This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_EOL">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_EOL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">32</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_EOL" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if EOL characters are normalized (converted to #xA) during parsing. This flag is on by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_ESCAPES">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_ESCAPES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_ESCAPES" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if character and entity references are expanded during parsing. This flag is on by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_FRAGMENT">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_FRAGMENT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4096</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_FRAGMENT" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if plain character data that does not have a parent node is added to the DOM tree,
+and if an empty document is a valid document. This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_FULL">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_FULL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">887</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_FULL" title="Link to this definition"></a></dt>
+<dd><p>The full parsing mode.
+Nodes of all types are added to the DOM tree, character/reference entities are expanded,
+End-of-Line characters are normalized, attribute values are normalized using CDATA normalization rules.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_MERGE_PCDATA">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_MERGE_PCDATA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16384</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_MERGE_PCDATA" title="Link to this definition"></a></dt>
+<dd><p>This flag determines whether determines whether the the two PCDATA should be merged or not, if no intermediatory data are parsed in the document.
+This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_MINIMAL">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_MINIMAL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_MINIMAL" title="Link to this definition"></a></dt>
+<dd><p>Minimal parsing mode (equivalent to turning all other flags off).
+Only elements and PCDATA sections are added to the DOM tree, no text conversions are performed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_PI">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_PI</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_PI" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if processing instructions (<a class="reference internal" href="pugi.NODE.html#pugixml.pugi.NODE_PI" title="pugixml.pugi.NODE_PI"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NODE_PI</span></code></a>) are added to the DOM tree. This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_TRIM_PCDATA">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_TRIM_PCDATA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2048</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_TRIM_PCDATA" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if leading and trailing whitespace is to be removed from plain character data.
+This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_WCONV_ATTRIBUTE">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_WCONV_ATTRIBUTE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">64</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_WCONV_ATTRIBUTE" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if attribute values are normalized using CDATA normalization rules during parsing.
+This flag is on by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_WNORM_ATTRIBUTE">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_WNORM_ATTRIBUTE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">128</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_WNORM_ATTRIBUTE" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if attribute values are normalized using NMTOKENS normalization rules during parsing.
+This flag is off by default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_WS_PCDATA">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_WS_PCDATA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">8</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_WS_PCDATA" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if plain character data (<a class="reference internal" href="pugi.NODE.html#pugixml.pugi.NODE_PCDATA" title="pugixml.pugi.NODE_PCDATA"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NODE_PCDATA</span></code></a>) that consist only of whitespace are added to the DOM tree.
+This flag is off by default; turning it on usually results in slower parsing and more memory consumption.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pugixml.pugi.PARSE_WS_PCDATA_SINGLE">
+<span class="sig-prename descclassname"><span class="pre">pugi.</span></span><span class="sig-name descname"><span class="pre">PARSE_WS_PCDATA_SINGLE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1024</span></span><a class="headerlink" href="#pugixml.pugi.PARSE_WS_PCDATA_SINGLE" title="Link to this definition"></a></dt>
+<dd><p>This flag determines if plain character data (<a class="reference internal" href="pugi.NODE.html#pugixml.pugi.NODE_PCDATA" title="pugixml.pugi.NODE_PCDATA"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NODE_PCDATA</span></code></a>) that is the only child of the parent node and that consists only
+of whitespace is added to the DOM tree.
+This flag is off by default; turning it on may result in slower parsing and more memory consumption.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pugi.NODE.html" class="btn btn-neutral float-left" title="Node Types" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pugi.STATUS.html" class="btn btn-neutral float-right" title="Parsing Status" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Tetsuya Miura.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+</body>
+</html>

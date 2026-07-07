@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: FileWriter
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -44,3 +41,11 @@
 
 
       ~FileWriter.close
+
+
+
+
+
+
+
+   .. rubric:: Member Documentation

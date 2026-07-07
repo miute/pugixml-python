@@ -4,26 +4,17 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XPathNodeSet
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
 
 
-      ~XPathNodeSet.TYPE_SORTED
 
-
-      ~XPathNodeSet.TYPE_SORTED_REVERSE
-
-
-      ~XPathNodeSet.TYPE_UNSORTED
 
 
       ~XPathNodeSet.Type
+
 
 
 
@@ -77,3 +68,10 @@
 
 
       ~XPathNodeSet.type
+
+
+
+
+
+
+   .. rubric:: Member Documentation

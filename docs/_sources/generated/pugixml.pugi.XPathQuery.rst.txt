@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XPathQuery
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -65,3 +62,10 @@
 
 
       ~XPathQuery.return_type
+
+
+
+
+
+
+   .. rubric:: Member Documentation

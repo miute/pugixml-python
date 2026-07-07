@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLNamedNodeIterator
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -45,3 +42,18 @@
 
 
       ~XMLNamedNodeIterator.__next__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .. rubric:: Member Documentation

@@ -4,12 +4,8 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: PrintWriter
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
 
@@ -26,4 +22,27 @@
 
 
 
+
       ~PrintWriter.__init__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .. rubric:: Member Documentation

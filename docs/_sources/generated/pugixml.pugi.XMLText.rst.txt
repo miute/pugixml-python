@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLText
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -80,3 +77,10 @@
 
 
       ~XMLText.set
+
+
+
+
+
+
+   .. rubric:: Member Documentation

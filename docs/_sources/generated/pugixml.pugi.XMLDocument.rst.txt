@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLDocument
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -77,6 +74,8 @@
 
 
 
+
+
       ~XMLDocument.load_buffer
 
 
@@ -109,3 +108,18 @@
 
 
       ~XMLDocument.save_file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .. rubric:: Member Documentation

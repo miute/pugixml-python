@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLWriter
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -44,3 +41,10 @@
 
 
       ~XMLWriter.write
+
+
+
+
+
+
+   .. rubric:: Member Documentation

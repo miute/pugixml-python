@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XPathVariable
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -62,3 +59,10 @@
 
 
       ~XPathVariable.type
+
+
+
+
+
+
+   .. rubric:: Member Documentation

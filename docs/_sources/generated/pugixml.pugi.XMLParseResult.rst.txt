@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XMLParseResult
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -49,10 +46,11 @@
       ~XMLParseResult.description
 
 
-      ~XMLParseResult.encoding
 
 
-      ~XMLParseResult.offset
 
 
-      ~XMLParseResult.status
+
+
+
+   .. rubric:: Member Documentation

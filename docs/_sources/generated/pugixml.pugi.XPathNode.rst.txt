@@ -4,14 +4,11 @@
 .. currentmodule:: pugixml.pugi
 
 .. autoclass:: XPathNode
-   :noindex:
 
-
-
-   Members:
-
+   .. rubric:: Methods
 
    .. autosummary::
+
 
 
 
@@ -59,3 +56,10 @@
 
 
       ~XPathNode.parent
+
+
+
+
+
+
+   .. rubric:: Member Documentation
