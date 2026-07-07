@@ -1,7 +1,46 @@
-.table-wrapper {
-  margin-top: 0 !important;
-}
-
 table.autosummary.longtable.docutils.align-default {
   margin-left: 0 !important;
+  margin-bottom: 0 !important;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.autosummary.longtable.docutils.align-default tbody>tr.row-odd>td {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+table.autosummary.longtable.docutils.align-default tbody>tr.row-even>td {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.admonition {
+  font-size: 0.8rem;
+  margin-bottom: 12px !important;
+}
+
+li.toctree-l1>ul {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+section>h2 {
+  margin-top: 1.5em !important;
+  margin-bottom: 0.5em !important;
+  padding-bottom: 0.25em !important;
+  border-bottom: 1px solid #d8dee4;
+}
+
+section>h3 {
+  margin-top: 1em !important;
+  margin-bottom: 0.5em !important;
+}
+
+section>section>p {
+  margin-bottom: 0.5em !important;
+}
+
+section>ul.simple {
+  margin-bottom: 1em !important;
 }
